@@ -4,7 +4,7 @@
 *.pyc
 __pycache__
 db.sqlite3
-media
+**/media
 
 # Backup files #
 *.bak
@@ -13,7 +13,7 @@ media
 **/**/.idea
 
 # Environments
-.env
+**/.env
 .venv
 env/
 venv/

@@ -1,0 +1,27 @@
+{% extends "admin/tabular_custom.html" %}
+
+
+{% block inputs %}
+
+{% load static %}
+
+<!-- Custom Css -->
+<link rel="stylesheet" href="{% static 'css/tabular.css' %}">
+
+<!--<input type="file" id="folder_input" webkitdirectory directory multiple/>-->
+<!--<br>-->
+<input type="file" id="file_input" accept="image/*" multiple/>
+
+<!-- ----------- Drag&Drop Zone ----------- -->
+<!--<div class="wrapper_drop_zone">-->
+<!--    <div class="drop_zone" id="drop_file" ondrop="console.log('drop folder')">-->
+<!--        Перетащите сюда фотографии-->
+<!--    </div>-->
+<!--    <div class="drop_zone" id="drop_folder" ondrop="console.log('drop folder')">-->
+<!--        Перетащите сюда папку-->
+<!--    </div>-->
+<!--</div>-->
+
+<!-- Js for load some files -->
+<script src="{% static 'js/tabular.js' %}"></script>
+{% endblock %}

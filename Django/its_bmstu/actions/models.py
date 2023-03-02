@@ -24,7 +24,7 @@ class Action(models.Model):
 
     # TODO add accept="video/*" to admin panel
     video = models.FileField(verbose_name="Видео",
-                             upload_to=settings.MEDIA_ROOT / 'actions/videos',
+                             upload_to='actions/videos',
                              blank=True,
                              validators=[FileExtensionValidator(
                                  allowed_extensions=['MOV', 'avi', 'mp4',
@@ -41,7 +41,7 @@ class SocialNetworkLink(models.Model):
 
     action = models.ForeignKey("Action", on_delete=models.CASCADE)
     name = models.CharField(verbose_name="Название соц. сети", max_length=127)
-    url = models.URLField(verbose_name="", max_length=255)
+    url = models.URLField(verbose_name="Ссылка", max_length=255)
 
 
 class Photo(models.Model):
@@ -53,5 +53,5 @@ class Photo(models.Model):
 
     # TODO: save with unique name or test it
     photo = models.ImageField(verbose_name="Фотография",
-                              upload_to=settings.MEDIA_ROOT / 'actions/photos',
+                              upload_to='actions/photo',
                               blank=False, unique=True)

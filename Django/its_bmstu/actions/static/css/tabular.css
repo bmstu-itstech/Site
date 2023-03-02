@@ -1,0 +1,16 @@
+.wrapper_drop_zone {
+    display: flex;
+}
+
+.drop_zone {
+    border-radius: 5px;
+    border: 4px dashed #121212;
+    color: grey;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    height: 100px;
+    margin: 10px;
+    background-color: #1f1f1f;
+}

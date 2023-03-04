@@ -91,4 +91,9 @@ STATIC_URL = 'static/'
 MEDIA_ROOT = BASE_DIR / 'media'
 MEDIA_URL = '/media/'
 
+# Increase the maximum number of parameters that may be
+# received via GET or POST
+DATA_UPLOAD_MAX_NUMBER_FIELDS = None
+DATA_UPLOAD_MAX_NUMBER_FILES = None
+
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'

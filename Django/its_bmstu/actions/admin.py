@@ -13,7 +13,7 @@ class PhotoAdmin(admin.TabularInline):
     model = Photo
     extra = 1
     template = 'admin/file_inputs.html'
-    # При изменении полей нужно править tabular.js
+    # При изменении полей нужно править tabular_image.js
     fields = ('photo', 'image_tag',)
     readonly_fields = ('image_tag',)
 
@@ -27,5 +27,5 @@ class PhotoAdmin(admin.TabularInline):
 
 @admin.register(Action)
 class ActionAdmin(admin.ModelAdmin):
-    inlines = (PhotoAdmin,)
+    inlines = (LinkAdmin, PhotoAdmin,)
     # add_form_template = ...

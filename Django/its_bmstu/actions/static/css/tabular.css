@@ -1,10 +1,7 @@
-.wrapper_drop_zone {
-    display: flex;
-}
 
-.drop_zone {
+.dropZone {
     border-radius: 5px;
-    border: 4px dashed #121212;
+    border: 4px dashed #333333;
     color: grey;
     display: flex;
     align-items: center;
@@ -12,5 +9,10 @@
     width: 50%;
     height: 100px;
     margin: 10px;
-    background-color: #1f1f1f;
+    background-color: #292929;
+}
+
+.dropZone.hover {
+    background-color: #121212;
+    transition: all 0.2s ease-in;
 }

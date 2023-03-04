@@ -27,7 +27,6 @@ function getPreviewField(inline) {
 
 // add dependencies "input preview image"
 function addDependencies(inline) {
-    console.log('test')
     getInputField(inline).change((event) => {
         let inputField = event.target;
         let inline = $(event.target).parent().parent();
@@ -50,7 +49,7 @@ function addDependencies(inline) {
 function createNewTabInline(file) {
     // Отстойно написано... Искуственно кликаю на блок
     // TODO разобраться с jQuery, получить функцию добавление.
-    $('.add-row')[0].children[0].children[0].click();
+    $("#photo_set-group .add-row")[0].children[0].children[0].click();
 
     let dt = new DataTransfer();
     dt.items.add(file);

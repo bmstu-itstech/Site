@@ -27,5 +27,5 @@ class PhotoAdmin(admin.TabularInline):
 
 @admin.register(Action)
 class ActionAdmin(admin.ModelAdmin):
-    inlines = (LinkAdmin, PhotoAdmin,)
+    inlines = (PhotoAdmin,)
     # add_form_template = ...

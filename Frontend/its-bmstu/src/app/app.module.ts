@@ -3,15 +3,21 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { NavigatonBarComponent } from './pages/navigation-bar/navigaton-bar.component';
+import { MainPageComponent } from './pages/main-page/main-page.component';
+import {RouterOutlet} from "@angular/router";
+import { InfografikaComponent } from './pages/infografika/infografika.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavigatonBarComponent
+    NavigatonBarComponent,
+    MainPageComponent,
+    InfografikaComponent
   ],
-  imports: [
-    BrowserModule
-  ],
+    imports: [
+        BrowserModule,
+        RouterOutlet
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

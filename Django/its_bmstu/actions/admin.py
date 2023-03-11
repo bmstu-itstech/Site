@@ -30,3 +30,5 @@ class ActionAdmin(admin.ModelAdmin):
     prepopulated_fields = {"slug": ("title",)}
     save_on_top = True
     inlines = (LinkAdmin, PhotoAdmin,)
+    add_form_template = "admin/change_form_actions.html"
+    change_form_template = "admin/change_form_actions.html"

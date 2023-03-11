@@ -3,7 +3,7 @@ from django.db import models
 
 from its_bmstu import settings
 
-
+# TODO change the order of saving so as not to lose photos after validation
 class Action(models.Model):
     class Meta:
         verbose_name = "Мероприятие"

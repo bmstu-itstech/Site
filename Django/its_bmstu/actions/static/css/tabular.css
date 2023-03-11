@@ -1,0 +1,10 @@
+.wrapper__tabular {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+#clearAllImages {
+    margin: 10px;
+    background-color: #de5d5d;
+}

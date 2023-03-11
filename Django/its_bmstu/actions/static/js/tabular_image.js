@@ -1,6 +1,6 @@
 let $ = django.jQuery;
 let dropImageZone = $('#dropImageZone');
-// let folder_input = $('#folder_input')[0];
+let clearAllButton = $("#clearAllImages");
 
 $(document).ready(function () {
     addDependencies($("#photo_set-empty"));
@@ -9,6 +9,14 @@ $(document).ready(function () {
     })
 });
 
+clearAllButton.on("click", function (e) {
+    // TODO add alert
+
+    $(".dynamic-photo_set").map(function (el) {
+        $('.delete input', this).prop('checked', true);
+        $(".delete a", this).click();
+    });
+});
 
 // ************ Drag&Drop JS  ************
 dropImageZone.on("dragover", function (e) {
@@ -57,14 +65,6 @@ function traverseFileTree(item, path) {
 }
 
 // ***************************************
-
-
-// file_input.change(function () {
-//     for (const file of file_input[0].files) {
-//         createNewTabInline(file);
-//     }
-//     file_input[0].value = '';
-// });
 
 function getInputField(inline) {
     return inline.children(".field-photo").children();

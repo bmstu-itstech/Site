@@ -10,8 +10,6 @@ $(document).ready(function () {
 });
 
 clearAllButton.on("click", function (e) {
-    // TODO add alert
-
     $(".dynamic-photo_set").map(function (el) {
         $('.delete input', this).prop('checked', true);
         $(".delete a", this).click();
@@ -107,7 +105,6 @@ function isEmptyTabInline(inline) {
 function createNewTabInline(file) {
     deleteEmptyImages()
     // Отстойно написано... Искуственно кликаю на блок
-    // TODO разобраться с jQuery, получить функцию добавление.
     $("#photo_set-group .add-row")[0].children[0].children[0].click();
 
     let dt = new DataTransfer();

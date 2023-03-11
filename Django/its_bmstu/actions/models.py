@@ -18,11 +18,9 @@ class Action(models.Model):
     main_organizer = models.URLField(verbose_name="Главный организатор",
                                      max_length=255, blank=True)
 
-    # TODO autofill slug
     slug = models.SlugField(verbose_name="Ссылка на веб-страницу мероприятия",
                             max_length=255, unique=True, db_index=True)
 
-    # TODO add accept="video/*" to admin panel
     video = models.FileField(verbose_name="Видео",
                              upload_to='actions/videos',
                              blank=True,
@@ -51,7 +49,6 @@ class Photo(models.Model):
 
     action = models.ForeignKey("Action", on_delete=models.CASCADE)
 
-    # TODO: save with unique name or test it
     photo = models.ImageField(verbose_name="Фотография",
                               upload_to='actions/photo',
                               blank=False, unique=True)

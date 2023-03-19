@@ -5,7 +5,7 @@ import { AppComponent } from './app.component';
 import { NavigatonBarComponent } from './pages/navigation-bar/navigaton-bar.component';
 import { MainPageComponent } from './pages/main-page/main-page.component';
 import {RouterOutlet} from "@angular/router";
-import { InfografikaComponent } from './pages/infografika/infografika.component';
+import { EventsComponent } from './pages/events/events.component';
 import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
@@ -13,7 +13,7 @@ import { AppRoutingModule } from './app-routing.module';
     AppComponent,
     NavigatonBarComponent,
     MainPageComponent,
-    InfografikaComponent
+    EventsComponent
   ],
     imports: [
         BrowserModule,

@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-infografika',
-  templateUrl: './infografika.component.html',
-  styleUrls: ['./infografika.component.scss']
+  selector: 'app-events',
+  templateUrl: './events.component.html',
+  styleUrls: ['./events.component.scss']
 })
-export class InfografikaComponent {
+export class EventsComponent {
   photos: Photo[] = [];
   columnSizes: number[] | undefined;
   constructor() {

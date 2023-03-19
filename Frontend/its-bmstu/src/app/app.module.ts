@@ -7,13 +7,15 @@ import { MainPageComponent } from './pages/main-page/main-page.component';
 import {RouterOutlet} from "@angular/router";
 import { EventsComponent } from './pages/events/events.component';
 import { AppRoutingModule } from './app-routing.module';
+import { AboutUsComponent } from './pages/about-us/about-us.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavigatonBarComponent,
     MainPageComponent,
-    EventsComponent
+    EventsComponent,
+    AboutUsComponent
   ],
     imports: [
         BrowserModule,

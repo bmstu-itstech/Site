@@ -6,5 +6,5 @@ from actions import views
 urlpatterns = [
     path('', views.ActionList.as_view(), name='action_list'),
     path('<slug:slug>/', views.ActionDetail.as_view(), name='action_detail'),
-    # path('<slug:slug>/photos', ..., name='action_photos'),
+    path('<slug:slug>/photos', views.PhotoList.as_view(), name='action_photos')
 ]

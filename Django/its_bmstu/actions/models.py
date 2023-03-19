@@ -36,7 +36,8 @@ class SocialNetworkLink(models.Model):
         verbose_name = "Ссылка на посты в соц. сетях"
         verbose_name_plural = "Ссылки на посты в соц. сетях"
 
-    action = models.ForeignKey("Action", on_delete=models.CASCADE)
+    action = models.ForeignKey("Action", on_delete=models.CASCADE,
+                               related_name="links")
     name = models.CharField(verbose_name="Название соц. сети", max_length=127)
     url = models.URLField(verbose_name="Ссылка", max_length=255)
 

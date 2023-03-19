@@ -6,6 +6,7 @@ import { NavigatonBarComponent } from './pages/navigation-bar/navigaton-bar.comp
 import { MainPageComponent } from './pages/main-page/main-page.component';
 import {RouterOutlet} from "@angular/router";
 import { InfografikaComponent } from './pages/infografika/infografika.component';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { InfografikaComponent } from './pages/infografika/infografika.component'
   ],
     imports: [
         BrowserModule,
-        RouterOutlet
+        RouterOutlet,
+        AppRoutingModule
     ],
   providers: [],
   bootstrap: [AppComponent]

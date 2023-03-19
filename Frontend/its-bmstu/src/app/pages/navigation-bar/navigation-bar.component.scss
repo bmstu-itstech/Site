@@ -1,19 +1,20 @@
 @import '../../../styles/colors.scss';
 @import '../../../styles/fonts.scss';
 
-.nav-bar {
+.navigation-bar {
   background-color: $color-dark;
   color: $color-white;
-
+  max-height: 400px;
 }
 
 .button {
-  margin-top: 2.5rem;
+  min-width: 60px;
+  margin-top: 40px;
+  margin-left: 10px;
   border: solid $color-dark 1px;
   text-align: center;
   background-color: $color-dark;
   color: $color-white;
-  margin-left: 4.2rem;
   font-size: 16px;
   cursor: pointer;
   font-family: $font-montserrat;
@@ -26,19 +27,15 @@ button:hover {
   height: 106px;
 }
 
-.col-8 {
-  height: 106px;
-}
-
 
 .logo-img {
   width: 4.8rem;
-  margin-left: 30%;
   margin-top: 15px;
+  margin-right: 10%;
 }
 
 .translate-img {
-  margin-left: 40%;
+  margin-left: 80%;
   width: 2.5rem;
-  margin-top: 2.1rem;
+  margin-top: 2.5rem;
 }

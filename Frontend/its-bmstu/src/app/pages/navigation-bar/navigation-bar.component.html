@@ -1,20 +1,36 @@
-<div class="nav-bar">
+<div class="navigation-bar">
   <div class="container">
     <div class="row">
       <div class="col-2 logo">
         <img class="logo-img" src="../../../assets/icons/logo.svg" alt="лого">
       </div>
-      <div class="col-8">
-        <button class="button">Об организации</button>
-        <button class="button">Инфографика
-<!--          <li [routerLinkActive]="['link-active']" class="nav-item">-->
-<!--            <a [routerLink]="['/infografika']" class="nav-link text-dark">-->
-<!--              Music Page-->
-<!--            </a>-->
-<!--          </li>-->
+      <div class="col-2">
+        <button class="button" [routerLinkActive]="['link-active']">
+          <a [routerLink]="['/main-page']" class="nav-link text-white">
+            Об организации
+          </a>
         </button>
-        <button class="button">Мероприятия</button>
-        <button class="button">Контакты</button>
+      </div>
+      <div class="col-2">
+        <button class="button" [routerLinkActive]="['link-active']">
+          <a [routerLink]="['/infografika']" class="nav-link text-white">
+            Инфографика
+          </a>
+        </button>
+      </div>
+      <div class="col-2">
+        <button class="button" [routerLinkActive]="['link-active']">
+          <a [routerLink]="['/infografika']" class="nav-link text-white">
+            Мероприятия
+          </a>
+        </button>
+      </div>
+      <div class="col-2">
+        <button class="button" [routerLinkActive]="['link-active']">
+          <a [routerLink]="['/infografika']" class="nav-link text-white">
+            Контакты
+          </a>
+        </button>
       </div>
       <div class="col-2">
         <img class="translate-img" src="../../../assets/icons/translate.svg" alt="кнопка перевода">

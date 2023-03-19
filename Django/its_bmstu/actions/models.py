@@ -3,6 +3,7 @@ from django.db import models
 
 from its_bmstu import settings
 
+
 # TODO change the order of saving so as not to lose photos after validation
 class Action(models.Model):
     class Meta:
@@ -11,16 +12,14 @@ class Action(models.Model):
 
     title = models.CharField(verbose_name="Название",
                              max_length=255)
+    slug = models.SlugField(verbose_name="Ссылка на веб-страницу мероприятия",
+                            max_length=255, unique=True, db_index=True)
     description = models.TextField(verbose_name="Описание",
                                    blank=True)
     short_description = models.TextField(verbose_name="Краткое описание",
                                          blank=True)
     main_organizer = models.URLField(verbose_name="Главный организатор",
                                      max_length=255, blank=True)
-
-    slug = models.SlugField(verbose_name="Ссылка на веб-страницу мероприятия",
-                            max_length=255, unique=True, db_index=True)
-
     video = models.FileField(verbose_name="Видео",
                              upload_to='actions/videos',
                              blank=True,
@@ -47,7 +46,8 @@ class Photo(models.Model):
         verbose_name = "Фото"
         verbose_name_plural = "Фотографии"
 
-    action = models.ForeignKey("Action", on_delete=models.CASCADE)
+    action = models.ForeignKey("Action", on_delete=models.CASCADE,
+                               related_name="photos")
 
     photo = models.ImageField(verbose_name="Фотография",
                               upload_to='actions/photo',

@@ -27,6 +27,8 @@ class PhotoAdmin(admin.TabularInline):
 
 @admin.register(Action)
 class ActionAdmin(admin.ModelAdmin):
+    fields = ('title', 'slug', 'short_description', 'description',
+              'main_organizer', 'video')
     prepopulated_fields = {"slug": ("title",)}
     save_on_top = True
     inlines = (LinkAdmin, PhotoAdmin,)

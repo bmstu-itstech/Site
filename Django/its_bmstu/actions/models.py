@@ -53,3 +53,9 @@ class Photo(models.Model):
     photo = models.ImageField(verbose_name="Фотография",
                               upload_to='actions/photo',
                               blank=False, unique=True)
+
+    def get_width(self):
+        return self.photo.width
+
+    def get_height(self):
+        return self.photo.height

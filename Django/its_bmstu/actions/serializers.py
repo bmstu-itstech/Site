@@ -10,9 +10,12 @@ class SocialNetworkLinkSerializer(serializers.ModelSerializer):
 
 
 class PhotoSerializer(serializers.ModelSerializer):
+    width = serializers.IntegerField(source='get_width')
+    height = serializers.IntegerField(source='get_height')
+
     class Meta:
         model = Photo
-        fields = ('photo',)
+        fields = ('photo', 'width', 'height')
 
 
 class ActionDetailSerializer(serializers.ModelSerializer):

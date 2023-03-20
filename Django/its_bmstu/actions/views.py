@@ -24,5 +24,6 @@ class PhotoList(views.APIView, PhotoPagination):
     def get(self, request, slug):
         photos = Photo.objects.filter(action__slug=slug)
         photos = self.paginate_queryset(photos, request, view=self)
-        serializer = PhotoSerializer(photos, many=True)
+        serializer = PhotoSerializer(photos, many=True,
+                                     context={'request': request})
         return self.get_paginated_response(serializer.data)

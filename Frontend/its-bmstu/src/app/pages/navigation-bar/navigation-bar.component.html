@@ -1,0 +1,41 @@
+<div class="navigation-bar">
+  <div class="container">
+    <div class="row">
+      <div class="col-2 logo">
+        <img class="logo-img" src="../../../assets/icons/logo.svg" alt="лого">
+      </div>
+      <div class="col-2">
+        <button class="button" [routerLinkActive]="['link-active']">
+          <a [routerLink]="['/main-page']" class="nav-link text-white">
+            Об организации
+          </a>
+        </button>
+      </div>
+      <div class="col-2">
+        <button class="button" [routerLinkActive]="['link-active']">
+          <a [routerLink]="['/events']" class="nav-link text-white">
+            Инфографика
+          </a>
+        </button>
+      </div>
+      <div class="col-2">
+        <button class="button" [routerLinkActive]="['link-active']">
+          <a [routerLink]="['/events']" class="nav-link text-white">
+            Мероприятия
+          </a>
+        </button>
+      </div>
+      <div class="col-2">
+        <button class="button" [routerLinkActive]="['link-active']">
+          <a [routerLink]="['/events']" class="nav-link text-white">
+            Контакты
+          </a>
+        </button>
+      </div>
+      <div class="col-2">
+        <img class="translate-img" src="../../../assets/icons/translate.svg" alt="кнопка перевода">
+      </div>
+    </div>
+  </div>
+</div>
+

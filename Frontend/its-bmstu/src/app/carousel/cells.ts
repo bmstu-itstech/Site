@@ -91,7 +91,9 @@ export class Cells {
             let positionX = this.getCellPositionInContainer(i);
             (cell as HTMLElement).style.transform = 'translateX(' + positionX + 'px)';
             (cell as HTMLElement).style.width = this.carouselProperties.cellWidth + 'px';
-
+            // if (i !== 2){
+            //   (cell as HTMLElement).style.scale = "50%";
+            // }
             if (this.getImage(i)) {
                 this.imageUtils.cellStack.push({
                     index: i,

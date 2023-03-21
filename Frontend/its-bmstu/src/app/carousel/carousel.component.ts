@@ -115,7 +115,6 @@ export class CarouselComponent implements OnDestroy {
     @Input() autoplay: boolean = false;
     @Input() autoplayInterval: number = 5000;
     @Input() pauseOnHover: boolean = true;
-    @Input() dots: boolean = false;
     @Input() borderRadius!: number;
     @Input() margin: number = 10;
     @Input() objectFit: 'contain' | 'cover' | 'none' = 'cover';

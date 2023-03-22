@@ -3,14 +3,14 @@ let dropImageZone = $('#dropImageZone');
 let clearAllButton = $("#clearAllImages");
 
 $(document).ready(function () {
-    addDependencies($("#photo_set-empty"));
-    $(".dynamic-photo_set").map(function () {
+    addDependencies($("#photos-empty"));
+    $(".dynamic-photos").map(function () {
         addDependencies($("#" + this.id))
     })
 });
 
 clearAllButton.on("click", function (e) {
-    $(".dynamic-photo_set").map(function (el) {
+    $(".dynamic-photos").map(function (el) {
         $('.delete input', this).prop('checked', true);
         $(".delete a", this).click();
     });
@@ -77,17 +77,17 @@ function addDependencies(inline) {
     getInputField(inline).change((event) => {
         let inputField = event.target;
         let inline = $(event.target).parent().parent();
-        if (!inline.hasClass('dynamic-photo_set')) {
+        if (!inline.hasClass('dynamic-photos')) {
             inline = inline.parent()
         }
         getPreviewField(inline).html(
-            '<img src="' + URL.createObjectURL(inputField.files[0]) + '" width="150" height="150"/>'
+            '<img src="' + URL.createObjectURL(inputField.files[0]) + '" width="150"/>'
         );
     })
 }
 
 function deleteEmptyImages() {
-    $(".dynamic-photo_set").map(function () {
+    $(".dynamic-photos").map(function () {
         if (isEmptyTabInline($(this))) {
             $(this).children(".delete")
                 .children("div")
@@ -105,13 +105,13 @@ function isEmptyTabInline(inline) {
 function createNewTabInline(file) {
     deleteEmptyImages()
     // Отстойно написано... Искуственно кликаю на блок
-    $("#photo_set-group .add-row")[0].children[0].children[0].click();
+    $("#photos-group .add-row")[0].children[0].children[0].click();
 
     let dt = new DataTransfer();
     dt.items.add(file);
     let file_list = dt.files;
 
-    let tabInline = $('.dynamic-photo_set').last();
+    let tabInline = $('.dynamic-photos').last();
     getInputField(tabInline)[0].files = file_list;
     getInputField(tabInline).trigger("change");
 }

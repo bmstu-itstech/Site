@@ -44,6 +44,7 @@ div {
 }
 
 .button {
+    border: 0em;
     background-color: #cfcfcf;
     margin-bottom: 55px;
     width: 762px;
@@ -54,4 +55,9 @@ div {
     font-family: "Montserrat";
     text-align: left;
     padding-left: 30px;
+    transition: 1s;
+}
+
+button:hover {
+    background-color: #8f8f8f;
 }

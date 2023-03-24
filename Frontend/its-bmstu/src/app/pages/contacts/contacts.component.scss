@@ -1,6 +1,11 @@
 div {
     background-color: #14104B;
 }
+
+.contacts {
+    position: relative;
+}
+
 .title {
     font-family: 'Montserrat';
     font-style: normal;
@@ -16,7 +21,7 @@ div {
 .block {
     margin-top: 100px;
     margin-left: 150px;
-    margin-bottom: 300px;
+    padding-bottom: 300px;
     font-family: 'Montserrat';
     font-size: 50px;
     font-style: normal;
@@ -37,9 +42,9 @@ div {
 }
 
 .macbook {
-    // position: absolute;
-    width: 1243px;
-    height: 829.8px;
-    left: 800px;
-    bottom: -240%;
+    z-index: 10;
+    position: absolute;
+    top: 40%;
+    right: 0px;
+    width: 50vw;
 }

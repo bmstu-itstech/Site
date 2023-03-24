@@ -9,6 +9,7 @@ import { EventsComponent } from './pages/events/events.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AboutUsComponent } from './pages/about-us/about-us.component';
 import { ContactsComponent } from './pages/contacts/contacts.component';
+import { FooterComponent } from './pages/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { ContactsComponent } from './pages/contacts/contacts.component';
     MainPageComponent,
     EventsComponent,
     AboutUsComponent,
-    ContactsComponent
+    ContactsComponent,
+    FooterComponent
   ],
     imports: [
         BrowserModule,

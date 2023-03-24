@@ -10,41 +10,55 @@ div {
     font-family: 'Montserrat';
     font-style: normal;
     font-weight: 700;
-    font-size: 140px;
-    line-height: 171px;
+    font-size: 7vw;
     text-align: center;
     text-transform: uppercase;
     color: #FFFFFF;
     opacity: 0.4;
-}
-    
-.block {
-    margin-top: 100px;
-    margin-left: 150px;
-    padding-bottom: 300px;
-    font-family: 'Montserrat';
-    font-size: 50px;
-    font-style: normal;
-    font-weight: 400;
-    color:#FFFFFF;
+    padding-bottom: 5%;
 }
 
 .text-regular {
-    margin-bottom: 50px;
+    position: relative;
+    color:#FFFFFF;
+    font-family: 'Montserrat';
+    font-size: 2.5vw;
+    left: 7%;
+    top: 7%;
+    padding-bottom: 2%;
 }
 
-.logo {
-    margin-bottom: 50px;
+.social-block {
+    padding-bottom: 2%;
 }
-  
+.line {
+    position: relative;
+    width: 100%;
+    clear: both;
+    padding-bottom: 3%;
+}
+    
+.logo {
+    position: relative;
+    display: inline-block;
+    width: 4vw;
+    left: 7%;
+}
+
 .text {
-    margin-bottom: 55px;
+    position: relative;
+    display: inline-block;
+    left: 12%;
+    text-decoration: none;
+    color:#FFFFFF;
+    font-family: 'Montserrat';
+    font-size: 2.5vw;
 }
 
 .macbook {
     z-index: 10;
     position: absolute;
-    top: 40%;
+    top: 30%;
     right: 0px;
     width: 50vw;
 }

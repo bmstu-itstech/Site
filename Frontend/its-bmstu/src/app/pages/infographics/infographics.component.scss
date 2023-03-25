@@ -1,0 +1,69 @@
+@import '../../../styles/colors.scss';
+@import '../../../styles/fonts.scss';
+
+div {
+    background-color: #14104B;
+}
+
+.infographics {
+    padding-bottom: 150px;
+}
+
+.blocks {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.line {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    clear: both;
+    margin-bottom: 40px;
+}
+
+.rec {
+    width: 748px;
+    height: 355px;
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(18px);
+    border-radius: 40px;
+    margin-left: 25px;
+    margin-right: 25px;
+    transition: 0.2s ease-in-out;
+}
+
+.circ {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 470px;
+    height: 470px;
+    border-radius: 50%;
+    background: rgba(20, 16, 75, 0.8);
+    backdrop-filter: blur(22px);
+    z-index: 100;
+    transform: translate(-50%, -50%);
+    box-shadow: 0px 0px 35px rgba(255, 255, 255, 0.6);
+    transition: 0.2s ease-in-out;
+}
+
+.rec:hover {
+    box-shadow: 0px 0px 35px rgba(255, 255, 255, 0.6);
+}
+
+.title {
+    padding-top: 5%;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 7vw;
+    text-align: center;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    opacity: 0.4;
+    margin-bottom: 60px;
+}

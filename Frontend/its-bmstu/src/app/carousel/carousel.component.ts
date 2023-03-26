@@ -85,10 +85,6 @@ export class CarouselComponent implements OnDestroy {
         return this.elementRef.nativeElement.querySelector('.carousel-cells');
     }
 
-    get isArrows() {
-        return this.arrows && !this.freeScroll;
-    }
-
     get isCounter() {
         return this._isCounter && this.cellLength > 1;
     }
@@ -112,9 +108,7 @@ export class CarouselComponent implements OnDestroy {
     @Input() id!: number;
     @Input() height: number = 300;
     @Input() width!: number;
-    @Input() autoplay: boolean = true;
     @Input() autoplayInterval: number = 5000;
-    @Input() pauseOnHover: boolean = true;
     @Input() borderRadius!: number;
     @Input() margin: number = 10;
     @Input() objectFit: 'contain' | 'cover' | 'none' = 'cover';
@@ -128,9 +122,6 @@ export class CarouselComponent implements OnDestroy {
     @Input() cellsToShow!: number;
     @Input() cellsToScroll: number = 1;
     @Input() freeScroll: boolean = false;
-    @Input() arrows: boolean = true;
-    @Input() arrowsOutside: boolean = false;
-    @Input() arrowsTheme: 'light' | 'dark' = 'light';
 
     @Input()
     set images(images: Images & any) {
@@ -324,6 +315,7 @@ export class CarouselComponent implements OnDestroy {
         this.hostStyleWidth = this.width + 'px';
     }
 
+    //todo взятие картинки для карусели
     getImage(index:number) {
         return this.carousel.getImage(index);
     }
@@ -369,6 +361,7 @@ export class CarouselComponent implements OnDestroy {
         }
     }
 
+    // todo высчитывается ширина ячейки
     getCellWidth() {
         let elementWidth = this.carouselWidth;
 
@@ -393,18 +386,6 @@ export class CarouselComponent implements OnDestroy {
     prev() {
         this.carousel.prev(this.cellsToScroll);
         this.carousel.stopAutoplay();
-    }
-
-    isNextArrowDisabled() {
-        if (this.carousel) {
-            return this.carousel.isNextArrowDisabled();
-        }
-    }
-
-    isPrevArrowDisabled() {
-        if (this.carousel) {
-            return this.carousel.isPrevArrowDisabled();
-        }
     }
 
     getCellLength() {

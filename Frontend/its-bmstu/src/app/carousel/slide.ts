@@ -237,26 +237,7 @@ export class Slide {
 
     /* Offset the container to show the last cell completely */
     getPositionCorrection(counter:number) {
-        let correction = 0;
-        let isLastSlide = this.isLastSlide(counter);
-
-        if (this.carouselProperties.loop || this.direction === "right") {
-            return 0;
-        }
-
-        if (this.isSlideLengthLimited || isLastSlide) {
-            let cellsWidth = this.cells.cellLengthInLightDOMMode * this.fullCellWidth;
-
-            if (this.visibleWidth < cellsWidth) {
-                correction = -(this.numberOfVisibleCells * this.fullCellWidth - this.visibleWidth - this.margin);
-            }
-
-            if (correction >= -this.margin) {
-                correction = 0;
-            }
-        }
-
-        return correction;
+        return 0;
     }
 
     getSlideLength(distanceAbs: number) {
@@ -322,25 +303,16 @@ export class Slide {
     }
 
     getPositionByIndex(_counter: number) {
-        let correction = this.getPositionCorrection(this.counter + this.slideLength);
         let position;
-
-        if (correction !== 0) {
-            correction = correction + this.fullCellWidth
-        }
-
-        if (this.direction === 'right') {
-            correction = 0;
-        }
 
         if (this.isLightDOM && this.isLightDOMMode(_counter) ||
             this.isLightDOM && this.ifLeftDOMModeAtEnd(_counter)) {
 
             let initialPosition = this.getPositionWithoutCorrection(this.initialPositionX);
             let counterDifference = _counter - this.counter;
-            position = initialPosition - ((counterDifference * this.fullCellWidth) - correction);
+            position = initialPosition - (counterDifference * this.fullCellWidth);
         } else {
-            position = -((_counter * this.fullCellWidth) - correction);
+            position = -(_counter * this.fullCellWidth);
         }
 
         position = this.provideSafePosition(position);
@@ -404,17 +376,7 @@ export class Slide {
                 return;
             }
 
-            let correction = this.getPositionCorrection(this.counter);
-
-            if (correction !== 0) {
-                correction = correction + this.fullCellWidth
-            }
-
-            if (this.direction === 'right') {
-                correction = 0;
-            }
-
-            let positionX = this.fixedContainerPosition + correction;
+            let positionX = this.fixedContainerPosition;
 
             this.container.transformPositionX(positionX, 0);
             this.cells.setCounter(this.counter);

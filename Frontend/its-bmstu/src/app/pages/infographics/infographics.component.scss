@@ -9,6 +9,20 @@ div {
     padding-bottom: 150px;
 }
 
+
+.title {
+    padding-top: 5%;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 7vw;
+    text-align: center;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    opacity: 0.4;
+    margin-bottom: 60px;
+}
+
 .blocks {
     position: relative;
     width: 100%;
@@ -34,36 +48,93 @@ div {
     margin-left: 25px;
     margin-right: 25px;
     transition: 0.2s ease-in-out;
+    position: relative;
 }
 
 .circ {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     position: absolute;
     top: 50%;
     left: 50%;
+    transform: translate(-50%, -50%);
     width: 470px;
     height: 470px;
     border-radius: 50%;
     background: rgba(20, 16, 75, 0.8);
     backdrop-filter: blur(22px);
     z-index: 100;
-    transform: translate(-50%, -50%);
     box-shadow: 0px 0px 35px rgba(255, 255, 255, 0.6);
-    transition: 0.2s ease-in-out;
+  }
+
+.circ-block {
+    background: none;
+}
+
+.circ-text-1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 50%;
+    width: 100%;
+    color: white;
+    font-size: 60px;
+    text-decoration: none;
+    font-family: 'Montserrat';
+    font-style: normal;
+}
+
+.circ-text-2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 30%;
+    width: 100%;
+    color: white;
+    font-size: 35px;
+    text-decoration: none;
+    font-family: 'Montserrat';
+    font-style: normal;
+}
+
+.circ-text-3 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 40%;
+    width: 100%;
+    color: white;
+    font-size: 45px;
+    text-decoration: none;
+    font-family: 'Montserrat';
+    font-style: normal;
 }
 
 .rec:hover {
     box-shadow: 0px 0px 35px rgba(255, 255, 255, 0.6);
 }
 
-.title {
-    padding-top: 5%;
-    font-family: 'Montserrat';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 7vw;
-    text-align: center;
-    text-transform: uppercase;
+.rec-text-left {
+    position: absolute;
+    text-decoration: none;
     color: #FFFFFF;
-    opacity: 0.4;
-    margin-bottom: 60px;
+    top: 20%;
+    left: 10%;
+    font-size: 35px;
+    font-family: 'Montserrat';
+}
+
+.rec-text-right {
+    position: absolute;
+    text-decoration: none;
+    color: #FFFFFF;
+    top: 20%;
+    right: 10%;
+    font-size: 35px;
+    font-family: 'Montserrat';
 }

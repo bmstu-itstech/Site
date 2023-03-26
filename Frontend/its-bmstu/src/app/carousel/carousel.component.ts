@@ -112,7 +112,7 @@ export class CarouselComponent implements OnDestroy {
     @Input() id!: number;
     @Input() height: number = 300;
     @Input() width!: number;
-    @Input() autoplay: boolean = false;
+    @Input() autoplay: boolean = true;
     @Input() autoplayInterval: number = 5000;
     @Input() pauseOnHover: boolean = true;
     @Input() borderRadius!: number;
@@ -193,16 +193,12 @@ export class CarouselComponent implements OnDestroy {
 
     @HostListener('mousemove', ['$event'])
     onMousemove(event: MouseEvent) {
-        if (this.autoplay && this.pauseOnHover) {
-            this.carousel.stopAutoplay();
-        }
+      this.carousel.stopAutoplay();
     }
 
     @HostListener('mouseleave', ['$event'])
     onMouseleave(event: MouseEvent) {
-        if (this.autoplay && this.pauseOnHover) {
-            this.carousel.autoplay();
-        }
+      this.carousel.autoplay();
     }
 
     constructor(
@@ -285,10 +281,7 @@ export class CarouselComponent implements OnDestroy {
         this.container = new Container(this.carouselProperties, this.utils, this.cells);
         this.slide = new Slide(this.carouselProperties, this.utils, this.cells, this.container);
         this.carousel = new Carousel(this.carouselProperties, this.utils, this.cells, this.container, this.slide);
-
-        if (this.autoplay) {
-            this.carousel.autoplay();
-        }
+        this.carousel.autoplay();
     }
 
     resize() {

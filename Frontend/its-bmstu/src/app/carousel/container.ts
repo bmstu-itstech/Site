@@ -1,8 +1,8 @@
 import {Properties as CarouselProperties} from './interfaces';
 
 export class Container {
-    /* The index of the new position relative to 
-     * the active index, for example -1 or +1 
+    /* The index of the new position relative to
+     * the active index, for example -1 or +1
      */
     newPositionIndex: number = 0;
     isPositionCorrection: boolean = false;
@@ -261,6 +261,11 @@ export class Container {
 
         this.transformPositionX(newPositionX);
         this.setInitialPosition(positionX);
+        for(let i = 0; i < this.cells.length; i++){
+          let cel = this.cells[i];
+
+        }
+        // this.cells.
     }
 
     /* Returns the new position of the container with inertia */

@@ -110,7 +110,7 @@ export class CarouselComponent implements OnDestroy {
     @Output() events: EventEmitter < any > = new EventEmitter < any > ();
 
     @Input() id!: number;
-    @Input() height: number = 200;
+    @Input() height: number = 300;
     @Input() width!: number;
     @Input() autoplay: boolean = false;
     @Input() autoplayInterval: number = 5000;
@@ -325,6 +325,7 @@ export class CarouselComponent implements OnDestroy {
         this.ref.detectChanges();
     }
 
+    //выставляем максимальную высоту карусели
     setDimensions() {
         this.hostStyleHeight = this.height + 'px';
         this.hostStyleWidth = this.width + 'px';

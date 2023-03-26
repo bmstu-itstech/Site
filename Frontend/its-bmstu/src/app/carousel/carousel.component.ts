@@ -28,7 +28,6 @@ export class CarouselComponent implements OnDestroy {
     landscapeMode: any;
     minTimeout = 30;
     isVideoPlaying: boolean = false;
-    _isCounter: boolean = false;
     _width!: number;
     _cellWidth: number | '100%' = 200;
     _loop: boolean = false;
@@ -69,24 +68,8 @@ export class CarouselComponent implements OnDestroy {
         }
     }
 
-    get counter() {
-        let counter;
-
-        if (this.loop) {
-            counter = this.slideCounter % this.cellLength;
-        } else {
-            counter = this.slideCounter;
-        }
-
-        return counter + 1 + this.counterSeparator + this.cellLength;
-    }
-
     get cellsElement() {
         return this.elementRef.nativeElement.querySelector('.carousel-cells');
-    }
-
-    get isCounter() {
-        return this._isCounter && this.cellLength > 1;
     }
 
     get activeDotIndex() {
@@ -134,12 +117,6 @@ export class CarouselComponent implements OnDestroy {
     @Input('cellWidth') set cellWidth(value: number | '100%') {
         if (value) {
             this._cellWidth = value;
-        }
-    }
-
-    @Input('counter') set isCounter(value: boolean) {
-        if (value) {
-            this._isCounter = value;
         }
     }
 

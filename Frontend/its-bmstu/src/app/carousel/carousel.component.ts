@@ -30,7 +30,7 @@ export class CarouselComponent implements OnDestroy {
     isVideoPlaying: boolean = false;
     _width!: number;
     _cellWidth: number | '100%' = 200;
-    _loop: boolean = false;
+    _loop: boolean = true;
     _lightDOM: boolean = false;
     isMoving: boolean = false;
     isNgContent: boolean = false;
@@ -117,12 +117,6 @@ export class CarouselComponent implements OnDestroy {
     @Input('cellWidth') set cellWidth(value: number | '100%') {
         if (value) {
             this._cellWidth = value;
-        }
-    }
-
-    @Input('loop') set loop(value: boolean) {
-        if (value) {
-            this._loop = value;
         }
     }
 

@@ -40,8 +40,8 @@ export class Slide {
         return this.utils.visibleCellsOverflowContainer;
     }
 
-    /* The position to which the container returns after each slide 
-     * in the light DUM tree mode. 
+    /* The position to which the container returns after each slide
+     * in the light DUM tree mode.
      */
     get fixedContainerPosition() {
         return -(this.overflowCellsLimit * this.fullCellWidth);
@@ -216,9 +216,9 @@ export class Slide {
         return 0;
     }
 
-    /*  
-     * Limits the length of the slide during calls to the next() and prev() 
-     * methods if the specified position is outside the cell length 
+    /*
+     * Limits the length of the slide during calls to the next() and prev()
+     * methods if the specified position is outside the cell length
      */
     limitSlideLength(slideLength: number) {
         if (slideLength > 1) {
@@ -262,9 +262,9 @@ export class Slide {
     getSlideLength(distanceAbs: number) {
         let isLastSlide = this.isLastSlide(this.counter);
 
-        /* If the last cell does not fit entirely, then the 
-         * length of the swipe to the left, from the extreme 
-         * right position, may be shorter than usual. 
+        /* If the last cell does not fit entirely, then the
+         * length of the swipe to the left, from the extreme
+         * right position, may be shorter than usual.
          */
         if (isLastSlide && this.direction === "right") {
             distanceAbs = distanceAbs + this.visibleWidth % this.fullCellWidth;
@@ -376,16 +376,6 @@ export class Slide {
         }
     }
 
-    isNextArrowDisabled() {
-        return this.isLastSlide(this.counter) || 
-        (!this.visibleCellsOverflowContainer && this.cellLength <= this.numberOfVisibleCells) ||
-        (this.visibleCellsOverflowContainer && this.cellLength < this.numberOfVisibleCells)
-    }
-
-    isPrevArrowDisabled() {
-        return this.counter === 0;
-    }
-
     alignContainerFast() {
         if (this.isLightDOMMode(this.counter)) {
             let positionX = this.fixedContainerPosition;
@@ -394,8 +384,8 @@ export class Slide {
             this.cells.setCounter(this.counter);
             this.cells.lineUp();
         } else if (this.ifLeftDOMModeToBeginning(this.counter)) {
-            /* If we have already exited the light DOM mode but 
-             * the cells are still out of place 
+            /* If we have already exited the light DOM mode but
+             * the cells are still out of place
              */
             if (this.cells.ifSequenceOfCellsIsChanged()) {
                 let positionX = -(this.counter * this.fullCellWidth);

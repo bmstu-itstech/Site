@@ -8,6 +8,9 @@ import {RouterOutlet} from "@angular/router";
 import { EventsComponent } from './pages/events/events.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AboutUsComponent } from './pages/about-us/about-us.component';
+import { ContactsComponent } from './pages/contacts/contacts.component';
+import { FooterComponent } from './pages/footer/footer.component';
+import { InfographicsComponent } from './pages/infographics/infographics.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +18,10 @@ import { AboutUsComponent } from './pages/about-us/about-us.component';
     NavigatonBarComponent,
     MainPageComponent,
     EventsComponent,
-    AboutUsComponent
+    AboutUsComponent,
+    ContactsComponent,
+    FooterComponent,
+    InfographicsComponent
   ],
     imports: [
         BrowserModule,

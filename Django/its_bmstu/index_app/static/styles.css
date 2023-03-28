@@ -1,0 +1,35 @@
+body {
+    background-color: #1E59A5;
+}
+
+.container {
+    margin-top: 111px;
+}
+.logo-img {
+    display: block;
+    height: 74%;
+    width: 74%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+}
+
+.logo-img-small{
+    width: 70px;
+    height: 70px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 40px;
+}
+
+.text {
+    text-align: center;
+    color: white;
+    margin-top:5px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: calc(15px + 16 * (100vw / 1280));
+
+}
+
+

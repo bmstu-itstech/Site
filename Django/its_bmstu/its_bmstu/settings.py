@@ -41,7 +41,7 @@ ROOT_URLCONF = 'its_bmstu.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'templates', ],
+        'DIRS': [BASE_DIR / 'templates/admin', ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -87,6 +87,7 @@ USE_I18N = True
 USE_TZ = True
 
 # STATIC and MEDIA settings
+STATIC_ROOT = BASE_DIR / "static"
 STATIC_URL = 'static/'
 
 MEDIA_ROOT = BASE_DIR / 'media'

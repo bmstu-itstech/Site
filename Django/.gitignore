@@ -5,6 +5,7 @@
 __pycache__
 db.sqlite3
 **/media
+its_bmstu/static
 
 # Backup files #
 *.bak

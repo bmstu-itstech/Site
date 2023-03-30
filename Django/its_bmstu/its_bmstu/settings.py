@@ -4,12 +4,6 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-# Production settings
-CSRF_TRUSTED_ORIGINS = ['https://*.its-bmstu.ru', ]
-ALLOWED_HOSTS = ['its-bmstu.ru', ]
-
-
-
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -18,8 +12,6 @@ SECRET_KEY = os.getenv("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-
-ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -106,3 +98,7 @@ DATA_UPLOAD_MAX_NUMBER_FIELDS = None
 DATA_UPLOAD_MAX_NUMBER_FILES = None
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Production settings
+CSRF_TRUSTED_ORIGINS = ['https://*.its-bmstu.ru', ]
+ALLOWED_HOSTS = ['its-bmstu.ru', ]

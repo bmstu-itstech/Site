@@ -59,3 +59,20 @@ class Photo(models.Model):
 
     def get_height(self):
         return self.photo.height
+
+
+class Partner(models.Model):
+    class Meta:
+        verbose_name = "Партнёр"
+        verbose_name_plural = "Партнёры"
+
+    action = models.ForeignKey(Action, on_delete=models.CASCADE,
+                               related_name="partners")
+    name = models.CharField(max_length=255, verbose_name="Название")
+    photo = models.ImageField(verbose_name="Фотография",
+                              upload_to='actions/photo_partner',
+                              blank=True, unique=True)
+    url = models.URLField(verbose_name="Ссылка", max_length=255)
+
+    def __str__(self):
+        return self.name

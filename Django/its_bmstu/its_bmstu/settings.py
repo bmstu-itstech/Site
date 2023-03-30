@@ -101,4 +101,4 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Production settings
 CSRF_TRUSTED_ORIGINS = ['https://*.its-bmstu.ru', ]
-ALLOWED_HOSTS = ['its-bmstu.ru', ]
+ALLOWED_HOSTS = ['its-bmstu.ru', '127.0.0.1']

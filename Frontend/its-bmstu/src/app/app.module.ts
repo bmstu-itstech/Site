@@ -8,8 +8,6 @@ import {RouterOutlet} from "@angular/router";
 import { EventsComponent } from './pages/events/events.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AboutUsComponent } from './pages/about-us/about-us.component';
-import { OurPartnersComponent } from './pages/our-partners/our-partners.component';
-import {IvyCarouselModule} from "./carousel/carousel.module";
 
 @NgModule({
   declarations: [
@@ -17,15 +15,13 @@ import {IvyCarouselModule} from "./carousel/carousel.module";
     NavigatonBarComponent,
     MainPageComponent,
     EventsComponent,
-    AboutUsComponent,
-    OurPartnersComponent
+    AboutUsComponent
   ],
-  imports: [
-    BrowserModule,
-    RouterOutlet,
-    AppRoutingModule,
-    IvyCarouselModule
-  ],
+    imports: [
+        BrowserModule,
+        RouterOutlet,
+        AppRoutingModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

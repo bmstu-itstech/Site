@@ -1,0 +1,25 @@
+
+.dropZone {
+    font-size: 14px;
+    border-radius: 5px;
+    border: 4px dashed #333333;
+    color: grey;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    height: 100px;
+    margin: 10px;
+    background-color: #292929;
+    transition: background-color 1s ease-in;
+}
+
+.dropZone.error {
+    background-color: #850000;
+    transition: background-color 0s ;
+}
+
+.dropZone.hover {
+    background-color: #121212;
+    transition: all 0.2s ease-in;
+}

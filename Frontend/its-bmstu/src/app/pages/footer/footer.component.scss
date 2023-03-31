@@ -1,0 +1,39 @@
+@import '../../../styles/colors.scss';
+@import '../../../styles/fonts.scss';
+
+div {
+    background-color: #050320;
+    height: 35vh;
+}
+
+.footer {
+    position: relative;
+}
+
+.text {
+    text-decoration: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: inline-block;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.8vw;
+    color: #FFFFFF;
+    transition: all 0.2s ease-in-out;
+}
+
+.text:hover {
+    color: rgb(152, 152, 229);
+}
+
+.logo {
+    position: absolute;
+    top: 50%;
+    left: 9%;
+    transform: translate(-50%, -50%);
+    display: inline-block;
+    width: 8%;
+}

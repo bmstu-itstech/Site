@@ -1,0 +1,23 @@
+{% extends "admin/tabular_custom.html" %}
+
+
+{% block inputs %}
+
+{% load static %}
+
+<!-- Custom Css -->
+<link rel="stylesheet" href="{% static 'css/drag_and_drop.css' %}">
+<link rel="stylesheet" href="{% static 'css/tabular.css' %}">
+
+<div class="wrapper__tabular">
+    <!-- ----------- Drag&Drop Zone ----------- -->
+    <div class="dropZone" id="dropImageZone">
+        Перетащите сюда фотографии
+    </div>
+    <input type="button" id="clearAllImages" value="Удалить всё">
+</div>
+
+
+<!-- Js for load some files -->
+<script src="{% static 'js/tabular_image.js' %}"></script>
+{% endblock %}

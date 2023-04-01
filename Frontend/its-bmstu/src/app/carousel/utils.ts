@@ -32,10 +32,6 @@ export class Utils {
         return Math.ceil(this.visibleWidth / this.fullCellWidth);
     }
 
-    get visibleCellsOverflowContainer() {
-        return (this.numberOfVisibleCells * this.fullCellWidth - this.margin) > this.visibleWidth;
-    }
-
     get fullCellWidth() {
         return this.carouselProperties.cellWidth + this.carouselProperties.margin;
     }

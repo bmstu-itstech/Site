@@ -14,10 +14,9 @@
 .col-2 {
   display: flex;
   align-items: center;
-  justify-content: center; /* add this line */
+  justify-content: center;
   height: 7vw;
 }
-
 
 .button {
   border: solid $color-dark 1px;
@@ -42,10 +41,8 @@
 
 .logo-img {
   width: 5vw;
-  margin-left: -22vw;
 }
 
 .translate-img {
   width: 2.5vw;
-  margin-left: 22vw;
 }

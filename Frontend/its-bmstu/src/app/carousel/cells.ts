@@ -67,7 +67,7 @@ export class Cells {
     }
 
     get isLightDOM() {
-        return this.carouselProperties.lightDOM || this.carouselProperties.loop;
+        return true;
     }
 
     constructor(
@@ -83,6 +83,7 @@ export class Cells {
     }
 
     lineUp() {
+      console.log("line up")
         const cells = this.element ? this.element.children : [];
         this.imageUtils.cellStack = [];
 
@@ -90,7 +91,13 @@ export class Cells {
             let cell = cells[i];
             let positionX = this.getCellPositionInContainer(i);
             (cell as HTMLElement).style.transform = 'translateX(' + positionX + 'px)';
+            if(positionX < 450)
+              (cell as HTMLElement).style.scale = (positionX/987) * 100 + '%';
+              else
+              (cell as HTMLElement).style.scale = 100 - (positionX/987) * 100 + '%';
             (cell as HTMLElement).style.width = this.carouselProperties.cellWidth + 'px';
+
+
             // if (i !== 2){
             //   (cell as HTMLElement).style.scale = "50%";
             // }
@@ -102,6 +109,8 @@ export class Cells {
                 });
             }
         };
+
+        console.log("lined up")
     }
 
     ifSequenceOfCellsIsChanged() {
@@ -111,15 +120,46 @@ export class Cells {
 
     getCellPositionInContainer(cellIndexInDOMTree: number) {
         let positionIndex = this.getCellIndexInContainer(cellIndexInDOMTree);
-        return positionIndex * this.fullCellWidth;
+        //console.log(positionIndex + " - " + cellIndexInDOMTree)
+
+        if(cellIndexInDOMTree == 0 && positionIndex == cellIndexInDOMTree)
+        {
+            // it's the first visible
+
+            return positionIndex * this.fullCellWidth;
+        }
+        else if(cellIndexInDOMTree == 0 && positionIndex != cellIndexInDOMTree)
+        {
+            return positionIndex * this.fullCellWidth;
+        }
+        else if(cellIndexInDOMTree == 1)
+        {
+            return positionIndex * this.fullCellWidth;
+        }
+        else if(cellIndexInDOMTree == 2)
+        {
+            return positionIndex * this.fullCellWidth;
+        }
+        else if(cellIndexInDOMTree == 3)
+        {
+            return positionIndex * this.fullCellWidth;
+        }
+        else if(cellIndexInDOMTree == 4)
+        {
+            return positionIndex * this.fullCellWidth;
+        }
+        else if(cellIndexInDOMTree == 5)
+        {
+            return positionIndex * this.fullCellWidth;
+        }
+        else
+        {
+            return positionIndex * this.fullCellWidth;
+        }
     }
 
     getCellIndexInContainer(cellIndexInDOMTree: number) {
         let positionIndex;
-
-        if (!this.isLightDOM) {
-            return cellIndexInDOMTree;
-        }
 
         let cellLength = this.cellLengthInLightDOMMode;
         let counter = this.counter - this.overflowCellsLimit;
@@ -161,6 +201,8 @@ export class Cells {
     getImageIndex(cellIndexInDOMTree: number) {
         const positionIndex = this.getCellIndexInContainer(cellIndexInDOMTree);
         let imageIndex;
+
+        //console.log("index is: " + cellIndexInDOMTree + " == " + positionIndex)
 
         if (this.counter > this.overflowCellsLimit) {
             let cellLimitOverflow = this.counter - this.overflowCellsLimit;

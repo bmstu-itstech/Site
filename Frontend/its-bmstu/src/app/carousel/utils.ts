@@ -11,21 +11,15 @@ export class Utils {
     }
 
     get overflowCellsLimit() {
-        if (this.images && this.isImagesLessCellLimit) {
-            let overflowCellsLimit = Math.floor((this.images.length - this.numberOfVisibleCells) / 2);
+        
+        let overflowCellsLimit = Math.floor((this.images.length - this.numberOfVisibleCells) / 2);
 
-            if (overflowCellsLimit < 0) {
-                overflowCellsLimit = 0;
-            }
-            
-            return overflowCellsLimit;
-        } else {
-            return this.carouselProperties.overflowCellsLimit;
+        if (overflowCellsLimit < 0) {
+            overflowCellsLimit = 0;
         }
-    }
-
-    get isImagesLessCellLimit() {
-        return this.carouselProperties.overflowCellsLimit * 2 + this.numberOfVisibleCells > this.images.length;
+        
+        return overflowCellsLimit;
+        
     }
 
     get numberOfVisibleCells() {

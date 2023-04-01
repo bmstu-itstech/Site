@@ -27,7 +27,6 @@ export class CarouselComponent implements OnDestroy {
     touches: any;
     landscapeMode: any;
     minTimeout = 30;
-    isVideoPlaying: boolean = false;
     _width!: number;
     _cellWidth: number | '100%' = 200;
     _loop: boolean = true;
@@ -88,21 +87,21 @@ export class CarouselComponent implements OnDestroy {
 
     @Output() events: EventEmitter < any > = new EventEmitter < any > ();
 
-    @Input() id!: number;
-    @Input() height: number = 300;
-    @Input() width!: number;
-    @Input() autoplayInterval: number = 5000;
-    @Input() borderRadius!: number;
-    @Input() margin: number = 10;
-    @Input() objectFit: 'contain' | 'cover' | 'none' = 'cover';
-    @Input() minSwipeDistance: number = 10;
-    @Input() transitionDuration: number = 200;
+    id!: number;
+    height: number = 300;
+    width!: number;
+    autoplayInterval: number = 5000;
+    borderRadius: number = 40;
+    margin: number = 10;
+    objectFit: 'contain' | 'cover' | 'none' = 'cover';
+    minSwipeDistance: number = 10;
+    transitionDuration: number = 200;
     @Input() transitionTimingFunction: 'ease' | 'ease-in' | 'ease-out' | 'ease-in-out' | 'linear' = 'ease-out';
     @Input() videoProperties: any;
     @Input() counterSeparator: string = " / ";
     @Input() overflowCellsLimit: number = 3;
     @Input() listeners: 'auto' | 'mouse and touch' = 'mouse and touch';
-    @Input() cellsToShow!: number;
+    @Input() cellsToShow: number = 5;
     @Input() cellsToScroll: number = 1;
     @Input() freeScroll: boolean = true;
 
@@ -155,12 +154,12 @@ export class CarouselComponent implements OnDestroy {
 
     @HostListener('mousemove', ['$event'])
     onMousemove(event: MouseEvent) {
-      this.carousel.stopAutoplay();
+      //this.carousel.stopAutoplay();
     }
 
     @HostListener('mouseleave', ['$event'])
     onMouseleave(event: MouseEvent) {
-      this.carousel.autoplay();
+      //this.carousel.autoplay();
     }
 
     constructor(
@@ -243,7 +242,7 @@ export class CarouselComponent implements OnDestroy {
         this.container = new Container(this.carouselProperties, this.utils, this.cells);
         this.slide = new Slide(this.carouselProperties, this.utils, this.cells, this.container);
         this.carousel = new Carousel(this.carouselProperties, this.utils, this.cells, this.container, this.slide);
-        this.carousel.autoplay();
+        //this.carousel.autoplay();
     }
 
     resize() {

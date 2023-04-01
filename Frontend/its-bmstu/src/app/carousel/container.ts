@@ -170,6 +170,7 @@ export class Container {
 
     getMovePositionX() {
         const distance = this.getDistance();
+        console.log("getMovePositionX", distance)
         return this.initialElementPositionX - distance;
     }
 
@@ -179,9 +180,12 @@ export class Container {
 
     /* If the container is pulled out of the left or right border */
     detectPulled() {
+
+
         const currentPositionX = this.getCurrentPositionX();
 
         if (currentPositionX > 0) {
+            console.log("detect pulled - left")
             return {
                 edge: 'left',
                 positionX: currentPositionX,
@@ -190,12 +194,15 @@ export class Container {
         }
 
         if (currentPositionX < this.getEndPosition()) {
+            console.log("detect pulled - right")
             return {
                 edge: 'right',
                 positionX: currentPositionX,
                 overflowX: Math.abs(currentPositionX - this.getEndPosition())
             }
         }
+
+        console.log("detect pulled - undefined")
 
         return undefined;
     }
@@ -260,6 +267,9 @@ export class Container {
         newPositionX = this.getAlignedPositionOnPull(newPositionX);
 
         this.transformPositionX(newPositionX);
+
+
+
         this.setInitialPosition(positionX);
         for(let i = 0; i < this.cells.length; i++){
           let cel = this.cells[i];
@@ -319,6 +329,7 @@ export class Container {
             return;
         }
 
+        console.log(this.element)
         this.element.style.transition = 'transform ' + duration + 'ms ' + this.transitionTimingFunction;
         this.element.style.transform = 'translateX(' + value + 'px)';
         // this.element.parentElement.childNodes.findIndex();

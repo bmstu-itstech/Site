@@ -1,10 +1,25 @@
-<div class="inf-page-png">
-  <h1 class="title">Bauman Code Games</h1>
-</div>
-<div class="photo-block">
-  <div class="row">
-    <div class="{{photo.columnClass}}" *ngFor="let photo of photos">
-      <img class="photo" src="{{photo.url}}">
+<div class="root">
+  <!--  <div class="col-12 first-image-container" >-->
+  <!--    <img >-->
+  <!--  </div>-->
+  <div class="photo-block container">
+    <div class="row">
+      <div class="col-12">
+        <div class="photo-container first-image-container">
+          <!--          <img class="photo" [style.background]="firstPhotoStyleBackground2">-->
+          <img class="photo" src="{{photos[0].url}}">
+          <!--          <img class="photo photo2" [style.background]="firstPhotoStyleBackground2">-->
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="photo-block container">
+    <div class="row">
+      <div class="{{photo.columnClass}}" *ngFor="let photo of photos.slice(1)">
+        <div class="photo-container">
+          <img class="photo" src="{{photo.url}}">
+        </div>
+      </div>
     </div>
   </div>
 </div>

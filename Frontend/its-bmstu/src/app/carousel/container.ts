@@ -151,7 +151,7 @@ export class Container {
                 positionX = this.slowdownOnPull(positionX);
             }
         }
-
+        //
         this.transformPositionX(positionX, 0);
 
         if (this.freeScroll) {
@@ -312,6 +312,7 @@ export class Container {
             return visibleWidth - width;
         }
     }
+    //todo
 
     transformPositionX(value:number, duration = this.transitionDuration) {
         if (value === undefined) {
@@ -320,6 +321,20 @@ export class Container {
 
         this.element.style.transition = 'transform ' + duration + 'ms ' + this.transitionTimingFunction;
         this.element.style.transform = 'translateX(' + value + 'px)';
+        // this.element.parentElement.childNodes.findIndex();
+        // var index = Array.prototype.indexOf.call(parent.children, child);
+        // if (==2){
+        //   this.element.style.scale = '0.1';
+        // }
+        // else {
+        //   this.element.style.scale = '1'
+        // }
+        // if (value=== 3) {
+        //   this.element.style.transform = 'scale(0.7), translateX(' + value + 'px)';
+        // }
+        // else {
+        //   this.element.style.transform = 'scale(1.0), translateX(' + value + 'px)';
+        // }
     }
 
     getWidth() {

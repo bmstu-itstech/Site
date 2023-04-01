@@ -104,7 +104,7 @@ export class CarouselComponent implements OnDestroy {
     @Input() listeners: 'auto' | 'mouse and touch' = 'mouse and touch';
     @Input() cellsToShow!: number;
     @Input() cellsToScroll: number = 1;
-    @Input() freeScroll: boolean = false;
+    @Input() freeScroll: boolean = true;
 
     @Input()
     set images(images: Images & any) {

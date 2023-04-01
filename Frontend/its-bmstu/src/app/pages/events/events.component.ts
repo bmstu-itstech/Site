@@ -49,9 +49,10 @@ export class EventsComponent {
         }
 
         this.columnSizes = [6, 6, 4, 4, 4, 4];
-        for (let i = 0; i < photos.count; i++){
+
+        for (let i = 1; i < photos.count; i++){
           let url = photos.results[i].photo;
-          this.photos.push(new Photo(url, this.columnSizes[i]));
+          this.photos.push(new Photo(url, this.columnSizes[i-1]));
         }
 
         this.firstPhotoStyleBackground2 = `linear-gradient(to bottom, rgba(20, 16, 75, 0) 0%, #14104B 100%)`;

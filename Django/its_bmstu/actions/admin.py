@@ -37,6 +37,6 @@ class ActionAdmin(admin.ModelAdmin):
               'main_organizer', 'video')
     prepopulated_fields = {"slug": ("title",)}
     save_on_top = True
-    inlines = (LinkAdmin, PhotoAdmin, PartnerAdmin)
+    inlines = (LinkAdmin, PartnerAdmin, PhotoAdmin)
     add_form_template = "admin/change_form_actions.html"
     change_form_template = "admin/change_form_actions.html"

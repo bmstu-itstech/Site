@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.utils.html import format_html
 
-from actions.models import Action, Photo, SocialNetworkLink
+from actions.models import Action, Photo, SocialNetworkLink, Partner
 
 
 class LinkAdmin(admin.TabularInline):
@@ -25,12 +25,18 @@ class PhotoAdmin(admin.TabularInline):
     image_tag.short_description = 'Photo'
 
 
+class PartnerAdmin(admin.TabularInline):
+    model = Partner
+    extra = 1
+    fields = ('name', 'url', 'photo')
+
+
 @admin.register(Action)
 class ActionAdmin(admin.ModelAdmin):
     fields = ('title', 'slug', 'short_description', 'description',
               'main_organizer', 'video')
     prepopulated_fields = {"slug": ("title",)}
     save_on_top = True
-    inlines = (LinkAdmin, PhotoAdmin,)
+    inlines = (LinkAdmin, PartnerAdmin, PhotoAdmin)
     add_form_template = "admin/change_form_actions.html"
     change_form_template = "admin/change_form_actions.html"

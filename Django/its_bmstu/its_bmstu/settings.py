@@ -21,6 +21,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    'corsheaders',
     'actions',
     'index_app',
 ]
@@ -28,6 +29,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -102,3 +104,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # Production settings
 CSRF_TRUSTED_ORIGINS = ['https://*.its-bmstu.ru', ]
 ALLOWED_HOSTS = ['its-bmstu.ru', '127.0.0.1']
+CORS_ALLOWED_ORIGINS = []
+
+if DEBUG:
+    CORS_ALLOWED_ORIGINS.append('http://localhost')

@@ -6,9 +6,8 @@ div {
 }
 
 .infographics {
-    padding-bottom: 150px;
+    padding-bottom: 8vw;
 }
-
 
 .title {
     padding-top: 5%;
@@ -20,7 +19,7 @@ div {
     text-transform: uppercase;
     color: #FFFFFF;
     opacity: 0.4;
-    margin-bottom: 60px;
+    margin-bottom: 3.2vw;
 }
 
 .blocks {
@@ -36,17 +35,17 @@ div {
     position: relative;
     width: 100%;
     clear: both;
-    margin-bottom: 40px;
+    margin-bottom: 2.1vw;
 }
 
 .rec {
-    width: 748px;
-    height: 355px;
+    width: 39vw;
+    height: 19vw;
     background: rgba(255, 255, 255, 0.25);
     backdrop-filter: blur(18px);
-    border-radius: 40px;
-    margin-left: 25px;
-    margin-right: 25px;
+    border-radius: 2.1vw;
+    margin-left: 1.3vw;
+    margin-right: 1.3vw;
     transition: 0.2s ease-in-out;
     position: relative;
 }
@@ -60,8 +59,8 @@ div {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 470px;
-    height: 470px;
+    width: 25vw;
+    height: 25vw;
     border-radius: 50%;
     background: rgba(20, 16, 75, 0.8);
     backdrop-filter: blur(22px);
@@ -81,7 +80,7 @@ div {
     height: 50%;
     width: 100%;
     color: white;
-    font-size: 60px;
+    font-size: 3.2vw;
     text-decoration: none;
     font-family: 'Montserrat';
     font-style: normal;
@@ -95,7 +94,7 @@ div {
     height: 30%;
     width: 100%;
     color: white;
-    font-size: 35px;
+    font-size: 1.8vw;
     text-decoration: none;
     font-family: 'Montserrat';
     font-style: normal;
@@ -109,14 +108,14 @@ div {
     height: 40%;
     width: 100%;
     color: white;
-    font-size: 45px;
+    font-size: 2.3vw;
     text-decoration: none;
     font-family: 'Montserrat';
     font-style: normal;
 }
 
 .rec:hover {
-    box-shadow: 0px 0px 35px rgba(255, 255, 255, 0.6);
+    box-shadow: 0 0 3vw rgba(255, 255, 255, 0.6);
 }
 
 .rec-text-left {
@@ -125,7 +124,7 @@ div {
     color: #FFFFFF;
     top: 20%;
     left: 10%;
-    font-size: 35px;
+    font-size: 1.9vw;
     font-family: 'Montserrat';
 }
 
@@ -135,6 +134,38 @@ div {
     color: #FFFFFF;
     top: 20%;
     right: 10%;
-    font-size: 35px;
+    font-size: 1.9vw;
     font-family: 'Montserrat';
+}
+
+.rec:hover::after {
+    content: "Описание";
+    font-size: 30px;
+    padding-top: 20%;
+    padding-left: 40%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 999;
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(22px);
+    border-radius: 2.1vw;
+}
+
+.circ:hover::after {
+    content: "Описание";
+    padding-left: 25%;
+    padding-top: 40%;
+    font-size: 3vw;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 999;
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(22px);
+    border-radius: 50%;
 }

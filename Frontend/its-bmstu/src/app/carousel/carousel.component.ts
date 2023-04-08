@@ -234,7 +234,6 @@ export class CarouselComponent implements OnDestroy {
             videoProperties: this.videoProperties,
             eventHandler: this.events,
             freeScroll: this.freeScroll,
-            lightDOM: this.lightDOM
         };
 
         this.utils = new Utils(this.carouselProperties);

@@ -83,10 +83,6 @@ export class Container {
         return this.carouselProperties.margin;
     }
 
-    get isLightDOM() {
-        return this.carouselProperties.lightDOM || this.carouselProperties.loop;
-    }
-
     constructor(private carouselProperties: CarouselProperties,
         private utils:any,
         private cells:any) {
@@ -313,14 +309,8 @@ export class Container {
     }
 
     getEndPosition() {
-        if (this.isLightDOM) {
-            let imagesInContainer = this.cells.imageUtils.getImages();
-            return -(imagesInContainer.length * this.fullCellWidth - this.visibleWidth - this.margin);
-        } else {
-            const width = this.getWidth();
-            const visibleWidth = this.element!.parentElement!.clientWidth;
-            return visibleWidth - width;
-        }
+          let imagesInContainer = this.cells.imageUtils.getImages();
+          return -(imagesInContainer.length * this.fullCellWidth - this.visibleWidth - this.margin);
     }
     //todo
 
@@ -356,7 +346,7 @@ export class Container {
             width = totalImageWidth;
         }
 
-        return this.isLightDOM ? width : totalImageWidth;
+        return width;
     }
 
     setWidth() {

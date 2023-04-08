@@ -91,10 +91,10 @@ export class Cells {
             let cell = cells[i];
             let positionX = this.getCellPositionInContainer(i);
             (cell as HTMLElement).style.transform = 'translateX(' + positionX + 'px)';
-            if(positionX < 450)
-              (cell as HTMLElement).style.scale = (positionX/987) * 100 + '%';
-              else
-              (cell as HTMLElement).style.scale = 100 - (positionX/987) * 100 + '%';
+            // if(positionX < 450)
+            //   (cell as HTMLElement).style.scale = (positionX/987) * 100 + '%';
+            //   else
+            //   (cell as HTMLElement).style.scale = 100 - (positionX/987) * 100 + '%';
             (cell as HTMLElement).style.width = this.carouselProperties.cellWidth + 'px';
 
 

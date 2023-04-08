@@ -40,7 +40,7 @@ export class Carousel {
     }
 
     get cellLimit() {
-        if (this.isLightDOM) {
+
             let cellLimit = this.numberOfVisibleCells + this.overflowCellsLimit * 2;
 
             if (cellLimit < this.numberOfVisibleCells) {
@@ -48,13 +48,7 @@ export class Carousel {
             }
 
             return cellLimit;
-        } else {
-            return this.properties.images.length;
-        }
-    }
 
-    get isLightDOM() {
-        return this.properties.lightDOM || this.properties.loop;
     }
 
     get images() {

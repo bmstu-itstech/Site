@@ -15,20 +15,19 @@ export interface Properties {
     videoProperties: any;
     eventHandler ? : any;
     freeScroll: boolean;
-    lightDOM: boolean;
 }
 
 export interface Images {
-    [index: number]: { 
-    	path: string; 
-    	width?: number; 
+    [index: number]: {
+    	path: string;
+    	width?: number;
     	height?: number;
     	//type?: 'image' | 'video'
     };
 }
 
 export interface Image {
-    path: string; 
-    width?: number; 
+    path: string;
+    width?: number;
     height?: number;
 }

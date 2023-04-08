@@ -8,11 +8,14 @@ import { Component } from '@angular/core';
 export class OurPartnersComponent {
   images = [
     {path: '../../../assets/images/bauman-code-games.png'},
+    {path: '../../../assets/images/background-image.png'},
+    {path: '../../../assets/images/bauman-code-games.png'},
+    {path: '../../../assets/images/background-image.png'},
+    {path: '../../../assets/images/bauman-code-games.png'},
+    {path: '../../../assets/images/background-image.png'},
     {path: '../../../assets/images/bauman-code-games.png'},
     {path: '../../../assets/images/bauman-code-games.png'},
-    {path: '../../../assets/images/bauman-code-games.png'},
-    {path: '../../../assets/images/bauman-code-games.png'},
-    {path: '../../../assets/images/bauman-code-games.png'},
+    {path: '../../../assets/images/background-image.png'},
     {path: '../../../assets/images/bauman-code-games.png'},
   ]
 }

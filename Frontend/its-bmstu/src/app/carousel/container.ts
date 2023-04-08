@@ -8,7 +8,6 @@ export class Container {
     isPositionCorrection: boolean = false;
     initialPositionX: number = 0;
     initialElementPositionX: number = 0;
-    isLocked: boolean = true;
     pullLimit: number = 100;
     startTime: number = 0;
     startX: number = 0;

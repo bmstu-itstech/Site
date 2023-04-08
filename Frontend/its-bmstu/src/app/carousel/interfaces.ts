@@ -12,7 +12,6 @@ export interface Properties {
     minSwipeDistance: number;
     transitionDuration: number;
     transitionTimingFunction: 'ease' | 'ease-in' | 'ease-out' | 'ease-in-out' | 'linear';
-    videoProperties: any;
     eventHandler ? : any;
     freeScroll: boolean;
 }

@@ -38,33 +38,14 @@ export class CarouselComponent implements OnDestroy {
     carouselProperties!: CarouselProperties;
     savedCarouselWidth!: number;
 
-    get isContainerLocked() {
-        if (this.carousel) {
-            return this.carousel.isContainerLocked;
-        }
-    }
-
     get slideCounter() {
         if (this.carousel) {
             return this.carousel.slideCounter;
         }
     }
 
-    get lapCounter() {
-        if (this.carousel) {
-            return this.carousel.lapCounter;
-        }
-    }
-
     get isLandscape() {
         return window.innerWidth > window.innerHeight;
-    }
-
-    get isSafari(): any {
-        const ua = navigator.userAgent.toLowerCase();
-        if (ua.indexOf('safari') !== -1) {
-            return !(ua.indexOf('chrome') > -1);
-        }
     }
 
     get cellsElement() {
@@ -95,9 +76,7 @@ export class CarouselComponent implements OnDestroy {
     margin: number = 10;
     objectFit: 'contain' | 'cover' | 'none' = 'cover';
     minSwipeDistance: number = 10;
-    transitionDuration: number = 200;
     @Input() transitionTimingFunction: 'ease' | 'ease-in' | 'ease-out' | 'ease-in-out' | 'linear' = 'ease-out';
-    @Input() videoProperties: any;
     @Input() counterSeparator: string = " / ";
     @Input() overflowCellsLimit: number = 3;
     @Input() listeners: 'auto' | 'mouse and touch' = 'mouse and touch';
@@ -229,9 +208,8 @@ export class CarouselComponent implements OnDestroy {
             visibleWidth: this.width,
             margin: this.margin,
             minSwipeDistance: this.minSwipeDistance,
-            transitionDuration: this.transitionDuration,
+            transitionDuration: 200,
             transitionTimingFunction: this.transitionTimingFunction,
-            videoProperties: this.videoProperties,
             eventHandler: this.events,
             freeScroll: this.freeScroll,
         };

@@ -17,5 +17,21 @@ export class OurPartnersComponent {
     {path: '../../../assets/images/bauman-code-games.png'},
     {path: '../../../assets/images/background-image.png'},
     {path: '../../../assets/images/bauman-code-games.png'},
-  ]
+  ];
+  // carouselConfig = {
+  //   centerMode: true,
+  //   centerPadding: '20%',
+  //   slidesToShow: 3,
+  //   responsive: [
+  //     {
+  //       breakpoint: 768,
+  //       settings: {
+  //         arrows: false,
+  //         centerMode: true,
+  //         centerPadding: '40px',
+  //         slidesToShow: 1
+  //       }
+  //     }
+  //   ]
+  // };
 }

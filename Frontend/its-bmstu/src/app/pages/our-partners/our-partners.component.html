@@ -1,5 +1,12 @@
-<div class="container" style="margin-bottom: 50px">
-  <carousel [images]="images" [lightDOM]="true">
-  </carousel>
-</div>
+<!--<div class="container" style="margin-bottom: 50px">-->
+<!--  <carousel [images]="images" [lightDOM]="true">-->
+<!--  </carousel>-->
+<!--</div>-->
 
+<ngx-slick-carousel [style.width]="300" [style.height]="300">
+  <div ngxSlickItem *ngFor="let image of images" [style.width]="100">
+    Test
+<!--    [style.transform]="'scale(' + image.zoom + ')'"-->
+<!--    <img [src]="image.path"  />-->
+  </div>
+</ngx-slick-carousel>

@@ -60,10 +60,6 @@ export class Slide {
         return this.cells.cellLengthInLightDOMMode;
     }
 
-    get isLightDOM() {
-        return true;
-    }
-
     constructor(private carouselProperties: CarouselProperties,
         private utils: any,
         private cells: any,
@@ -296,8 +292,8 @@ export class Slide {
     getPositionByIndex(_counter: number) {
         let position;
 
-        if (this.isLightDOM && this.isLightDOMMode(_counter) ||
-            this.isLightDOM && this.ifLeftDOMModeAtEnd(_counter)) {
+        if (this.isLightDOMMode(_counter) ||
+            this.ifLeftDOMModeAtEnd(_counter)) {
 
             let initialPosition = this.getPositionWithoutCorrection(this.initialPositionX);
             let counterDifference = _counter - this.counter;

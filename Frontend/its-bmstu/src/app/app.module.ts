@@ -13,6 +13,7 @@ import {OurPartnersComponent} from "./pages/our-partners/our-partners.component"
 import {ContactsComponent} from "./pages/contacts/contacts.component";
 import {FooterComponent} from "./pages/footer/footer.component";
 import {IvyCarouselModule} from "./carousel/carousel.module";
+import {SlickCarouselModule} from "ngx-slick-carousel";
 // import {IvyCarouselModule} from "./carousel/carousel.module";
 
 @NgModule({
@@ -27,14 +28,15 @@ import {IvyCarouselModule} from "./carousel/carousel.module";
     ContactsComponent,
     FooterComponent
   ],
-    imports: [
-        BrowserModule,
-        RouterOutlet,
-        AppRoutingModule,
-        IvyCarouselModule,
-        // IvyCarouselModule,
-        // IvyCarouselModule
-    ],
+  imports: [
+    BrowserModule,
+    RouterOutlet,
+    AppRoutingModule,
+    IvyCarouselModule,
+    SlickCarouselModule,
+    // IvyCarouselModule,
+    // IvyCarouselModule
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })

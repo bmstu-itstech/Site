@@ -12,6 +12,7 @@ import {InfographicsComponent} from "./pages/infographics/infographics.component
 import {OurPartnersComponent} from "./pages/our-partners/our-partners.component";
 import {ContactsComponent} from "./pages/contacts/contacts.component";
 import {FooterComponent} from "./pages/footer/footer.component";
+import {IvyCarouselModule} from "./carousel/carousel.module";
 // import {IvyCarouselModule} from "./carousel/carousel.module";
 
 @NgModule({
@@ -26,13 +27,14 @@ import {FooterComponent} from "./pages/footer/footer.component";
     ContactsComponent,
     FooterComponent
   ],
-  imports: [
-    BrowserModule,
-    RouterOutlet,
-    AppRoutingModule,
-    // IvyCarouselModule,
-    // IvyCarouselModule
-  ],
+    imports: [
+        BrowserModule,
+        RouterOutlet,
+        AppRoutingModule,
+        IvyCarouselModule,
+        // IvyCarouselModule,
+        // IvyCarouselModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

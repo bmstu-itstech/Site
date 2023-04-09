@@ -11,25 +11,27 @@ import {Properties as CarouselProperties} from './interfaces';
 
 
 @Component({
-    selector: 'carousel, [carousel]',
-    templateUrl: './carousel.component.html',
-    styleUrls: ['./carousel.component.sass']
+  selector: 'carousel, [carousel]',
+  templateUrl: './carousel.component.html',
+  styleUrls: ['./carousel.component.sass']
 })
 
 export class CarouselComponent implements OnDestroy {
-    carousel:any;
-    container:any;
-    utils:any;
-    cells:any;
-    slide:any;
-    _id!: string;
-    _images!: Images;
-    touches: any;
-    landscapeMode: any;
-    minTimeout = 30;
-    _width!: number;
+  carousel: any;
+  container: any;
+  utils: any;
+  cells: any;
+  slide: any;
+  _id!: string;
+  _images!: Images;
+  touches: any;
+  landscapeMode: any;
+  minTimeout = 30;
+  isVideoPlaying: boolean = false;
+  _isCounter: boolean = false;
+  _width!: number;
   _cellWidth: number | '100%' = 200;
-  _loop: boolean = true;
+  _loop: boolean = false;
   _lightDOM: boolean = false;
   isMoving: boolean = false;
   isNgContent: boolean = false;
@@ -67,8 +69,28 @@ export class CarouselComponent implements OnDestroy {
     }
   }
 
+  get counter() {
+    let counter;
+
+    if (this.loop) {
+      counter = this.slideCounter % this.cellLength;
+    } else {
+      counter = this.slideCounter;
+    }
+
+    return counter + 1 + this.counterSeparator + this.cellLength;
+  }
+
   get cellsElement() {
     return this.elementRef.nativeElement.querySelector('.carousel-cells');
+  }
+
+  get isArrows() {
+    return this.arrows && !this.freeScroll;
+  }
+
+  get isCounter() {
+    return this._isCounter && this.cellLength > 1;
   }
 
   get activeDotIndex() {
@@ -87,55 +109,79 @@ export class CarouselComponent implements OnDestroy {
 
   @Output() events: EventEmitter<any> = new EventEmitter<any>();
 
-  id!: number;
-  height: number = 160;
-  width!: number;
-  autoplayInterval: number = 5000;
-  borderRadius: number = 40;
-  margin: number = 10;
-  objectFit: 'contain' | 'cover' | 'none' = 'cover';
-  minSwipeDistance: number = 10;
-  transitionDuration: number = 200;
+  @Input() id!: number;
+  @Input() height: number = 200;
+  @Input() width!: number;
+  @Input() autoplay: boolean = false;
+  @Input() autoplayInterval: number = 5000;
+  @Input() pauseOnHover: boolean = true;
+  @Input() dots: boolean = false;
+  @Input() borderRadius!: number;
+  @Input() margin: number = 10;
+  @Input() objectFit: 'contain' | 'cover' | 'none' = 'cover';
+  @Input() minSwipeDistance: number = 10;
+  @Input() transitionDuration: number = 200;
   @Input() transitionTimingFunction: 'ease' | 'ease-in' | 'ease-out' | 'ease-in-out' | 'linear' = 'ease-out';
   @Input() videoProperties: any;
   @Input() counterSeparator: string = " / ";
   @Input() overflowCellsLimit: number = 3;
   @Input() listeners: 'auto' | 'mouse and touch' = 'mouse and touch';
-  @Input() cellsToShow: number = 5;
+  @Input() cellsToShow!: number;
   @Input() cellsToScroll: number = 1;
-  @Input() freeScroll: boolean = true;
+  @Input() freeScroll: boolean = false;
+  @Input() arrows: boolean = true;
+  @Input() arrowsOutside: boolean = false;
+  @Input() arrowsTheme: 'light' | 'dark' = 'light';
 
-    @Input()
-    set images(images: Images & any) {
-        this._images = images;
-    }
-    get images() {
-        return this._images;
-    }
+  @Input()
+  set images(images: Images & any) {
+    this._images = images;
+  }
 
-    @Input('cellWidth') set cellWidth(value: number | '100%') {
-        if (value) {
-            this._cellWidth = value;
-        }
-    }
+  @Input()
+  set imagesCount(imagesCount: number) {
+    this.dotsArr = Array(imagesCount).fill(1);
+  }
 
-    get loop() {
-        if (this.images) {
-            return this._loop;
-        } else {
-            return false;
-        }
-    }
+  get images() {
+    return this._images;
+  }
 
-    @Input('lightDOM') set lightDOM(value: boolean) {
-        if (value) {
-            this._lightDOM = value;
-        }
+  @Input('cellWidth') set cellWidth(value: number | '100%') {
+    if (value) {
+      this._cellWidth = value;
     }
+  }
 
-    get lightDOM() {
-        if (this.images) {
-            return this._lightDOM;
+  @Input('counter') set isCounter(value: boolean) {
+    if (value) {
+      this._isCounter = value;
+    }
+  }
+
+  @Input('loop') set loop(value: boolean) {
+    if (value) {
+      this._loop = value;
+    }
+  }
+
+  get loop() {
+    if (this.images) {
+      return this._loop;
+    } else {
+      return false;
+    }
+  }
+
+  @Input('lightDOM') set lightDOM(value: boolean) {
+    if (value) {
+      this._lightDOM = value;
+    }
+  }
+
+  get lightDOM() {
+    if (this.images) {
+      return this._lightDOM;
         } else {
             return false;
         }
@@ -154,13 +200,17 @@ export class CarouselComponent implements OnDestroy {
 
   @HostListener('mousemove', ['$event'])
     onMousemove(event: MouseEvent) {
-      //this.carousel.stopAutoplay();
+    if (this.autoplay && this.pauseOnHover) {
+      this.carousel.stopAutoplay();
     }
+  }
 
   @HostListener('mouseleave', ['$event'])
     onMouseleave(event: MouseEvent) {
-      //this.carousel.autoplay();
+    if (this.autoplay && this.pauseOnHover) {
+      this.carousel.autoplay();
     }
+  }
 
     constructor(
         private elementRef: ElementRef,
@@ -218,7 +268,7 @@ export class CarouselComponent implements OnDestroy {
 
     initCarousel() {
         this.carouselProperties = {
-            id: this.id,
+          id: this.id,
           cellsElement: this.elementRef.nativeElement.querySelector('.carousel-cells'),
           hostElement: this.elementRef.nativeElement,
           images: this.images,
@@ -237,12 +287,15 @@ export class CarouselComponent implements OnDestroy {
           lightDOM: this.lightDOM
         };
 
-        this.utils = new Utils(this.carouselProperties);
-        this.cells = new Cells(this.carouselProperties, this.utils);
-        this.container = new Container(this.carouselProperties, this.utils, this.cells);
-        this.slide = new Slide(this.carouselProperties, this.utils, this.cells, this.container);
+      this.utils = new Utils(this.carouselProperties);
+      this.cells = new Cells(this.carouselProperties, this.utils);
+      this.container = new Container(this.carouselProperties, this.utils, this.cells);
+      this.slide = new Slide(this.carouselProperties, this.utils, this.cells, this.container);
       this.carousel = new Carousel(this.carouselProperties, this.utils, this.cells, this.container, this.slide);
-      this.carousel.autoplay();
+
+      if (this.autoplay) {
+        this.carousel.autoplay();
+      }
     }
 
     resize() {
@@ -279,13 +332,11 @@ export class CarouselComponent implements OnDestroy {
         this.ref.detectChanges();
     }
 
-    //выставляем максимальную высоту карусели
     setDimensions() {
         this.hostStyleHeight = this.height + 'px';
         this.hostStyleWidth = this.width + 'px';
     }
 
-    //todo взятие картинки для карусели
     getImage(index:number) {
         return this.carousel.getImage(index);
     }
@@ -331,38 +382,49 @@ export class CarouselComponent implements OnDestroy {
         }
     }
 
-    // todo высчитывается ширина ячейки
     getCellWidth() {
         let elementWidth = this.carouselWidth;
 
         if (this.cellsToShow) {
             let margin = this.cellsToShow > 1 ? this.margin : 0;
             let totalMargin = margin * (this.cellsToShow - 1);
-            return (elementWidth - totalMargin) / this.cellsToShow;
+          return (elementWidth - totalMargin) / this.cellsToShow;
         }
 
-        if (this._cellWidth === '100%') {
-            return elementWidth;
-        } else {
-            return this._cellWidth;
-        }
+      if (this._cellWidth === '100%') {
+        return elementWidth;
+      } else {
+        return this._cellWidth;
+      }
     }
 
-    next() {
-        this.carousel.next(this.cellsToScroll);
-        this.carousel.stopAutoplay();
-    }
+  next() {
+    this.carousel.next(this.cellsToScroll);
+    this.carousel.stopAutoplay();
+  }
 
-    prev() {
-        this.carousel.prev(this.cellsToScroll);
-        this.carousel.stopAutoplay();
-    }
+  prev() {
+    this.carousel.prev(this.cellsToScroll);
+    this.carousel.stopAutoplay();
+  }
 
-    getCellLength() {
-        if (this.images) {
-            return this.images.length;
-        } else {
-            return this.cellsElement.children.length;
-        }
+  isNextArrowDisabled() {
+    if (this.carousel) {
+      return this.carousel.isNextArrowDisabled();
     }
+  }
+
+  isPrevArrowDisabled() {
+    if (this.carousel) {
+      return this.carousel.isPrevArrowDisabled();
+    }
+  }
+
+  getCellLength() {
+    if (this.images) {
+      return this.images.length;
+    } else {
+      return this.cellsElement.children.length;
+    }
+  }
 }

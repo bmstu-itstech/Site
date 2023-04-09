@@ -1,8 +1,8 @@
 import {Properties as CarouselProperties} from './interfaces';
 
 export class Container {
-    /* The index of the new position relative to
-     * the active index, for example -1 or +1
+    /* The index of the new position relative to 
+     * the active index, for example -1 or +1 
      */
     newPositionIndex: number = 0;
     isPositionCorrection: boolean = false;
@@ -151,7 +151,7 @@ export class Container {
                 positionX = this.slowdownOnPull(positionX);
             }
         }
-        //
+
         this.transformPositionX(positionX, 0);
 
         if (this.freeScroll) {
@@ -170,7 +170,6 @@ export class Container {
 
     getMovePositionX() {
         const distance = this.getDistance();
-        console.log("getMovePositionX", distance)
         return this.initialElementPositionX - distance;
     }
 
@@ -180,12 +179,9 @@ export class Container {
 
     /* If the container is pulled out of the left or right border */
     detectPulled() {
-
-
         const currentPositionX = this.getCurrentPositionX();
 
         if (currentPositionX > 0) {
-            console.log("detect pulled - left")
             return {
                 edge: 'left',
                 positionX: currentPositionX,
@@ -194,15 +190,12 @@ export class Container {
         }
 
         if (currentPositionX < this.getEndPosition()) {
-            console.log("detect pulled - right")
             return {
                 edge: 'right',
                 positionX: currentPositionX,
                 overflowX: Math.abs(currentPositionX - this.getEndPosition())
             }
         }
-
-        console.log("detect pulled - undefined")
 
         return undefined;
     }
@@ -267,15 +260,7 @@ export class Container {
         newPositionX = this.getAlignedPositionOnPull(newPositionX);
 
         this.transformPositionX(newPositionX);
-
-
-
         this.setInitialPosition(positionX);
-        for(let i = 0; i < this.cells.length; i++){
-          let cel = this.cells[i];
-
-        }
-        // this.cells.
     }
 
     /* Returns the new position of the container with inertia */
@@ -322,30 +307,14 @@ export class Container {
             return visibleWidth - width;
         }
     }
-    //todo
 
     transformPositionX(value:number, duration = this.transitionDuration) {
         if (value === undefined) {
             return;
         }
 
-        console.log(this.element)
         this.element.style.transition = 'transform ' + duration + 'ms ' + this.transitionTimingFunction;
         this.element.style.transform = 'translateX(' + value + 'px)';
-        // this.element.parentElement.childNodes.findIndex();
-        // var index = Array.prototype.indexOf.call(parent.children, child);
-        // if (==2){
-        //   this.element.style.scale = '0.1';
-        // }
-        // else {
-        //   this.element.style.scale = '1'
-        // }
-        // if (value=== 3) {
-        //   this.element.style.transform = 'scale(0.7), translateX(' + value + 'px)';
-        // }
-        // else {
-        //   this.element.style.transform = 'scale(1.0), translateX(' + value + 'px)';
-        // }
     }
 
     getWidth() {

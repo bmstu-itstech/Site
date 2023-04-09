@@ -40,8 +40,8 @@ export class Slide {
         return this.utils.visibleCellsOverflowContainer;
     }
 
-    /* The position to which the container returns after each slide
-     * in the light DUM tree mode.
+    /* The position to which the container returns after each slide 
+     * in the light DUM tree mode. 
      */
     get fixedContainerPosition() {
         return -(this.overflowCellsLimit * this.fullCellWidth);
@@ -55,13 +55,21 @@ export class Slide {
         return this.carouselProperties.images;
     }
 
-    /* Number of cell elements in the DOM tree */
+    /* Number of cell elements in the DUM tree */
     get cellLength() {
-        return this.cells.cellLengthInLightDOMMode;
+        if (this.isLightDOM) {
+            return this.cells.cellLengthInLightDOMMode;
+        } else {
+            if (this.images) {
+                return this.images.length;
+            } else {
+                return this.cells.cellLength;
+            }
+        }
     }
 
     get isLightDOM() {
-        return true;
+        return this.carouselProperties.lightDOM || this.carouselProperties.loop;
     }
 
     constructor(private carouselProperties: CarouselProperties,
@@ -106,7 +114,10 @@ export class Slide {
     handleTransitionend() {
         this.setCounter();
         this.isSlideInProgress = false;
-        this.alignContainerFast();
+
+        if (this.isLightDOM) {
+            this.alignContainerFast();
+        }
     }
 
     handleSlide(customSlideLength: number | undefined = undefined) {
@@ -161,8 +172,6 @@ export class Slide {
             newPositionX = this.getPositionByIndex(this.counter - this.slideLength);
         }
 
-        console.log("new Position x: " + newPositionX)
-
         if (this.container.getCurrentPositionX() !== newPositionX) {
             this.isSlideInProgress = true;
             this.container.transformPositionX(newPositionX);
@@ -207,9 +216,9 @@ export class Slide {
         return 0;
     }
 
-    /*
-     * Limits the length of the slide during calls to the next() and prev()
-     * methods if the specified position is outside the cell length
+    /*  
+     * Limits the length of the slide during calls to the next() and prev() 
+     * methods if the specified position is outside the cell length 
      */
     limitSlideLength(slideLength: number) {
         if (slideLength > 1) {
@@ -228,15 +237,34 @@ export class Slide {
 
     /* Offset the container to show the last cell completely */
     getPositionCorrection(counter:number) {
-        return 0;
+        let correction = 0;
+        let isLastSlide = this.isLastSlide(counter);
+
+        if (this.carouselProperties.loop || this.direction === "right") {
+            return 0;
+        }
+
+        if (this.isSlideLengthLimited || isLastSlide) {
+            let cellsWidth = this.cells.cellLengthInLightDOMMode * this.fullCellWidth;
+
+            if (this.visibleWidth < cellsWidth) {
+                correction = -(this.numberOfVisibleCells * this.fullCellWidth - this.visibleWidth - this.margin);
+            }
+
+            if (correction >= -this.margin) {
+                correction = 0;
+            }
+        }
+
+        return correction;
     }
 
     getSlideLength(distanceAbs: number) {
         let isLastSlide = this.isLastSlide(this.counter);
 
-        /* If the last cell does not fit entirely, then the
-         * length of the swipe to the left, from the extreme
-         * right position, may be shorter than usual.
+        /* If the last cell does not fit entirely, then the 
+         * length of the swipe to the left, from the extreme 
+         * right position, may be shorter than usual. 
          */
         if (isLastSlide && this.direction === "right") {
             distanceAbs = distanceAbs + this.visibleWidth % this.fullCellWidth;
@@ -294,16 +322,25 @@ export class Slide {
     }
 
     getPositionByIndex(_counter: number) {
+        let correction = this.getPositionCorrection(this.counter + this.slideLength);
         let position;
+
+        if (correction !== 0) {
+            correction = correction + this.fullCellWidth
+        }
+
+        if (this.direction === 'right') {
+            correction = 0;
+        }
 
         if (this.isLightDOM && this.isLightDOMMode(_counter) ||
             this.isLightDOM && this.ifLeftDOMModeAtEnd(_counter)) {
 
             let initialPosition = this.getPositionWithoutCorrection(this.initialPositionX);
             let counterDifference = _counter - this.counter;
-            position = initialPosition - (counterDifference * this.fullCellWidth);
+            position = initialPosition - ((counterDifference * this.fullCellWidth) - correction);
         } else {
-            position = -(_counter * this.fullCellWidth);
+            position = -((_counter * this.fullCellWidth) - correction);
         }
 
         position = this.provideSafePosition(position);
@@ -339,18 +376,27 @@ export class Slide {
         }
     }
 
+    isNextArrowDisabled() {
+        return this.isLastSlide(this.counter) || 
+        (!this.visibleCellsOverflowContainer && this.cellLength <= this.numberOfVisibleCells) ||
+        (this.visibleCellsOverflowContainer && this.cellLength < this.numberOfVisibleCells)
+    }
+
+    isPrevArrowDisabled() {
+        return this.counter === 0;
+    }
+
     alignContainerFast() {
         if (this.isLightDOMMode(this.counter)) {
             let positionX = this.fixedContainerPosition;
             this.container.transformPositionX(positionX, 0);
-            console.log("Test 1")
+
             this.cells.setCounter(this.counter);
             this.cells.lineUp();
         } else if (this.ifLeftDOMModeToBeginning(this.counter)) {
-            /* If we have already exited the light DOM mode but
-             * the cells are still out of place
+            /* If we have already exited the light DOM mode but 
+             * the cells are still out of place 
              */
-            console.log("Test 2")
             if (this.cells.ifSequenceOfCellsIsChanged()) {
                 let positionX = -(this.counter * this.fullCellWidth);
                 this.container.transformPositionX(positionX, 0);
@@ -359,7 +405,6 @@ export class Slide {
                 this.cells.lineUp();
             }
         } else if (this.ifLeftDOMModeAtEnd(this.counter)) {
-            console.log("Test 3")
             let containerPositionX = this.container.getCurrentPositionX();
             let containerWidth = this.container.getWidth();
             this.visibleWidth;
@@ -369,7 +414,17 @@ export class Slide {
                 return;
             }
 
-            let positionX = this.fixedContainerPosition;
+            let correction = this.getPositionCorrection(this.counter);
+
+            if (correction !== 0) {
+                correction = correction + this.fullCellWidth
+            }
+
+            if (this.direction === 'right') {
+                correction = 0;
+            }
+
+            let positionX = this.fixedContainerPosition + correction;
 
             this.container.transformPositionX(positionX, 0);
             this.cells.setCounter(this.counter);
@@ -380,6 +435,10 @@ export class Slide {
     isLightDOMMode(counter: number) {
         let flag;
         let remainderOfCells = this.images.length - this.overflowCellsLimit - this.numberOfVisibleCells;
+
+        if (!this.isLightDOM) {
+            return false;
+        }
 
         if (counter > this.overflowCellsLimit && this.direction === "left" &&
             counter <= remainderOfCells) {

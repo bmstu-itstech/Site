@@ -147,11 +147,21 @@ export class Carousel {
     }
 
     next(length: number = 1) {
-      this.slide.next(length);
+        if (!this.isNextArrowDisabled()) {
+            this.slide.next(length);
+        }
     }
 
     prev(length: number = 1) {
         this.slide.prev(length);
+    }
+
+    isNextArrowDisabled = () => {
+        return this.slide.isNextArrowDisabled();
+    }
+
+    isPrevArrowDisabled = () => {
+        return this.slide.isPrevArrowDisabled();
     }
 
     autoplay() {

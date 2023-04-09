@@ -110,7 +110,7 @@ export class CarouselComponent implements OnDestroy {
   @Output() events: EventEmitter<any> = new EventEmitter<any>();
 
   @Input() id!: number;
-  @Input() height: number = 200;
+  @Input() height: number = 140;
   @Input() width!: number;
   @Input() autoplay: boolean = false;
   @Input() autoplayInterval: number = 5000;

@@ -14,16 +14,18 @@
           *ngIf="getImage(i) && getImage(i)['image']"
           [src]="getImage(i)['image']['path']"
           [style.object-fit]="objectFit"
-          draggable="false" />
+          draggable="false"/>
 
       </div>
     </ng-template>
   </div>
 
-  <div class="carousel-dots">
-    <div class="carousel-dot" [class.carousel-dot-active]="i === activeDotIndex"
-         *ngFor="let dot of dotsArr; index as i"></div>
-  </div>
+</div>
+<div class="carousel-dots">
+
+  <div class="carousel-dot" [class.carousel-dot-active]="i === activeDotIndex"
+       *ngFor="let dot of dotsArr; index as i"></div>
+  
 </div>
 
 <div class="carousel-arrows"

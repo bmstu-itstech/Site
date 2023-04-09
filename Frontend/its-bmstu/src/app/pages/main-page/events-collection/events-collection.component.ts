@@ -29,13 +29,13 @@ export class EventsCollectionComponent {
       .then(events => {
         const typedEvents = events as EventsCollectionDto;
 
-        for (let i = 0; i < 10; i++) {
+        for (let i = 0; i < 5; i++) {
           typedEvents.results.push(typedEvents.results[0])
         }
 
         console.info(typedEvents.results);
 
-        let columnSizes: number[] = [6, 6, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4];
+        let columnSizes: number[] = [6, 6, 12, 12, 6, 6];
         console.info(typedEvents.count)
         for (let i = 0; i < typedEvents.results.length; i++) {
           let event = typedEvents.results[i];

@@ -31,14 +31,17 @@
 }
 
 .title {
-  padding-top: 580px;
-  padding-left: 500px;
-  font-size: 65px;
-  font-family: $font-montserrat;
-  Opacity: 60%;
-  font-weight: 600;
-  color: rgba(255, 255, 255, 0.15);
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 7vw;
+  text-align: center;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  opacity: 0.4;
+  padding-bottom: 5%;
 }
+
 
 .length {
   color: white;

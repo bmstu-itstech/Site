@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import {NavigationBarComponent} from './navigation-bar.component';
+import {MainPageHeaderCardComponent} from './main-page-header-card.component';
 
 describe('MainPageComponent', () => {
-  let component: NavigationBarComponent;
-  let fixture: ComponentFixture<NavigationBarComponent>;
+  let component: MainPageHeaderCardComponent;
+  let fixture: ComponentFixture<MainPageHeaderCardComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [NavigationBarComponent]
+      declarations: [MainPageHeaderCardComponent]
     })
       .compileComponents();
 
-    fixture = TestBed.createComponent(NavigationBarComponent);
+    fixture = TestBed.createComponent(MainPageHeaderCardComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

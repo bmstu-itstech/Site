@@ -175,7 +175,7 @@ export class Touches {
     }
 
     handleLinearSwipe(event: any) {
-        //event.preventDefault();
+        //event-page.preventDefault();
 
         this.i++;
 
@@ -234,17 +234,17 @@ export class Touches {
     /* Mousemove */
 
     handleMousemove = (event: any) => {
-        //event.preventDefault();
-        
-        if (!this.isMousedown) {
-            return;
-        }
+      //event-page.preventDefault();
 
-        // Pan
-        this.runHandler("pan", event);
+      if (!this.isMousedown) {
+        return;
+      }
 
-        // Linear swipe
-        switch (this.detectLinearSwipe(event)) {
+      // Pan
+      this.runHandler("pan", event);
+
+      // Linear swipe
+      switch (this.detectLinearSwipe(event)) {
             case "horizontal-swipe":
                 event.swipeType = "horizontal-swipe";
                 this.runHandler("horizontal-swipe", event);

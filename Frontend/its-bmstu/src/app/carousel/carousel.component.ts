@@ -124,19 +124,19 @@ export class CarouselComponent implements OnDestroy {
     @HostBinding('style.height') hostStyleHeight!: string;
     @HostBinding('style.width') hostStyleWidth!: string;
 
-    @HostListener('window:resize', ['$event'])
+    @HostListener('window:resize', ['$event-page'])
     onWindowResize(event: any) {
         if (this.utils.visibleWidth !== this.savedCarouselWidth) {
             this.resize();
         }
     }
 
-    @HostListener('mousemove', ['$event'])
+  @HostListener('mousemove', ['$event-page'])
     onMousemove(event: MouseEvent) {
       //this.carousel.stopAutoplay();
     }
 
-    @HostListener('mouseleave', ['$event'])
+  @HostListener('mouseleave', ['$event-page'])
     onMouseleave(event: MouseEvent) {
       //this.carousel.autoplay();
     }

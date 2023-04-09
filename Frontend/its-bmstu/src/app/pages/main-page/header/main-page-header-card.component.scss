@@ -1,8 +1,8 @@
-@import '../../../styles/colors.scss';
-@import '../../../styles/fonts.scss';
+@import '../../../../styles/colors';
+@import '../../../../styles/fonts';
 
 .main-page {
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 24%, rgba(0, 0, 0, 1)), url("../../../assets/images/background-image.png");
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 24%, rgba(0, 0, 0, 1)), url("../../../../assets/images/background-image.png");
   background-size: 100%;
   height: 750px;
 }

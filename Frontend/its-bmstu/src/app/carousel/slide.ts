@@ -78,7 +78,7 @@ export class Slide {
     }
 
     handleTouchstart() {
-        /* Touchstart event is not called for arrow */
+        /* Touchstart event-page is not called for arrow */
         this.isNotClickOnArrow = true;
         this.isSlideLengthLimited = false;
 

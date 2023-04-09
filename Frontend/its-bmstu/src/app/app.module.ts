@@ -15,6 +15,8 @@ import {IvyCarouselModule} from "./carousel/carousel.module";
 import {SlickCarouselModule} from "ngx-slick-carousel";
 import {EventsCollectionComponent} from './pages/main-page/events-collection/events-collection.component';
 import {MainPageComponent} from './pages/main-page/main-page.component';
+import {Carousel2Component} from './carousel2/carousel2.component';
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 @NgModule({
   declarations: [
@@ -28,13 +30,15 @@ import {MainPageComponent} from './pages/main-page/main-page.component';
     ContactsComponent,
     FooterComponent,
     EventsCollectionComponent,
-    MainPageComponent
+    MainPageComponent,
+    Carousel2Component
   ],
   imports: [
     BrowserModule,
     RouterOutlet,
     AppRoutingModule,
     IvyCarouselModule,
+    BrowserAnimationsModule,
     SlickCarouselModule,
     RouterModule.forRoot([
       {path: '', component: MainPageComponent, pathMatch: 'full'},

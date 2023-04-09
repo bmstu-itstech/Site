@@ -76,34 +76,34 @@ export class CarouselComponent implements OnDestroy {
   }
 
   get cellLimit() {
-        if (this.carousel) {
-            return this.carousel.cellLimit;
-        }
+    if (this.carousel) {
+      return this.carousel.cellLimit;
     }
+  }
 
-    get carouselWidth() {
-        return this.elementRef.nativeElement.clientWidth;
-    }
+  get carouselWidth() {
+    return this.elementRef.nativeElement.clientWidth;
+  }
 
-    @Output() events: EventEmitter < any > = new EventEmitter < any > ();
+  @Output() events: EventEmitter<any> = new EventEmitter<any>();
 
-    id!: number;
-    height: number = 300;
-    width!: number;
-    autoplayInterval: number = 5000;
-    borderRadius: number = 40;
-    margin: number = 10;
-    objectFit: 'contain' | 'cover' | 'none' = 'cover';
+  id!: number;
+  height: number = 160;
+  width!: number;
+  autoplayInterval: number = 5000;
+  borderRadius: number = 40;
+  margin: number = 10;
+  objectFit: 'contain' | 'cover' | 'none' = 'cover';
   minSwipeDistance: number = 10;
   transitionDuration: number = 200;
   @Input() transitionTimingFunction: 'ease' | 'ease-in' | 'ease-out' | 'ease-in-out' | 'linear' = 'ease-out';
   @Input() videoProperties: any;
   @Input() counterSeparator: string = " / ";
-    @Input() overflowCellsLimit: number = 3;
-    @Input() listeners: 'auto' | 'mouse and touch' = 'mouse and touch';
-    @Input() cellsToShow: number = 5;
-    @Input() cellsToScroll: number = 1;
-    @Input() freeScroll: boolean = true;
+  @Input() overflowCellsLimit: number = 3;
+  @Input() listeners: 'auto' | 'mouse and touch' = 'mouse and touch';
+  @Input() cellsToShow: number = 5;
+  @Input() cellsToScroll: number = 1;
+  @Input() freeScroll: boolean = true;
 
     @Input()
     set images(images: Images & any) {

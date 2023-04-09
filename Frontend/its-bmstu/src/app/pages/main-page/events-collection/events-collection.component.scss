@@ -1,12 +1,8 @@
 @import '../../../../styles/colors.scss';
 @import '../../../../styles/fonts.scss';
 
-.root
-{
-  background: $color-dark;
-}
 
-.first-image-container{
+.first-image-container {
   margin-bottom: 70px;
   position: relative;
   width: 100%;
@@ -80,5 +76,4 @@
   display: block;
   box-sizing: border-box;
 }
-
 

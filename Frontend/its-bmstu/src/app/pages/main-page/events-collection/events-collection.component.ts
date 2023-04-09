@@ -35,14 +35,14 @@ export class EventsCollectionComponent {
           //TODO fix image url
           let imageUrl = "http://its-bmstu.ru/media/actions/photo/uf2N3P_Uxtc_U9VAnvJ.jpg";
 
-          this.photos.push(new Photo(imageUrl, navigationUrl, columnSizes[i]));
+          this.photos.push(new Photo(imageUrl, null, event, columnSizes[i]));
         }
 
       });
   }
 
   navigateToEvent(photo: Photo) {
-    this._router.navigateByUrl("event");
+    this._router.navigate(['event'], {state: {slug: photo.event?.slug}});
   }
 }
 

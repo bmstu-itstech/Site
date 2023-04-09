@@ -28,9 +28,18 @@ export class EventsCollectionComponent {
       .then(response => response.json())
       .then(events => {
         const typedEvents = events as EventsCollectionDto;
-        let columnSizes: number[] = [6, 6, 4, 4, 4, 4];
-        for (let i = 0; i < typedEvents.count; i++) {
+
+        for (let i = 0; i < 10; i++) {
+          typedEvents.results.push(typedEvents.results[0])
+        }
+
+        console.info(typedEvents.results);
+
+        let columnSizes: number[] = [6, 6, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4];
+        console.info(typedEvents.count)
+        for (let i = 0; i < typedEvents.results.length; i++) {
           let event = typedEvents.results[i];
+          console.info(event)
           let navigationUrl = this._urlsProviderService.getEventUrl(event.slug);
           //TODO fix image url
           let imageUrl = "http://its-bmstu.ru/media/actions/photo/uf2N3P_Uxtc_U9VAnvJ.jpg";

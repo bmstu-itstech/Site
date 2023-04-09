@@ -15,14 +15,15 @@ export class EventPageComponent {
   private _urlsProviderService: UrlsProviderService;
 
   private router: Router;
+  slug: string;
 
   constructor(urlsProviderService: UrlsProviderService,
               router: Router) {
     this.router = router;
     this._urlsProviderService = urlsProviderService;
 
-    let slug = this.router.getCurrentNavigation()!.extras.state!["slug"];
-    this.downloadPhotos(slug);
+    this.slug = this.router.getCurrentNavigation()!.extras.state!["slug"];
+    this.downloadPhotos(this.slug);
     //this.downloadHeaderPhoto();
   }
 

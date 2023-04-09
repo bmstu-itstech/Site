@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
@@ -19,4 +19,13 @@ export class UrlsProviderService {
   public getEventInnerUrl(slug: string) {
     return this.baseUrl + "actions" + "/" + slug + "/photos" + this.formatParameter;
   }
+
+  getEventPartnersUrl(slug: string) {
+    return this.baseUrl + "actions" + "/" + slug;
+  }
+
+  getPartnersUrl() {
+    return this.baseUrl + "partners" + this.formatParameter;
+  }
 }
+

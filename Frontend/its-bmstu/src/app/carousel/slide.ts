@@ -60,6 +60,10 @@ export class Slide {
         return this.cells.cellLengthInLightDOMMode;
     }
 
+    get isLightDOM() {
+        return true;
+    }
+
     constructor(private carouselProperties: CarouselProperties,
         private utils: any,
         private cells: any,
@@ -78,7 +82,7 @@ export class Slide {
     }
 
     handleTouchstart() {
-        /* Touchstart event-page is not called for arrow */
+        /* Touchstart event is not called for arrow */
         this.isNotClickOnArrow = true;
         this.isSlideLengthLimited = false;
 
@@ -292,8 +296,8 @@ export class Slide {
     getPositionByIndex(_counter: number) {
         let position;
 
-        if (this.isLightDOMMode(_counter) ||
-            this.ifLeftDOMModeAtEnd(_counter)) {
+        if (this.isLightDOM && this.isLightDOMMode(_counter) ||
+            this.isLightDOM && this.ifLeftDOMModeAtEnd(_counter)) {
 
             let initialPosition = this.getPositionWithoutCorrection(this.initialPositionX);
             let counterDifference = _counter - this.counter;

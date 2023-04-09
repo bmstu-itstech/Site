@@ -8,6 +8,7 @@ export class Container {
     isPositionCorrection: boolean = false;
     initialPositionX: number = 0;
     initialElementPositionX: number = 0;
+    isLocked: boolean = true;
     pullLimit: number = 100;
     startTime: number = 0;
     startX: number = 0;
@@ -80,6 +81,10 @@ export class Container {
 
     get margin() {
         return this.carouselProperties.margin;
+    }
+
+    get isLightDOM() {
+        return this.carouselProperties.lightDOM || this.carouselProperties.loop;
     }
 
     constructor(private carouselProperties: CarouselProperties,
@@ -308,8 +313,14 @@ export class Container {
     }
 
     getEndPosition() {
-          let imagesInContainer = this.cells.imageUtils.getImages();
-          return -(imagesInContainer.length * this.fullCellWidth - this.visibleWidth - this.margin);
+        if (this.isLightDOM) {
+            let imagesInContainer = this.cells.imageUtils.getImages();
+            return -(imagesInContainer.length * this.fullCellWidth - this.visibleWidth - this.margin);
+        } else {
+            const width = this.getWidth();
+            const visibleWidth = this.element!.parentElement!.clientWidth;
+            return visibleWidth - width;
+        }
     }
     //todo
 
@@ -345,7 +356,7 @@ export class Container {
             width = totalImageWidth;
         }
 
-        return width;
+        return this.isLightDOM ? width : totalImageWidth;
     }
 
     setWidth() {

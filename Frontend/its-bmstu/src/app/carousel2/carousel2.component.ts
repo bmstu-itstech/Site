@@ -76,15 +76,14 @@ export class Carousel2Component implements OnInit {
 
   ngOnInit() {
 
-    this.
-
+    
     //const myAnimation = this.animationBuilder.build([
 // make scaling from 1 to 2
 
 //      animate(1000, style({ width: 1000 }))
     //]);
 
-    this.player = myAnimation.create(document.getElementById('my-element'));
+    //this.player = myAnimation.create(document.getElementById('my-element'));
 
   }
 

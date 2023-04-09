@@ -28,35 +28,54 @@ export class CarouselComponent implements OnDestroy {
     landscapeMode: any;
     minTimeout = 30;
     _width!: number;
-    _cellWidth: number | '100%' = 200;
-    _loop: boolean = true;
-    _lightDOM: boolean = false;
-    isMoving: boolean = false;
-    isNgContent: boolean = false;
-    cellLength!: number;
-    dotsArr: any;
-    carouselProperties!: CarouselProperties;
-    savedCarouselWidth!: number;
+  _cellWidth: number | '100%' = 200;
+  _loop: boolean = true;
+  _lightDOM: boolean = false;
+  isMoving: boolean = false;
+  isNgContent: boolean = false;
+  cellLength!: number;
+  dotsArr: any;
+  carouselProperties!: CarouselProperties;
+  savedCarouselWidth!: number;
 
-    get slideCounter() {
-        if (this.carousel) {
-            return this.carousel.slideCounter;
-        }
+  get isContainerLocked() {
+    if (this.carousel) {
+      return this.carousel.isContainerLocked;
     }
+  }
 
-    get isLandscape() {
-        return window.innerWidth > window.innerHeight;
+  get slideCounter() {
+    if (this.carousel) {
+      return this.carousel.slideCounter;
     }
+  }
 
-    get cellsElement() {
-        return this.elementRef.nativeElement.querySelector('.carousel-cells');
+  get lapCounter() {
+    if (this.carousel) {
+      return this.carousel.lapCounter;
     }
+  }
 
-    get activeDotIndex() {
-        return this.slideCounter % this.cellLength;
+  get isLandscape() {
+    return window.innerWidth > window.innerHeight;
+  }
+
+  get isSafari(): any {
+    const ua = navigator.userAgent.toLowerCase();
+    if (ua.indexOf('safari') !== -1) {
+      return !(ua.indexOf('chrome') > -1);
     }
+  }
 
-    get cellLimit() {
+  get cellsElement() {
+    return this.elementRef.nativeElement.querySelector('.carousel-cells');
+  }
+
+  get activeDotIndex() {
+    return this.slideCounter % this.cellLength;
+  }
+
+  get cellLimit() {
         if (this.carousel) {
             return this.carousel.cellLimit;
         }
@@ -75,9 +94,11 @@ export class CarouselComponent implements OnDestroy {
     borderRadius: number = 40;
     margin: number = 10;
     objectFit: 'contain' | 'cover' | 'none' = 'cover';
-    minSwipeDistance: number = 10;
-    @Input() transitionTimingFunction: 'ease' | 'ease-in' | 'ease-out' | 'ease-in-out' | 'linear' = 'ease-out';
-    @Input() counterSeparator: string = " / ";
+  minSwipeDistance: number = 10;
+  transitionDuration: number = 200;
+  @Input() transitionTimingFunction: 'ease' | 'ease-in' | 'ease-out' | 'ease-in-out' | 'linear' = 'ease-out';
+  @Input() videoProperties: any;
+  @Input() counterSeparator: string = " / ";
     @Input() overflowCellsLimit: number = 3;
     @Input() listeners: 'auto' | 'mouse and touch' = 'mouse and touch';
     @Input() cellsToShow: number = 5;
@@ -124,19 +145,19 @@ export class CarouselComponent implements OnDestroy {
     @HostBinding('style.height') hostStyleHeight!: string;
     @HostBinding('style.width') hostStyleWidth!: string;
 
-    @HostListener('window:resize', ['$event-page'])
+  @HostListener('window:resize', ['$event'])
     onWindowResize(event: any) {
         if (this.utils.visibleWidth !== this.savedCarouselWidth) {
             this.resize();
         }
     }
 
-  @HostListener('mousemove', ['$event-page'])
+  @HostListener('mousemove', ['$event'])
     onMousemove(event: MouseEvent) {
       //this.carousel.stopAutoplay();
     }
 
-  @HostListener('mouseleave', ['$event-page'])
+  @HostListener('mouseleave', ['$event'])
     onMouseleave(event: MouseEvent) {
       //this.carousel.autoplay();
     }
@@ -198,28 +219,30 @@ export class CarouselComponent implements OnDestroy {
     initCarousel() {
         this.carouselProperties = {
             id: this.id,
-            cellsElement: this.elementRef.nativeElement.querySelector('.carousel-cells'),
-            hostElement: this.elementRef.nativeElement,
-            images: this.images,
-            cellWidth: this.getCellWidth(),
-            loop: this.loop,
-            autoplayInterval: this.autoplayInterval,
-            overflowCellsLimit: this.overflowCellsLimit,
-            visibleWidth: this.width,
-            margin: this.margin,
-            minSwipeDistance: this.minSwipeDistance,
-            transitionDuration: 200,
-            transitionTimingFunction: this.transitionTimingFunction,
-            eventHandler: this.events,
-            freeScroll: this.freeScroll,
+          cellsElement: this.elementRef.nativeElement.querySelector('.carousel-cells'),
+          hostElement: this.elementRef.nativeElement,
+          images: this.images,
+          cellWidth: this.getCellWidth(),
+          loop: this.loop,
+          autoplayInterval: this.autoplayInterval,
+          overflowCellsLimit: this.overflowCellsLimit,
+          visibleWidth: this.width,
+          margin: this.margin,
+          minSwipeDistance: this.minSwipeDistance,
+          transitionDuration: this.transitionDuration,
+          transitionTimingFunction: this.transitionTimingFunction,
+          videoProperties: this.videoProperties,
+          eventHandler: this.events,
+          freeScroll: this.freeScroll,
+          lightDOM: this.lightDOM
         };
 
         this.utils = new Utils(this.carouselProperties);
         this.cells = new Cells(this.carouselProperties, this.utils);
         this.container = new Container(this.carouselProperties, this.utils, this.cells);
         this.slide = new Slide(this.carouselProperties, this.utils, this.cells, this.container);
-        this.carousel = new Carousel(this.carouselProperties, this.utils, this.cells, this.container, this.slide);
-        //this.carousel.autoplay();
+      this.carousel = new Carousel(this.carouselProperties, this.utils, this.cells, this.container, this.slide);
+      this.carousel.autoplay();
     }
 
     resize() {

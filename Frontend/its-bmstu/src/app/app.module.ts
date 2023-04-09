@@ -38,8 +38,7 @@ import {MainPageComponent} from './pages/main-page/main-page.component';
     SlickCarouselModule,
     RouterModule.forRoot([
       {path: '', component: MainPageComponent, pathMatch: 'full'},
-      // {path: 'todo', component: TodosAppComponent},
-      // {path: 'cv', component: ProgrammerAppComponent,},
+      {path: 'event', component: EventPageComponent},
     ]),
   ],
   providers: [],

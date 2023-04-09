@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import {UrlsProviderService} from "../../../../services/urls-provider.service";
 
 import {Photo} from "../../event-page/photo";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-events-collection',
@@ -11,8 +12,13 @@ import {Photo} from "../../event-page/photo";
 export class EventsCollectionComponent {
   private _urlsProviderService: UrlsProviderService;
   photos: Photo[] = [];
-  constructor(urlsProviderService: UrlsProviderService) {
+  private _router: Router;
+
+  constructor(urlsProviderService: UrlsProviderService,
+              router: Router) {
     this._urlsProviderService = urlsProviderService;
+    this._router = router;
+
     this.downloadEvents();
 
   }
@@ -24,15 +30,24 @@ export class EventsCollectionComponent {
         const typedEvents = events as EventsCollectionDto;
         let columnSizes: number[] = [6, 6, 4, 4, 4, 4];
         for (let i = 0; i < typedEvents.count; i++) {
-          let url = typedEvents.results[i].short_description;
-          this.photos.push(new Photo(url, columnSizes[i]));
+          let event = typedEvents.results[i];
+          let navigationUrl = this._urlsProviderService.getEventUrl(event.slug);
+          //TODO fix image url
+          let imageUrl = "http://its-bmstu.ru/media/actions/photo/uf2N3P_Uxtc_U9VAnvJ.jpg";
+
+          this.photos.push(new Photo(imageUrl, navigationUrl, columnSizes[i]));
         }
 
       });
   }
+
+  navigateToEvent(photo: Photo) {
+    this._router.navigateByUrl("event");
+  }
 }
 
 export interface EventDto {
+  imageUrl: string | undefined;
   slug: string;
   title: string;
   description: string;

@@ -1,10 +1,12 @@
 export class Photo {
-  url: string;
+  imageSrc: string;
   columnSize: number;
   columnClass: string;
+  url: string;
 
-  constructor(url: string, columnSize: number = 6) {
+  constructor(imageSrc: string, url: string, columnSize: number = 6) {
     this.url = url;
+    this.imageSrc = imageSrc;
     this.columnSize = columnSize;
     this.columnClass = "col-" + columnSize;
   }

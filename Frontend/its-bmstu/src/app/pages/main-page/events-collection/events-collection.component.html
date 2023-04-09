@@ -1,8 +1,8 @@
 <div class="photo-block container">
   <div class="row">
-    <div class="{{photo.columnClass}}" *ngFor="let photo of photos">
+    <div class="{{photo.columnClass}}" *ngFor="let photo of photos" (click)="navigateToEvent(photo)">
       <div class="photo-container other-images-container">
-        <img src="{{photo.url}}">
+        <img src="{{photo.imageSrc}}">
       </div>
     </div>
   </div>

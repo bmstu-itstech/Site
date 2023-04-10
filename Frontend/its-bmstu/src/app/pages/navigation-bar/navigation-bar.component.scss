@@ -1,48 +1,29 @@
 @import '../../../styles/colors.scss';
 @import '../../../styles/fonts.scss';
 
-.navigation-bar {
-  background-color: $color-dark;
-  color: $color-white;
-}
-
-.navigation-bar .col-2 {
-  display: flex;
-  align-items: center;
-}
-
-.col-2 {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 7vw;
-}
-
-.button {
-  border: solid $color-dark 1px;
-  text-align: center;
-  background-color: $color-dark;
-  color: $color-white;
-  font-size: 1vw;
-  cursor: pointer;
-  font-family: $font-montserrat;
-  justify-content: center;
-  transition: all 0.2s ease-in-out
-}
-
-.nav-link {
-  padding: 0;
-}
-
-.button:hover {
-  border-bottom: 2px solid $color-white;
-  text-decoration: dashed;
-}
-
 .logo-img {
+  margin-left: 7vw;
+  margin-right: 10vw;
   width: 5vw;
 }
 
 .translate-img {
   width: 2.5vw;
+}
+
+.navbar {
+  background-color: $color-dark;
+}
+
+.nav-link {
+  color: white;
+  font-family: $font-montserrat;
+  font-size: 1vw;
+  margin-right: 3vw;
+}
+
+@media (max-width: 991px) {
+  .translate-img {
+    display: none;
+  }
 }

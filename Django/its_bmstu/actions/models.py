@@ -66,10 +66,9 @@ class Partner(models.Model):
         verbose_name = "Партнёр"
         verbose_name_plural = "Партнёры"
 
-    action = models.ForeignKey("Action", on_delete=models.CASCADE,
-                               related_name="partners")
+    actions = models.ManyToManyField(Action)
     name = models.CharField(max_length=255, verbose_name="Название")
-    photo = models.ImageField(verbose_name="Фотография",
+    icon = models.ImageField(verbose_name="Иконка",
                               upload_to='actions/photo_partner',
                               blank=False, unique=True)
     url = models.URLField(verbose_name="Ссылка", max_length=255)

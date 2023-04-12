@@ -25,10 +25,9 @@ class PhotoAdmin(admin.TabularInline):
     image_tag.short_description = 'Photo'
 
 
-class PartnerAdmin(admin.TabularInline):
-    model = Partner
+class PartnerAdmin(admin.StackedInline):
+    model = Partner.actions.through
     extra = 1
-    fields = ('name', 'url', 'photo')
 
 
 @admin.register(Action)
@@ -40,3 +39,9 @@ class ActionAdmin(admin.ModelAdmin):
     inlines = (LinkAdmin, PartnerAdmin, PhotoAdmin)
     add_form_template = "admin/change_form_actions.html"
     change_form_template = "admin/change_form_actions.html"
+
+
+@admin.register(Partner)
+class PartnerAdmin(admin.ModelAdmin):
+    fields = ('name', 'url', 'icon')
+

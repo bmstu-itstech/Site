@@ -21,7 +21,7 @@ class Action(models.Model):
     main_organizer = models.URLField(verbose_name="Главный организатор",
                                      max_length=255, blank=True)
     video = models.FileField(verbose_name="Видео",
-                             upload_to='actions/videos',
+                             upload_to='actions/video',
                              blank=True,
                              validators=[FileExtensionValidator(
                                  allowed_extensions=['MOV', 'avi', 'mp4',
@@ -66,12 +66,11 @@ class Partner(models.Model):
         verbose_name = "Партнёр"
         verbose_name_plural = "Партнёры"
 
-    action = models.ForeignKey("Action", on_delete=models.CASCADE,
-                               related_name="partners")
+    actions = models.ManyToManyField(Action, related_name="partners")
     name = models.CharField(max_length=255, verbose_name="Название")
-    photo = models.ImageField(verbose_name="Фотография",
-                              upload_to='actions/photo_partner',
-                              blank=False, unique=True)
+    icon = models.ImageField(verbose_name="Иконка",
+                             upload_to='actions/photo_partner',
+                             blank=False, unique=True)
     url = models.URLField(verbose_name="Ссылка", max_length=255)
 
     def __str__(self):

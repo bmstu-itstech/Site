@@ -21,7 +21,7 @@ class Action(models.Model):
     main_organizer = models.URLField(verbose_name="Главный организатор",
                                      max_length=255, blank=True)
     video = models.FileField(verbose_name="Видео",
-                             upload_to='actions/videos',
+                             upload_to='actions/video',
                              blank=True,
                              validators=[FileExtensionValidator(
                                  allowed_extensions=['MOV', 'avi', 'mp4',

@@ -69,8 +69,8 @@ class Partner(models.Model):
     actions = models.ManyToManyField(Action)
     name = models.CharField(max_length=255, verbose_name="Название")
     icon = models.ImageField(verbose_name="Иконка",
-                              upload_to='actions/photo_partner',
-                              blank=False, unique=True)
+                             upload_to='actions/photo_partner',
+                             blank=False, unique=True)
     url = models.URLField(verbose_name="Ссылка", max_length=255)
 
     def __str__(self):

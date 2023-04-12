@@ -12,7 +12,7 @@ class SocialNetworkLinkSerializer(serializers.ModelSerializer):
 class PartnerSerializer(serializers.ModelSerializer):
     class Meta:
         model = Partner
-        fields = ('name', 'url', 'photo')
+        fields = ('name', 'url', 'icon')
 
 
 class PhotoSerializer(serializers.ModelSerializer):

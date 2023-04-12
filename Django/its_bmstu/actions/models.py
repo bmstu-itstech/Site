@@ -66,7 +66,7 @@ class Partner(models.Model):
         verbose_name = "Партнёр"
         verbose_name_plural = "Партнёры"
 
-    actions = models.ManyToManyField(Action)
+    actions = models.ManyToManyField(Action, related_name="partners")
     name = models.CharField(max_length=255, verbose_name="Название")
     icon = models.ImageField(verbose_name="Иконка",
                              upload_to='actions/photo_partner',

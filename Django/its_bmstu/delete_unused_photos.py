@@ -1,5 +1,7 @@
 import os
+import shutil
 import sqlite3
+import sys
 from pathlib import Path
 
 DEBUG = True
@@ -17,10 +19,10 @@ def get_photos_from_db():
     cur.close()
     con.close()
 
-    videos = set(filter(lambda x: x.split('/')[0:2] == ["actions", "video"],
+    videos = set(filter(lambda x: x.split('/')[0:2] == ["actions", "photo"],
                         videos))
 
-    return set(map(lambda x: PATH_TO_MEDIA / x, videos))
+    return videos
 
 
 def get_videos_from_db():
@@ -34,7 +36,16 @@ def get_videos_from_db():
     photos = set(filter(lambda x: x.split('/')[0:2] == ["actions", "video"],
                         photos))
 
-    return set(map(lambda x: PATH_TO_MEDIA / x, photos))
+    return photos
+
+
+def remote_object_from_media(removed_objects):
+    for obj in removed_objects:
+        if DEBUG:
+            shutil.move(PATH_TO_MEDIA / obj, PATH_TO_MEDIA / 'trash' / obj)
+        else:
+            os.remove(PATH_TO_MEDIA / obj)
+        print(f"rm {obj}")
 
 
 def remove_actions_images():
@@ -42,15 +53,13 @@ def remove_actions_images():
     if not actions_photo_path.is_dir():
         print(f"There is no \"{actions_photo_path}\"")
 
-    saved_photos = set(map(lambda x: actions_photo_path / x,
-                           os.listdir(actions_photo_path)))
-    saved_photos = set(filter(lambda x: x.is_file(),
-                              saved_photos))
+    saved_photos = set(filter(lambda x: (actions_photo_path / x).is_file(),
+                              os.listdir(actions_photo_path)))
+    saved_photos = set(map(lambda x: 'actions/photo/' + x, saved_photos))
+
     photos_from_db = get_photos_from_db()
 
-    for photo in saved_photos.difference(photos_from_db):
-        os.remove(photo)
-        print(f"rm {photo.name}")
+    remote_object_from_media(saved_photos.difference(photos_from_db))
 
 
 def remove_actions_videos():
@@ -58,24 +67,36 @@ def remove_actions_videos():
     if not actions_video_path.is_dir():
         print(f"There is no \"{actions_video_path}\"")
 
-    saved_videos = set(map(lambda x: actions_video_path / x,
-                           os.listdir(actions_video_path)))
-    saved_videos = set(filter(lambda x: x.is_file(),
-                              saved_videos))
+    saved_videos = set(filter(lambda x: (actions_video_path / x).is_file(),
+                              os.listdir(actions_video_path)))
+    saved_videos = set(map(lambda x: 'actions/video/' + x, saved_videos))
+
     videos_from_db = get_videos_from_db()
 
-    for video in saved_videos.difference(videos_from_db):
-        os.remove(video)
-        print(f"rm {video.name}")
+    remote_object_from_media(saved_videos.difference(videos_from_db))
 
 
 def main():
+    global DEBUG
+
+    if len(sys.argv) == 2 and sys.argv[1] == '--prod':
+        DEBUG = False
+
+    if DEBUG and not (PATH_TO_MEDIA / 'trash').is_dir():
+        os.makedirs(PATH_TO_MEDIA / 'trash')
+        os.makedirs(PATH_TO_MEDIA / 'trash' / 'actions')
+        os.makedirs(PATH_TO_MEDIA / 'trash' / 'actions' / 'photo')
+        os.makedirs(PATH_TO_MEDIA / 'trash' / 'actions' / 'video')
+
     if not PATH_TO_MEDIA.is_dir():
         print(f"There is no \"{PATH_TO_MEDIA}\"")
         return
     if not PATH_TO_DB.is_file():
         print(f"There is no \"{PATH_TO_DB}\"")
         return
+
+    if DEBUG:
+        print("\tDEBUG MODE")
 
     print("Removing actions images...")
     remove_actions_images()

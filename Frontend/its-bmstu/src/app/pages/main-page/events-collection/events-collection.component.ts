@@ -42,7 +42,7 @@ export class EventsCollectionComponent {
           console.info(event)
           let navigationUrl = this._urlsProviderService.getEventUrl(event.slug);
           //TODO fix image url
-          let imageUrl = "https://its-bmstu.ru/media/actions/photo/uf2N3P_Uxtc_U9VAnvJ.jpg";
+          let imageUrl = "http://its-bmstu.ru/media/actions/photo/uf2N3P_Uxtc_U9VAnvJ.jpg";
 
           this.photos.push(new Photo(imageUrl, null, event, columnSizes[i]));
         }

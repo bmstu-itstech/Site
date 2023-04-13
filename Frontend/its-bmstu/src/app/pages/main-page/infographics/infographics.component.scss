@@ -3,15 +3,16 @@
 
 div {
     background-color: #14104B;
-    font-family: $font-montserrat;
 }
 
 .infographics {
-    padding-bottom: 8vw;
+    padding-bottom: 150px;
 }
+
 
 .title {
     padding-top: 5%;
+    font-family: 'Montserrat';
     font-style: normal;
     font-weight: 700;
     font-size: 7vw;
@@ -19,7 +20,7 @@ div {
     text-transform: uppercase;
     color: #FFFFFF;
     opacity: 0.4;
-    margin-bottom: 3.2vw;
+    margin-bottom: 60px;
 }
 
 .blocks {
@@ -35,17 +36,18 @@ div {
     position: relative;
     width: 100%;
     clear: both;
-    margin-bottom: 2.1vw;
+    margin-bottom: 40px;
 }
 
 .rec {
-    width: 39vw;
-    height: 19vw;
+    width: 748px;
+    height: 355px;
     background: rgba(255, 255, 255, 0.25);
     backdrop-filter: blur(18px);
-    border-radius: 2.1vw;
-    margin-left: 1.3vw;
-    margin-right: 1.3vw;
+    border-radius: 40px;
+    margin-left: 25px;
+    margin-right: 25px;
+    transition: 0.2s ease-in-out;
     position: relative;
 }
 
@@ -55,15 +57,15 @@ div {
     justify-content: center;
     align-items: center;
     position: absolute;
-    z-index: 1;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 25vw;
-    height: 25vw;
+    width: 470px;
+    height: 470px;
     border-radius: 50%;
     background: rgba(20, 16, 75, 0.8);
     backdrop-filter: blur(22px);
+    z-index: 100;
     box-shadow: 0px 0px 35px rgba(255, 255, 255, 0.6);
   }
 
@@ -79,8 +81,9 @@ div {
     height: 50%;
     width: 100%;
     color: white;
-    font-size: 3.2vw;
+    font-size: 60px;
     text-decoration: none;
+    font-family: 'Montserrat';
     font-style: normal;
 }
 
@@ -92,8 +95,9 @@ div {
     height: 30%;
     width: 100%;
     color: white;
-    font-size: 1.8vw;
+    font-size: 35px;
     text-decoration: none;
+    font-family: 'Montserrat';
     font-style: normal;
 }
 
@@ -105,146 +109,32 @@ div {
     height: 40%;
     width: 100%;
     color: white;
-    font-size: 2.3vw;
+    font-size: 45px;
     text-decoration: none;
-    font-style: normal;
-}
-
-.hover-circ-text-1 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    height: 50%;
-    width: 100%;
-    color: #14104B;
-    font-size: 3.2vw;
-    text-decoration: none;
-    font-style: normal;
-}
-
-.hover-circ-text-2 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    height: 30%;
-    width: 100%;
-    color: #14104B;
-    font-size: 1.8vw;
-    text-decoration: none;
-    font-style: normal;
-}
-
-.hover-circ-text-3 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    height: 40%;
-    width: 100%;
-    color: #14104B;
-    font-size: 2.3vw;
-    text-decoration: none;
+    font-family: 'Montserrat';
     font-style: normal;
 }
 
 .rec:hover {
-    box-shadow: 0 0 3vw rgba(255, 255, 255, 0.6);
-    z-index: 2;
+    box-shadow: 0px 0px 35px rgba(255, 255, 255, 0.6);
 }
 
-.title-left {
+.rec-text-left {
     position: absolute;
     text-decoration: none;
     color: #FFFFFF;
     top: 20%;
     left: 10%;
-    font-size: 1.9vw;
+    font-size: 35px;
+    font-family: 'Montserrat';
 }
 
-.title-right {
+.rec-text-right {
     position: absolute;
     text-decoration: none;
     color: #FFFFFF;
     top: 20%;
     right: 10%;
-    font-size: 1.9vw;
-}
-
-.hover-rec {
-    display: flex;
-    flex-direction: column;
-    position: absolute;
-    opacity: 0;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    justify-content: center;
-    align-items: center;
-    background-color: #ffffff;
-    border-radius: 2.1vw;
-}
-
-.hover-circ {
-    display: flex;
-    flex-direction: column;
-    position: absolute;
-    opacity: 0;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    justify-content: center;
-    align-items: center;
-    background-color: #ffffff;
-    border-radius: 50%;
-}
-
-.rec:hover .hover-rec {
-    z-index: 3;
-    opacity: 1;
-    transition: opacity .7s ease-in-out;
-}
-
-.circ:hover .hover-circ {
-    z-index: 3;
-    opacity: 1;
-    transition: opacity .7s ease-in-out;
-}
-
-.hover-title {
-    font-size: 1.7vw;
-    color: #14104B;
-}
-
-.hover-text {
-    padding-top: 5%;
-    font-size: 1.1vw;
-    color: #14104B;
-}
-
-.hover-button {
-    margin-top: 3vw;
-    background: $color-dark;
-    color: $color-white;
-    font-size: 1.2vw;
-    border-radius: 1vw;
-    border: 1px solid $color-dark;
-    height: 3vw;
-    width: 15vw;
-    transition: 0.2s ease-in-out;
-}
-
-.hover-circ-button {
-    background: $color-dark;
-    color: $color-white;
-    font-size: 1.1vw;
-    border-radius: 1vw;
-    border: 1px solid $color-dark;
-    height: 2.6vw;
-    width: 12vw;
-    margin-top: 3%;
-    margin-bottom: 8%;
+    font-size: 35px;
+    font-family: 'Montserrat';
 }

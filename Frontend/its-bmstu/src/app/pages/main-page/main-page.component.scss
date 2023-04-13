@@ -1,62 +1,6 @@
 @import '../../../styles/colors.scss';
 @import '../../../styles/fonts.scss';
 
-.main-page {
-  background-size: 100%;
-  height: 44vw;
-}
-
-#background-video {
-  width: 100vw;
-  height: 100vh;
-  object-fit: cover;
-  position: fixed;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  z-index: -1;
-}
-
-.title {
-  padding-top: 8vw;
-  font-size: 5vw;
-  text-shadow: $color-dark 1px;
-  font-weight: 400;
-}
-
-.text-bold {
-  font-weight: bold;
-  margin-top: 3vw;
-  margin-bottom: 2vw;
-  font-size: 1.3vw;
-  text-shadow: $color-dark 1px;
-}
-
-.text-regular {
-  margin: 0;
-  font-size: 1.3vw;
-}
-
-.text-block {
-  margin-left: 8%;
-  font-family: $font-montserrat;
-  color: $color-white;
-}
-
-.button {
-  margin-top: 5vw;
-  background: $color-dark;
-  color: $color-white;
-  font-family: $font-montserrat;
-  font-size: 1.2vw;
-  border-radius: 1vw;
-  border: 1px solid $color-dark;
-  height: 3vw;
-  width: 15vw;
-  transition: 0.2s ease-in-out;
-}
-
-.button:hover {
-  box-shadow: 0px 0px 1.5vw rgba(255, 255, 255, 0.8);
+.host {
+  background-color: $color-dark
 }

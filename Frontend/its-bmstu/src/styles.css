@@ -1,5 +1,10 @@
 html {
-    width: 100%;
-    max-width: 100%;
-    overflow-x: hidden;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* TODO add with scss*/
+body {
+  background-color: #14104B;
 }

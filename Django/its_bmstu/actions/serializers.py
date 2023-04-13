@@ -1,18 +1,12 @@
 from rest_framework import serializers
 
-from actions.models import Action, Photo, SocialNetworkLink, Partner
+from actions.models import Action, Photo, SocialNetworkLink
 
 
 class SocialNetworkLinkSerializer(serializers.ModelSerializer):
     class Meta:
         model = SocialNetworkLink
         fields = ('name', 'url')
-
-
-class PartnerSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Partner
-        fields = ('name', 'url', 'icon')
 
 
 class PhotoSerializer(serializers.ModelSerializer):
@@ -26,12 +20,11 @@ class PhotoSerializer(serializers.ModelSerializer):
 
 class ActionDetailSerializer(serializers.ModelSerializer):
     links = SocialNetworkLinkSerializer(many=True)
-    partners = PartnerSerializer(many=True)
 
     class Meta:
         model = Action
         fields = ('title', 'description', 'short_description',
-                  'main_organizer', 'links', 'partners', 'video', 'slug')
+                  'main_organizer', 'links', 'video', 'slug')
 
 
 class ActionListSerializer(serializers.ModelSerializer):

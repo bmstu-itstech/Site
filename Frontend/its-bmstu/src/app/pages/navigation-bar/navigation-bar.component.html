@@ -1,41 +1,25 @@
-<div class="navigation-bar">
-  <div class="container">
-    <div class="row">
-      <div class="col-2 logo">
-        <img class="logo-img" src="../../../assets/icons/logo.svg" alt="лого">
-      </div>
-      <div class="col-2">
-        <button class="button" [routerLinkActive]="['link-active']">
-          <a [routerLink]="['/main-page']" class="nav-link text-white">
-            Об организации
-          </a>
-        </button>
-      </div>
-      <div class="col-2">
-        <button class="button" [routerLinkActive]="['link-active']">
-          <a [routerLink]="['/event-page']" class="nav-link text-white">
-            Инфографика
-          </a>
-        </button>
-      </div>
-      <div class="col-2">
-        <button class="button" [routerLinkActive]="['link-active']">
-          <a [routerLink]="['/event-page']" class="nav-link text-white">
-            Мероприятия
-          </a>
-        </button>
-      </div>
-      <div class="col-2">
-        <button class="button" [routerLinkActive]="['link-active']">
-          <a [routerLink]="['/event-page']" class="nav-link text-white">
-            Контакты
-          </a>
-        </button>
-      </div>
-      <div class="col-2">
-        <img class="translate-img" src="../../../assets/icons/translate.svg" alt="кнопка перевода">
-      </div>
+<nav class="navbar navbar-expand-lg fixed-top">
+  <div class="container-fluid">
+    <div class="logo-img"><img src="../../../assets/icons/logo.svg" alt="лого"></div>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" href="#">Об организации</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Инфографика</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Мероприятия</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Контакты</a>
+        </li>
+      </ul>
+      <img class="translate-img" src="../../../assets/icons/translate.svg" alt="кнопка перевода">
     </div>
   </div>
-</div>
-
+</nav>

@@ -5,6 +5,6 @@ import { Component } from '@angular/core';
   templateUrl: './navigation-bar.component.html',
   styleUrls: ['./navigation-bar.component.scss']
 })
-export class NavigatonBarComponent {
+export class NavigationBarComponent {
 
 }

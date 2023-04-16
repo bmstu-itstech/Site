@@ -10,6 +10,17 @@
         коллег и просто хорошо провести время!</p>
     </div>
     <div class="col-5 button-block">
+      <div class="checkbox" (click)="toggleFirstCheckBox()">
+        <div class="checkbox-knob" [class.toggled]="firstCheckBoxValue">
+          <img ngSrc="assets/icons/first_checkbox.svg" alt="1" height="50" width="50">
+        </div>
+      </div>
+      <div *ngIf="firstCheckBoxValue" class="opened_checkbox_content">
+        <div class="text-regular">— Курсы по различным IT специальностям</div>
+        <div class="text-regular">— Мастер-классы и митапы</div>
+        <div class="text-regular">— Тематические выезды</div>
+        <div class="text-regular">— Конференции</div>
+      </div>
       <button class="button">Научно-образовательное направление</button>
       <button class="button">Проектное направление</button>
       <button class="button">Дополнительные активности</button>

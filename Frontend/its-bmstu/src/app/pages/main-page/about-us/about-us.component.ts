@@ -8,6 +8,11 @@ import {AboutCardLoadedProviderService} from "../../../../services/about-card-lo
 })
 export class AboutUsComponent {
 
+  firstCheckBoxValue: boolean = false;
+  secondCheckBoxValue: boolean = false;
+  thirdCheckBoxValue: boolean = false;
 
-
+  toggleFirstCheckBox() {
+    this.firstCheckBoxValue = !this.firstCheckBoxValue;
+  }
 }

@@ -46,20 +46,46 @@ div {
 }
 
 .button {
-    border: 0em;
-    background-color: #CBD4F3;
-    margin-bottom: 10%;
-    width: 40vw;
-    height: 5vw;
-    border-radius: 1.5vw;
-    font-size: 1.5vw;
-    font-weight: bold;
-    font-family: "Montserrat";
-    text-align: left;
-    padding-left: 2vw;
-    transition: 0.2s ease-in-out;
+  border: 0em;
+  background-color: #CBD4F3;
+  margin-bottom: 10%;
+  width: 40vw;
+  height: 5vw;
+  border-radius: 1.5vw;
+  font-size: 1.5vw;
+  font-weight: bold;
+  font-family: "Montserrat";
+  text-align: left;
+  padding-left: 2vw;
+  transition: 0.2s ease-in-out;
 }
 
 button:hover {
-    background-color: #8f8f8f;
+  background-color: #8f8f8f;
+}
+
+.checkbox {
+  background-color: white;
+  border-radius: 16px;
+  overflow: hidden;
+  width: 100px;
+}
+
+.checkbox-knob {
+  background-color: #CBD4F3;
+  round-clip: 50%;
+  width: 50px;
+}
+
+.checkbox-knob.toggled {
+  //background-color: #8f8f8f;
+  // move 50px right
+  transform: translateX(50px);
+  transition: 0.2s ease-in-out;
+
+}
+
+.opened_checkbox_content {
+  padding: 50px;
+  background-color: white;
 }

@@ -17,6 +17,7 @@ import {EventsCollectionComponent} from './pages/main-page/events-collection/eve
 import {MainPageComponent} from './pages/main-page/main-page.component';
 import {Carousel2Component} from './carousel2/carousel2.component';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {NgOptimizedImage} from "@angular/common";
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
       {path: '', component: MainPageComponent, pathMatch: 'full'},
       {path: 'event', component: EventPageComponent},
     ], {scrollPositionRestoration: 'top'}),
+    NgOptimizedImage,
   ],
   providers: [],
   bootstrap: [AppComponent]

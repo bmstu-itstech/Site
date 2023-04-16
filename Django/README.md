@@ -1,12 +1,14 @@
 # ITS BMSTU Site
 
-### Для запуска
-
+### Для запуска:
 ```shell
 python manage.py runserver
 ```
 
-### Для первого запуска
+### На проде:
+
+
+### Для первого запуска:
 
 Создать файл .env с переменными:
 
@@ -15,8 +17,8 @@ SECRET_KEY="..."
 ```
 
 Выполнить:
-
 ```shell
+python manage.py collectstatic
 python manage.py migrate 
 python manage.py runserver
 ```

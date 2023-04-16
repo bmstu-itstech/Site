@@ -1,12 +1,12 @@
-import {NgModule} from '@angular/core';
-import {RouterModule, Routes} from '@angular/router';
-import {EventPageComponent} from "./pages/event-page/event-page.component";
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
+import {EventsComponent} from "./pages/events/events.component";
 import {AppComponent} from "./app.component";
-import {MainPageHeaderCardComponent} from "./pages/main-page/header/main-page-header-card.component";
+import {MainPageComponent} from "./pages/main-page/main-page.component";
 
 const routes: Routes = [
-  {path: 'events', component: EventPageComponent},
-  {path: 'main-page', component: MainPageHeaderCardComponent}
+  { path: 'events', component: EventsComponent },
+  { path: 'main-page', component: MainPageComponent }
 ];
 
 @NgModule({

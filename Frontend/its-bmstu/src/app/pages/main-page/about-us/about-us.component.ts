@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {AboutCardLoadedProviderService} from "../../../../services/about-card-loaded-provider.service";
 
 @Component({
   selector: 'app-about-us',
@@ -6,5 +7,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./about-us.component.scss']
 })
 export class AboutUsComponent {
+
+
 
 }

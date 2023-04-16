@@ -43,7 +43,7 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
     RouterModule.forRoot([
       {path: '', component: MainPageComponent, pathMatch: 'full'},
       {path: 'event', component: EventPageComponent},
-    ]),
+    ], {scrollPositionRestoration: 'top'}),
   ],
   providers: [],
   bootstrap: [AppComponent]

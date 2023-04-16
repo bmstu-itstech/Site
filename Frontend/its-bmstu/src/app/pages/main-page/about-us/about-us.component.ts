@@ -15,4 +15,8 @@ export class AboutUsComponent {
   toggleFirstCheckBox() {
     this.firstCheckBoxValue = !this.firstCheckBoxValue;
   }
+
+  toggleSecondCheckBox() {
+    this.secondCheckBoxValue = !this.secondCheckBoxValue;
+  }
 }

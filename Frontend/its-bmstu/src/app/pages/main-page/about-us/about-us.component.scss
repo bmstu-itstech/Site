@@ -2,7 +2,7 @@
 @import '../../../../styles/fonts';
 
 div {
-    background-color: #14104B;
+    //background-color: #14104B;
 }
 
 .row {
@@ -68,24 +68,71 @@ button:hover {
   background-color: white;
   border-radius: 16px;
   overflow: hidden;
-  width: 100px;
+  width: 8vw;
+  height: 4vw;
+  //width: 100px;
 }
 
 .checkbox-knob {
   background-color: #CBD4F3;
   round-clip: 50%;
-  width: 50px;
+  width: 4vw;
+  height: 4vw;
+  transition: 0.2s ease-in-out;
+  border-radius: 16px;
+}
+
+.checkbox-knob img {
+  height: 100%;
+  width: auto;
 }
 
 .checkbox-knob.toggled {
   //background-color: #8f8f8f;
   // move 50px right
-  transform: translateX(50px);
-  transition: 0.2s ease-in-out;
+  transform: translateX(4.1vw);
+
 
 }
 
 .opened_checkbox_content {
   padding: 50px;
   background-color: white;
+  padding-top: 150px;
+}
+
+.opened_checkbox_content .text-regular {
+  color: black;
+}
+
+
+.about-item {
+  background-color: #CBD4F3;
+
+  width: 40vw;
+  //height: 5vw;
+  border-radius: 1.5vw;
+  font-size: 1.5vw;
+  font-weight: bold;
+  font-family: $font-montserrat;
+  text-align: left;
+  padding: 1.3vw 2vw;
+  transition: 0.2s ease-in-out;
+  //position: absolute;
+  //display: inline-block;
+}
+
+.about-item:first-child {
+  margin-top: 0;
+}
+
+.about-item-container {
+  position: relative;
+  margin-top: 10%;
+
+}
+
+.about-item-card {
+  position: absolute;
+  display: inline-block;
 }

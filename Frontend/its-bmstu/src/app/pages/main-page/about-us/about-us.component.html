@@ -10,20 +10,72 @@
         коллег и просто хорошо провести время!</p>
     </div>
     <div class="col-5 button-block">
-      <div class="checkbox" (click)="toggleFirstCheckBox()">
-        <div class="checkbox-knob" [class.toggled]="firstCheckBoxValue">
-          <img ngSrc="assets/icons/first_checkbox.svg" alt="1" height="50" width="50">
+
+      <div class="about-item-container">
+        <div *ngIf="firstCheckBoxValue" class="opened_checkbox_content about-item-card">
+          <div class="text-regular">— Курсы по различным IT специальностям</div>
+          <div class="text-regular">— Мастер-классы и митапы</div>
+          <div class="text-regular">— Тематические выезды</div>
+          <div class="text-regular">— Конференции</div>
+        </div>
+        <div class="about-item row">
+          <div class="col-9">
+            Научно-образовательное направление
+          </div>
+          <div class="col-3">
+            <div class="checkbox " (click)="toggleFirstCheckBox()">
+              <div class="checkbox-knob" [class.toggled]="firstCheckBoxValue">
+                <img ngSrc="assets/icons/first_checkbox.svg" alt="1" height="50" width="50">
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="about-item-container">
+        <div *ngIf="secondCheckBoxValue" class="second_opened_checkbox_content">
+          <div class="text-regular">— Курсы по различным IT специальностям</div>
+          <div class="text-regular">— Мастер-классы и митапы</div>
+          <div class="text-regular">— Тематические выезды</div>
+          <div class="text-regular">— Конференции</div>
+        </div>
+        <div class="about-item row">
+          <div class="col-9">
+            Проектное направление
+          </div>
+          <div class="col-3">
+            <div class="checkbox " (click)="toggleSecondCheckBox()">
+              <div class="checkbox-knob" [class.toggled]="secondCheckBoxValue">
+                <img ngSrc="assets/icons/second_checkbox.svg" alt="1">
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-      <div *ngIf="firstCheckBoxValue" class="opened_checkbox_content">
-        <div class="text-regular">— Курсы по различным IT специальностям</div>
-        <div class="text-regular">— Мастер-классы и митапы</div>
-        <div class="text-regular">— Тематические выезды</div>
-        <div class="text-regular">— Конференции</div>
-      </div>
-      <button class="button">Научно-образовательное направление</button>
-      <button class="button">Проектное направление</button>
-      <button class="button">Дополнительные активности</button>
+
+
+      <!--      <div class="about-item row">-->
+      <!--        <div class="col-9">-->
+      <!--          Научно-образовательное направление-->
+      <!--        </div>-->
+      <!--        <div class="col-3">-->
+      <!--          <div class="checkbox " (click)="toggleFirstCheckBox()">-->
+      <!--            <div class="checkbox-knob" [class.toggled]="firstCheckBoxValue">-->
+      <!--              <img ngSrc="assets/icons/first_checkbox.svg" alt="1" height="50" width="50">-->
+      <!--            </div>-->
+      <!--          </div>-->
+      <!--        </div>-->
+      <!--      </div>-->
+      <!--      <div *ngIf="firstCheckBoxValue" class="opened_checkbox_content">-->
+      <!--        <div class="text-regular">— Курсы по различным IT специальностям</div>-->
+      <!--        <div class="text-regular">— Мастер-классы и митапы</div>-->
+      <!--        <div class="text-regular">— Тематические выезды</div>-->
+      <!--        <div class="text-regular">— Конференции</div>-->
+      <!--      </div>-->
+      <!--      <button class="button">Научно-образовательное направление</button>-->
+      <!--      <button class="button">Проектное направление</button>-->
+      <!--      <button class="button">Дополнительные активности</button>-->
     </div>
     </div>
 </div>

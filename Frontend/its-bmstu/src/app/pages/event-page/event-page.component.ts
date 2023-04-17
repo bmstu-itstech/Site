@@ -51,5 +51,9 @@ export class EventPageComponent {
 
     //fetch("https://its-bmstu.ru/api/v0/actions/informacionnaya-bezopasnost/photos?format=json")
   }
+
+  goBack() {
+    this.router.navigate(['/']);
+  }
 }
 

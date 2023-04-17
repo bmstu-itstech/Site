@@ -70,8 +70,12 @@
   box-shadow: 4.53676px 5.67095px 9.07352px rgba(0, 0, 0, 0.25), inset 6.80514px 6.80514px 34.0257px rgba(255, 255, 255, 0.45);
   backdrop-filter: blur(28.3548px);
   /* Note: backdrop-filter has minimal browser support */
-
+  transition: 0.2s ease-in-out;
   border-radius: 75.9908px;
+}
+
+.checkbox.toggled {
+  background-color: #3CD85E;
 }
 
 .checkbox-knob {
@@ -93,8 +97,8 @@
 }
 
 .checkbox-knob.toggled {
-  //background-color: #8f8f8f;
-  // move 50px right
+
+
   transform: translateX(4.1vw);
 
 

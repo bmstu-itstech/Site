@@ -18,7 +18,7 @@
             Научно-образовательное направление
           </div>
           <div class="col-3">
-            <div class="checkbox " (click)="toggleFirstCheckBox()">
+            <div class="checkbox " (click)="toggleFirstCheckBox()" [class.toggled]="firstCheckBoxValue">
               <div class="checkbox-knob text-center" [class.toggled]="firstCheckBoxValue">
                 <img ngSrc="assets/icons/first_checkbox.svg" alt="1" height="34" width="34">
               </div>
@@ -40,7 +40,7 @@
             Проектное направление
           </div>
           <div class="col-3">
-            <div class="checkbox " (click)="toggleSecondCheckBox()">
+            <div class="checkbox" (click)="toggleSecondCheckBox()" [class.toggled]="secondCheckBoxValue">
               <div class="checkbox-knob text-center" [class.toggled]="secondCheckBoxValue">
                 <img ngSrc="assets/icons/second_checkbox.svg" alt="1" height="34" width="34">
               </div>
@@ -61,7 +61,7 @@
             Дополнительные активности
           </div>
           <div class="col-3">
-            <div class="checkbox " (click)="toggleThirdCheckBox()">
+            <div class="checkbox " (click)="toggleThirdCheckBox()" [class.toggled]="thirdCheckBoxValue">
               <div class="checkbox-knob text-center" [class.toggled]="thirdCheckBoxValue">
                 <img ngSrc="assets/icons/third_checkbox.svg" alt="1" height="34" width="34">
               </div>

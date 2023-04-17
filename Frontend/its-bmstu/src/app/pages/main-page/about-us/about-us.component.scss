@@ -22,10 +22,10 @@
 }
 
 .text-block {
-    margin-top: 5%;
-    margin-left: 10%;
-    padding-bottom: 10vw;
-    font-family: $font-montserrat;
+  margin-top: 5%;
+  padding-left: 10%;
+  padding-bottom: 10vw;
+  font-family: $font-montserrat;
 }
 
 .text-regular {
@@ -37,8 +37,8 @@
 }
 
 .button-block {
-    margin-left: 10%;
-    margin-top: 11%;
+  padding-left: 10%;
+  margin-top: 11%;
 }
 
 
@@ -110,7 +110,7 @@
   vertical-align: middle;
   display: flex;
   align-items: center;
-  
+
 }
 
 .about-item:first-child {

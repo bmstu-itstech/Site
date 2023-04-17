@@ -113,9 +113,7 @@
 
 .about-item {
   background-color: #CBD4F3;
-
   width: 40vw;
-  //height: 5vw;
   border-radius: 1.5vw;
   font-size: 1.5vw;
   font-weight: bold;
@@ -123,8 +121,12 @@
   text-align: left;
   padding: 1.3vw 2vw;
   transition: 0.2s ease-in-out;
-  //position: absolute;
-  //display: inline-block;
+}
+
+.about-item-title {
+  vertical-align: middle;
+  display: flex;
+  align-items: center;
 }
 
 .about-item:first-child {

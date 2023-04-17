@@ -1,32 +1,57 @@
-<div id="about-us-id" class="host">
-  <h1 class="title">Об организации</h1>
-  <div class="row">
-    <div class="col-4 text-block">
-      <p class="text-regular">Мы студенты МГТУ им. Н. Э. Баумана, и спокойная жизнь нам только снится. Каждый день, наша
-        команда старается сделать мир чуточку лучше, создавая сложные программы и решая нерешаемые задачи. Кто-то из нас
-        управляет IT отделами, а кто-то рисует и создаёт красивые интерфейсы. Кто-то защищает нас от киберугроз,
-        разрабатывает мобильные приложения, поёт, танцует. Кто-то паяет микросхемы, запускает ракеты! Вместе мы
-        многогранная команда, желающая поделиться с окружающими своими знаниями, эмоциями, найти новых друзей, будущих
-        коллег и просто хорошо провести время!</p>
-    </div>
-    <div class="col-5 button-block">
+<div class="host" id="about-us-id">
+  <div class="container">
+    <h1 class="title">Об организации</h1>
+    <div class="row">
+      <div class="col-4 text-block">
+        <p class="text-regular">Мы студенты МГТУ им. Н. Э. Баумана, и спокойная жизнь нам только снится. Каждый день,
+          наша
+          команда старается сделать мир чуточку лучше, создавая сложные программы и решая нерешаемые задачи. Кто-то из
+          нас
+          управляет IT отделами, а кто-то рисует и создаёт красивые интерфейсы. Кто-то защищает нас от киберугроз,
+          разрабатывает мобильные приложения, поёт, танцует. Кто-то паяет микросхемы, запускает ракеты! Вместе мы
+          многогранная команда, желающая поделиться с окружающими своими знаниями, эмоциями, найти новых друзей, будущих
+          коллег и просто хорошо провести время!</p>
+      </div>
+      <div class="col-5 button-block">
 
-      <div class="about-item-container">
-
-        <div class="about-item row">
-          <div class="col-9 about-item-title">
-            Научно-образовательное направление
-          </div>
-          <div class="col-3">
-            <div class="checkbox " (click)="toggleFirstCheckBox()" [class.toggled]="firstCheckBoxValue">
-              <div class="checkbox-knob text-center" [class.toggled]="firstCheckBoxValue">
-                <img ngSrc="assets/icons/first_checkbox.svg" alt="1" height="34" width="34">
+        <div class="about-item-container">
+          <div class="about-item row">
+            <div class="col-9 about-item-title">
+              Научно-образовательное направление
+            </div>
+            <div class="col-3">
+              <div (click)="toggleFirstCheckBox()" [class.toggled]="firstCheckBoxValue" class="checkbox">
+                <div [class.toggled]="firstCheckBoxValue" class="checkbox-knob text-center">
+                  <img alt="1" height="34" src="assets/icons/first_checkbox.svg" width="34">
+                </div>
               </div>
             </div>
           </div>
 
+          <div *ngIf="firstCheckBoxValue" class="row opened_checkbox_content">
+            <div class="text-regular">— Курсы по различным IT специальностям</div>
+            <div class="text-regular">— Мастер-классы и митапы</div>
+            <div class="text-regular">— Тематические выезды</div>
+            <div class="text-regular">— Конференции</div>
+          </div>
         </div>
-        <div *ngIf="firstCheckBoxValue" class="opened_checkbox_content about-item-card">
+
+      <div class="about-item-container">
+        <div class="about-item row">
+          <div class="col-9 about-item-title">
+            <div class="">
+              Проектное направление
+            </div>
+          </div>
+          <div class="col-3">
+            <div (click)="toggleSecondCheckBox()" [class.toggled]="secondCheckBoxValue" class="checkbox">
+              <div [class.toggled]="secondCheckBoxValue" class="checkbox-knob text-center">
+                <img alt="1" height="34" src="assets/icons/second_checkbox.svg" width="34">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div *ngIf="secondCheckBoxValue" class="row opened_checkbox_content ">
           <div class="text-regular">— Курсы по различным IT специальностям</div>
           <div class="text-regular">— Мастер-классы и митапы</div>
           <div class="text-regular">— Тематические выезды</div>
@@ -34,70 +59,28 @@
         </div>
       </div>
 
-      <div class="about-item-container">
-        <div class="about-item row">
-          <div class="col-9 about-item-title">
-            Проектное направление
-          </div>
-          <div class="col-3">
-            <div class="checkbox" (click)="toggleSecondCheckBox()" [class.toggled]="secondCheckBoxValue">
-              <div class="checkbox-knob text-center" [class.toggled]="secondCheckBoxValue">
-                <img ngSrc="assets/icons/second_checkbox.svg" alt="1" height="34" width="34">
+        <div class="about-item-container">
+          <div class="about-item row">
+            <div class="col-9 about-item-title">
+              Дополнительные активности
+            </div>
+            <div class="col-3">
+              <div (click)="toggleThirdCheckBox()" [class.toggled]="thirdCheckBoxValue" class="checkbox ">
+                <div [class.toggled]="thirdCheckBoxValue" class="checkbox-knob text-center">
+                  <img alt="1" height="34" src="assets/icons/third_checkbox.svg" width="34">
+                </div>
               </div>
             </div>
           </div>
-        </div>
-        <div *ngIf="secondCheckBoxValue" class="opened_checkbox_content about-item-card">
-          <div class="text-regular">— Курсы по различным IT специальностям</div>
-          <div class="text-regular">— Мастер-классы и митапы</div>
-          <div class="text-regular">— Тематические выезды</div>
-          <div class="text-regular">— Конференции</div>
-        </div>
-      </div>
-
-      <div class="about-item-container">
-        <div class="about-item row">
-          <div class="col-9 about-item-title">
-            Дополнительные активности
-          </div>
-          <div class="col-3">
-            <div class="checkbox " (click)="toggleThirdCheckBox()" [class.toggled]="thirdCheckBoxValue">
-              <div class="checkbox-knob text-center" [class.toggled]="thirdCheckBoxValue">
-                <img ngSrc="assets/icons/third_checkbox.svg" alt="1" height="34" width="34">
-              </div>
-            </div>
+          <div *ngIf="thirdCheckBoxValue" class="row opened_checkbox_content ">
+            <div class="text-regular">— Курсы по различным IT специальностям</div>
+            <div class="text-regular">— Мастер-классы и митапы</div>
+            <div class="text-regular">— Тематические выезды</div>
+            <div class="text-regular">— Конференции</div>
           </div>
         </div>
-        <div *ngIf="thirdCheckBoxValue" class="opened_checkbox_content about-item-card">
-          <div class="text-regular">— Курсы по различным IT специальностям</div>
-          <div class="text-regular">— Мастер-классы и митапы</div>
-          <div class="text-regular">— Тематические выезды</div>
-          <div class="text-regular">— Конференции</div>
-        </div>
+
       </div>
-
-
-      <!--      <div class="about-item row">-->
-      <!--        <div class="col-9">-->
-      <!--          Научно-образовательное направление-->
-      <!--        </div>-->
-      <!--        <div class="col-3">-->
-      <!--          <div class="checkbox " (click)="toggleFirstCheckBox()">-->
-      <!--            <div class="checkbox-knob" [class.toggled]="firstCheckBoxValue">-->
-      <!--              <img ngSrc="assets/icons/first_checkbox.svg" alt="1" height="50" width="50">-->
-      <!--            </div>-->
-      <!--          </div>-->
-      <!--        </div>-->
-      <!--      </div>-->
-      <!--      <div *ngIf="firstCheckBoxValue" class="opened_checkbox_content">-->
-      <!--        <div class="text-regular">— Курсы по различным IT специальностям</div>-->
-      <!--        <div class="text-regular">— Мастер-классы и митапы</div>-->
-      <!--        <div class="text-regular">— Тематические выезды</div>-->
-      <!--        <div class="text-regular">— Конференции</div>-->
-      <!--      </div>-->
-      <!--      <button class="button">Научно-образовательное направление</button>-->
-      <!--      <button class="button">Проектное направление</button>-->
-      <!--      <button class="button">Дополнительные активности</button>-->
     </div>
-    </div>
+  </div>
 </div>

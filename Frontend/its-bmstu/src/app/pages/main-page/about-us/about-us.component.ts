@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {AboutCardLoadedProviderService} from "../../../../services/about-card-loaded-provider.service";
 
 @Component({
   selector: 'app-about-us',
@@ -7,4 +8,11 @@ import { Component } from '@angular/core';
 })
 export class AboutUsComponent {
 
+  firstCheckBoxValue: boolean = false;
+  secondCheckBoxValue: boolean = false;
+  thirdCheckBoxValue: boolean = false;
+
+  toggleFirstCheckBox() {
+    this.firstCheckBoxValue = !this.firstCheckBoxValue;
+  }
 }

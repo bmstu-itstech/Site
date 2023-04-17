@@ -1,14 +1,44 @@
 @import '../../../styles/colors.scss';
 @import '../../../styles/fonts.scss';
 
+.left-dots-1 {
+  position: absolute;
+  height: 25vw;
+  top: 32vw;
+  left: 1vw;
+  z-index: 1000;
+}
+
+.left-dots-2 {
+  position: absolute;
+  height: 25vw;
+  top: 230vw;
+  left: 1vw;
+  z-index: 1000;
+}
+
+.right-dots-1 {
+  position: absolute;
+  height: 25vw;
+  top: 87vw;
+  right: 1vw;
+  z-index: 1000;
+}
+
+.right-dots-2 {
+  position: absolute;
+  height: 25vw;
+  top: 215vw;
+  right: 1vw;
+  z-index: 1000;
+}
+
 .main-page {
   background-size: 100%;
   height: 44vw;
 }
 
 #background-video {
-  width: 100vw;
-  height: 100vh;
   object-fit: cover;
   position: fixed;
   left: 0;

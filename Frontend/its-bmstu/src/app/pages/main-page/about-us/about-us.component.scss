@@ -14,7 +14,7 @@
     font-family: $font-montserrat;
     font-style: normal;
     font-weight: 700;
-    font-size: 7vw;
+    font-size: 6.5vw;
     text-align: center;
     text-transform: uppercase;
     color: #FFFFFF;
@@ -92,11 +92,10 @@
   color: black;
 }
 
-
 .about-item {
   background-color: #CBD4F3;
   border-radius: 1.5vw;
-  font-size: 1.5vw;
+  font-size: 1.2vw;
   font-weight: bold;
   font-family: $font-montserrat;
   text-align: left;
@@ -113,7 +112,6 @@
   display: flex;
   align-items: center;
   flex: 1;
-
 }
 
 .about-item-checkbox-container {
@@ -137,4 +135,19 @@
 .icon {
   width: 1.5vw;
   height: 1.5vw;
+}
+
+@media (max-width: 991px) {
+  .col-6 {
+    width: 100%;
+  }
+  .about-item-container {
+    margin-top: 2%;
+  }
+  .about-item {
+    font-size: 1.6vw;
+  }
+  .text-block {
+    padding-bottom: 0;
+  }
 }

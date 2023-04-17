@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg fixed-top">
+<nav class="navbar navbar-dark navbar-expand-lg fixed-top">
   <div class="container-fluid">
     <div class="logo-img"><img src="../../../assets/icons/logo.svg" alt="лого"></div>
     <button class="navbar-toggler"
@@ -11,20 +11,22 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="nabBarTogglePanel">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item" (click)="clickAboutMenuItem()">
-          <a class="nav-link">Об организации</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link">Инфографика</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link">Мероприятия</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link">Контакты</a>
-        </li>
-      </ul>
+      <div class="menu-block">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item" (click)="clickAboutMenuItem()">
+            <a class="nav-link">Об организации</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link">Инфографика</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link">Мероприятия</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link">Контакты</a>
+          </li>
+        </ul>
+      </div>
       <img class="translate-img" src="../../../assets/icons/translate.svg" alt="кнопка перевода">
     </div>
   </div>

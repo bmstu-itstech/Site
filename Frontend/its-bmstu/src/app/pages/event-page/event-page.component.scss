@@ -81,4 +81,12 @@
   box-sizing: border-box;
 }
 
+#background-video {
+  width: 100vw;
+  height: 36vw;
+  object-fit: cover;
+  padding-top: 7vw;
+  //padding-top: 100px;
+  //margin-top: 100px;
+}
 

@@ -23,7 +23,7 @@
 
 .text-block {
   margin-top: 5%;
-  padding-left: 10%;
+  //padding-left: 10%;
   padding-bottom: 10vw;
   font-family: $font-montserrat;
 }
@@ -37,7 +37,7 @@
 }
 
 .button-block {
-  padding-left: 10%;
+  //padding-left: 10%;
   margin-top: 11%;
 }
 
@@ -104,13 +104,20 @@
   transition: 0.2s ease-in-out;
   position: absolute;
   z-index: 2;
+  display: flex;
+  width: 100%;
 }
 
 .about-item-title {
   vertical-align: middle;
   display: flex;
   align-items: center;
+  flex: 1;
 
+}
+
+.about-item-checkbox-container {
+  width: 8vw;
 }
 
 .about-item:first-child {

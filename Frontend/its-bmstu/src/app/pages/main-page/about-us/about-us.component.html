@@ -15,11 +15,11 @@
       <div class="col-6 button-block">
 
         <div class="about-item-container">
-          <div class="about-item row">
-            <div class="col-9 about-item-title">
+          <div class="about-item">
+            <div class="about-item-title">
               Научно-образовательное направление
             </div>
-            <div class="col-3">
+            <div class="about-item-checkbox-container">
               <div (click)="toggleFirstCheckBox()" [class.toggled]="firstCheckBoxValue" class="checkbox">
                 <div [class.toggled]="firstCheckBoxValue" class="checkbox-knob text-center">
                   <img alt="1" height="34" src="assets/icons/first_checkbox.svg" width="34">
@@ -28,7 +28,7 @@
             </div>
           </div>
 
-          <div *ngIf="firstCheckBoxValue" class="row opened_checkbox_content">
+          <div *ngIf="firstCheckBoxValue" class="opened_checkbox_content">
             <div class="text-regular">— Курсы по различным IT специальностям</div>
             <div class="text-regular">— Мастер-классы и митапы</div>
             <div class="text-regular">— Тематические выезды</div>
@@ -36,35 +36,35 @@
           </div>
         </div>
 
-      <div class="about-item-container">
-        <div class="about-item row">
-          <div class="col-9 about-item-title">
-            <div class="">
-              Проектное направление
+        <div class="about-item-container">
+          <div class="about-item">
+            <div class="about-item-title">
+              <div class="">
+                Проектное направление
+              </div>
             </div>
-          </div>
-          <div class="col-3">
-            <div (click)="toggleSecondCheckBox()" [class.toggled]="secondCheckBoxValue" class="checkbox">
-              <div [class.toggled]="secondCheckBoxValue" class="checkbox-knob text-center">
-                <img alt="1" height="34" src="assets/icons/second_checkbox.svg" width="34">
+            <div class="about-item-checkbox-container">
+              <div (click)="toggleSecondCheckBox()" [class.toggled]="secondCheckBoxValue" class="checkbox">
+                <div [class.toggled]="secondCheckBoxValue" class="checkbox-knob text-center">
+                  <img alt="1" height="34" src="assets/icons/second_checkbox.svg" width="34">
+                </div>
               </div>
             </div>
           </div>
+          <div *ngIf="secondCheckBoxValue" class="opened_checkbox_content ">
+            <div class="text-regular">— Курсы по различным IT специальностям</div>
+            <div class="text-regular">— Мастер-классы и митапы</div>
+            <div class="text-regular">— Тематические выезды</div>
+            <div class="text-regular">— Конференции</div>
+          </div>
         </div>
-        <div *ngIf="secondCheckBoxValue" class="row opened_checkbox_content ">
-          <div class="text-regular">— Курсы по различным IT специальностям</div>
-          <div class="text-regular">— Мастер-классы и митапы</div>
-          <div class="text-regular">— Тематические выезды</div>
-          <div class="text-regular">— Конференции</div>
-        </div>
-      </div>
 
         <div class="about-item-container">
-          <div class="about-item row">
-            <div class="col-9 about-item-title">
+          <div class="about-item">
+            <div class="about-item-title">
               Дополнительные активности
             </div>
-            <div class="col-3">
+            <div class="about-item-checkbox-container">
               <div (click)="toggleThirdCheckBox()" [class.toggled]="thirdCheckBoxValue" class="checkbox ">
                 <div [class.toggled]="thirdCheckBoxValue" class="checkbox-knob text-center">
                   <img alt="1" height="34" src="assets/icons/third_checkbox.svg" width="34">
@@ -72,7 +72,7 @@
               </div>
             </div>
           </div>
-          <div *ngIf="thirdCheckBoxValue" class="row opened_checkbox_content ">
+          <div *ngIf="thirdCheckBoxValue" class="opened_checkbox_content ">
             <div class="text-regular">— Курсы по различным IT специальностям</div>
             <div class="text-regular">— Мастер-классы и митапы</div>
             <div class="text-regular">— Тематические выезды</div>

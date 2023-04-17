@@ -19,4 +19,8 @@ export class AboutUsComponent {
   toggleSecondCheckBox() {
     this.secondCheckBoxValue = !this.secondCheckBoxValue;
   }
+
+  toggleThirdCheckBox() {
+    this.thirdCheckBoxValue = !this.thirdCheckBoxValue;
+  }
 }

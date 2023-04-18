@@ -18,6 +18,7 @@ import {MainPageComponent} from './pages/main-page/main-page.component';
 import {Carousel2Component} from './carousel2/carousel2.component';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {NgOptimizedImage} from "@angular/common";
+import {GalleryModule} from "ng-gallery";
 
 @NgModule({
   declarations: [
@@ -40,7 +41,7 @@ import {NgOptimizedImage} from "@angular/common";
     AppRoutingModule,
     IvyCarouselModule,
     BrowserAnimationsModule,
-    // SlickCarouselModule,
+    GalleryModule.withConfig({}),
     RouterModule.forRoot([
       {path: '', component: MainPageComponent, pathMatch: 'full'},
       {path: 'event', component: EventPageComponent},

@@ -3,8 +3,11 @@
     <div class="row">
       <div class="col-12">
         <div class="photo-container first-image-container">
-          <img alt="Header Photo" src="http://its-bmstu.ru/media/actions/photo/uf2N3P_Uxtc_U9VAnvJ.jpg"/>
+          <video id="background-video" autoplay loop muted poster>
+            <source src="/assets/videos/video.mp4" type="video/mp4">
+          </video>
         </div>
+        <button class="button" (click)="goBack()">Вернуться</button>
       </div>
     </div>
   </div>
@@ -18,4 +21,6 @@
     </div>
   </div>
 </div>
+<gallery [items]="images"></gallery>
 <app-our-partners [slug]="slug"></app-our-partners>
+

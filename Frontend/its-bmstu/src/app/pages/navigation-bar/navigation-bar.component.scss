@@ -9,21 +9,43 @@
 
 .translate-img {
   width: 2.5vw;
+  margin-right: 7vw;
 }
 
 .navbar {
   background-color: $color-dark;
 }
 
+.menu-block {
+  justify-content: center;
+  align-items: center;
+}
+
 .nav-link {
   color: white;
   font-family: $font-montserrat;
   font-size: 1vw;
-  margin-right: 3vw;
+  margin-right: 6vw;
+  text-align: center;
+  width: 10vw;
+}
+
+
+.nav-link:hover {
+  color: #B2E3FF;
+  font-weight: bold;
+  text-decoration: none;
+  border-bottom: 2px solid #B2E3FF;
+  padding-bottom: 6px;
 }
 
 @media (max-width: 991px) {
   .translate-img {
     display: none;
+  }
+  .nav-link {
+    margin-left: 85%;
+    font-size: 1.3vw;
+    width: 15vw;
   }
 }

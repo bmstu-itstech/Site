@@ -4,7 +4,7 @@
 .left-dots-1 {
   position: absolute;
   height: 25vw;
-  top: 32vw;
+  top: 38vw;
   left: 1vw;
   z-index: 1000;
 }
@@ -12,7 +12,7 @@
 .left-dots-2 {
   position: absolute;
   height: 25vw;
-  top: 230vw;
+  top: 240vw;
   left: 1vw;
   z-index: 1000;
 }
@@ -20,7 +20,7 @@
 .right-dots-1 {
   position: absolute;
   height: 25vw;
-  top: 87vw;
+  top: 104vw;
   right: 1vw;
   z-index: 1000;
 }
@@ -28,9 +28,41 @@
 .right-dots-2 {
   position: absolute;
   height: 25vw;
-  top: 215vw;
+  top: 225vw;
   right: 1vw;
   z-index: 1000;
+}
+
+.line-1 {
+  position: absolute;
+  z-index: 1000;
+  top: 62vw;
+  right: 3vw;
+  width: 17vw;
+}
+
+.line-2 {
+  position: absolute;
+  z-index: 1000;
+  top: 118vw;
+  left: 3vw;
+  width: 14vw;
+}
+
+.line-3 {
+  position: absolute;
+  z-index: 1000;
+  top: 177vw;
+  right: 3vw;
+  width: 14vw;
+}
+
+.line-4 {
+  position: absolute;
+  z-index: 1000;
+  top: 259vw;
+  right: 3vw;
+  width: 14vw;
 }
 
 .main-page {
@@ -93,3 +125,9 @@
 /*.host {
   background-color: $color-dark;
 }*/
+
+@media (max-width: 991px) {
+  .line-2, .line-3, .line-4 {
+    margin-top: 15vw;
+  }
+}

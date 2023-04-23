@@ -4,14 +4,14 @@ import {Observable, Subject} from "rxjs";
 @Injectable({
   providedIn: 'root'
 })
-export class AboutCardLoadedProviderService {
+export class MainPageLoadedProviderService {
 
-  AboutLoaded: Subject<boolean> = new Subject<boolean>();
+  MainPageLoaded: Subject<boolean> = new Subject<boolean>();
   constructor() { }
 
-  onAboutCardLoaded(): void {
+  onMainPageLoaded(): void {
     window.setTimeout(() => {
-      this.AboutLoaded.next(true);
+      this.MainPageLoaded.next(true);
     }, 100);
   }
 }

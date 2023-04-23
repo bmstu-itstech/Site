@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {EnabledStateChange} from "../../carousel2/carousel2.component";
-import {AboutCardLoadedProviderService} from "../../../services/about-card-loaded-provider.service";
+import {MainPageLoadedProviderService} from "../../../services/main-page-loaded-provider.service";
 
 @Component({
   selector: 'app-main-page',
@@ -11,11 +11,11 @@ import {AboutCardLoadedProviderService} from "../../../services/about-card-loade
 export class MainPageComponent implements OnInit {
   isEnabled = true;
 
-  constructor(private aboutCardLoadedProviderService: AboutCardLoadedProviderService) {
+  constructor(private aboutCardLoadedProviderService: MainPageLoadedProviderService) {
   }
 
   ngOnInit(): void {
-    this.aboutCardLoadedProviderService.onAboutCardLoaded();
+    this.aboutCardLoadedProviderService.onMainPageLoaded();
   }
 
   toggleIsEnabled(): void {

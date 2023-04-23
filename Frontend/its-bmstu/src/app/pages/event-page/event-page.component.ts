@@ -35,12 +35,7 @@ export class EventPageComponent {
   }
 
   private downloadPhotos(slug: string) {
-    fetch(this._urlsProviderService.getEventUrl(slug),
-      {
-        headers: new Headers({
-          'Access-Control-Allow-Origin': '*'
-        })
-      })
+    fetch(this._urlsProviderService.getEventUrl(slug))
       .then(response => response.json())
       .then(photos => {
         this.columnSizes = [6, 6, 4, 4, 4, 4];

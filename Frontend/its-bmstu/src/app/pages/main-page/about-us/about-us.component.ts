@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {AboutCardLoadedProviderService} from "../../../../services/about-card-loaded-provider.service";
+import {MainPageLoadedProviderService} from "../../../../services/main-page-loaded-provider.service";
 
 @Component({
   selector: 'app-about-us',

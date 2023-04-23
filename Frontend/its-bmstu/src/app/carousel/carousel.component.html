@@ -21,20 +21,10 @@
   </div>
 
 </div>
-<div class="carousel-dots">
+<!--<div class="carousel-dots">-->
 
-  <div class="carousel-dot" [class.carousel-dot-active]="i === activeDotIndex"
-       *ngFor="let dot of dotsArr; index as i"></div>
-  
-</div>
+<!--  <div class="carousel-dot" [class.carousel-dot-active]="i === activeDotIndex"-->
+<!--       *ngFor="let dot of dotsArr; index as i"></div>-->
 
-<div class="carousel-arrows"
-     [class.carousel-arrows-outside]="arrowsOutside"
-     [class.carousel-dark-arrows]="arrowsTheme === 'dark'"
-     *ngIf="isArrows">
+<!--</div>-->
 
-  <div class="carousel-arrow carousel-arrow-prev" [class.carousel-arrow-disabled]="isPrevArrowDisabled()"
-       (click)="prev()"></div>
-  <div class="carousel-arrow carousel-arrow-next" [class.carousel-arrow-disabled]="isNextArrowDisabled()"
-       (click)="next()"></div>
-</div>

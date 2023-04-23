@@ -12,19 +12,19 @@ export class OurPartnersComponent implements OnInit {
 
   @Input() slug: string | undefined;
 
-  images: CarouselImage[] = [];
-  // images = [
-  //   {path: '../../../assets/images/bauman-code-games.png'},
-  //   {path: '../../../assets/images/background-image.png'},
-  //   {path: '../../../assets/images/bauman-code-games.png'},
-  //   {path: '../../../assets/images/background-image.png'},
-  //   {path: '../../../assets/images/bauman-code-games.png'},
-  //   {path: '../../../assets/images/background-image.png'},
-  //   {path: '../../../assets/images/bauman-code-games.png'},
-  //   {path: '../../../assets/images/bauman-code-games.png'},
-  //   {path: '../../../assets/images/background-image.png'},
-  //   {path: '../../../assets/images/bauman-code-games.png'},
-  // ];
+  // images: CarouselImage[] = [];
+  images: CarouselImage[] = [
+    {path: 'https://its-bmstu.ru/media/actions/photo_partner/bmstu.png'},
+    {path: 'https://its-bmstu.ru/media/actions/photo_partner/%D0%A1%D1%82%D1%83%D0%B4.jpg'},
+    {path: 'https://its-bmstu.ru/media/actions/photo_partner/%D1%81%D1%82%D1%83%D0%B4_%D0%B8%D1%83.jpg'},
+    {path: 'https://fintech.tinkoff.ru/","icon":"https://its-bmstu.ru/media/actions/photo_partner/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA_%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0_2023-04-03_%D0%B2_14.42.09_GYjmrhj.png'},{path: 'https://its-bmstu.ru/media/actions/photo_partner/bmstu.png'},
+    {path: 'https://its-bmstu.ru/media/actions/photo_partner/%D0%A1%D1%82%D1%83%D0%B4.jpg'},
+    {path: 'https://its-bmstu.ru/media/actions/photo_partner/%D1%81%D1%82%D1%83%D0%B4_%D0%B8%D1%83.jpg'},
+    {path: 'https://fintech.tinkoff.ru/","icon":"https://its-bmstu.ru/media/actions/photo_partner/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA_%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0_2023-04-03_%D0%B2_14.42.09_GYjmrhj.png'},{path: 'https://its-bmstu.ru/media/actions/photo_partner/bmstu.png'},
+    {path: 'https://its-bmstu.ru/media/actions/photo_partner/%D0%A1%D1%82%D1%83%D0%B4.jpg'},
+    {path: 'https://its-bmstu.ru/media/actions/photo_partner/%D1%81%D1%82%D1%83%D0%B4_%D0%B8%D1%83.jpg'},
+    {path: 'https://fintech.tinkoff.ru/","icon":"https://its-bmstu.ru/media/actions/photo_partner/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA_%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0_2023-04-03_%D0%B2_14.42.09_GYjmrhj.png'},
+  ];
 
   constructor(private ulrsProviderService: UrlsProviderService) {
   }
@@ -49,26 +49,26 @@ export class OurPartnersComponent implements OnInit {
         });
     } else {
       //TODO download all partners for the main page
-      if (true){
-        this.processPartnersDto({
-          partners: [
-            {icon: "../../../assets/images/bauman-code-games.png"},
-            {icon: "../../../assets/images/bauman-code-games.png"},
-            {icon: "../../../assets/images/bauman-code-games.png"},
-            {icon: "../../../assets/images/bauman-code-games.png"},
-            {icon: "../../../assets/images/bauman-code-games.png"},
-          ]
-        } as PartnersDto);
-      }
-
-      else {
+      // if (true){
+      //   this.processPartnersDto({
+      //     partners: [
+      //       {icon: "../../../assets/images/bauman-code-games.png"},
+      //       {icon: "../../../assets/images/bauman-code-games.png"},
+      //       {icon: "../../../assets/images/bauman-code-games.png"},
+      //       {icon: "../../../assets/images/bauman-code-games.png"},
+      //       {icon: "../../../assets/images/bauman-code-games.png"},
+      //     ]
+      //   } as PartnersDto);
+      // }
+      //
+      // else {
         fetch(this.ulrsProviderService.getPartnersUrl())
           .then(response => response.json())
           .then(partnersDto => {
             let partnersDtoTyped = partnersDto as PartnersDto;
             this.processPartnersDto(partnersDtoTyped);
           });
-      }
+      // }
 
 
       // carouselConfig = {

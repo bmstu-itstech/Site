@@ -10,7 +10,7 @@ import {MainPageLoadedProviderService} from "../../../services/main-page-loaded-
 export class NavigationBarComponent {
 
   constructor(private router: Router,
-              private aboutCardLoaderProvider: MainPageLoadedProviderService) {
+              private MainPageLoadedProvider: MainPageLoadedProviderService) {
 
   }
 
@@ -22,7 +22,7 @@ export class NavigationBarComponent {
       this.router.navigate([''], {state: {scrollToAboutCard: true}})
         .then(() => {
           console.info("Scrolling to about card")
-          const subscription = this.aboutCardLoaderProvider.MainPageLoaded.subscribe(() => {
+          const subscription = this.MainPageLoadedProvider.MainPageLoaded.subscribe(() => {
             console.info("About card loaded")
             this.scrollToAboutCard();
             subscription.unsubscribe();
@@ -57,7 +57,7 @@ export class NavigationBarComponent {
       this.router.navigate([''], {state: {scrollToInfographicsCard: true}})
         .then(() => {
           console.info("Scrolling to infographics card")
-          const subscription = this.aboutCardLoaderProvider.MainPageLoaded.subscribe(() => {
+          const subscription = this.MainPageLoadedProvider.MainPageLoaded.subscribe(() => {
             console.info("Infographics card loaded")
             this.scrollToInfographicsCard();
             subscription.unsubscribe();
@@ -77,7 +77,42 @@ export class NavigationBarComponent {
         const rect = element.getBoundingClientRect();
         const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
         const scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
-        const top = rect.top + scrollTop - 50;
+        const top = rect.top + scrollTop - 30;
+        const left = rect.left + scrollLeft;
+        window.scrollTo({top, left, behavior: 'smooth'});
+      }
+    }
+  }
+
+  clickEventsItem() {
+    const currentPage = this.router.url;
+    console.log("Page is " + currentPage);
+
+    if (currentPage !== '/')
+      this.router.navigate([''], {state: {scrollToEventsCard: true}})
+        .then(() => {
+          console.info("Scrolling to events card")
+          const subscription = this.MainPageLoadedProvider.MainPageLoaded.subscribe(() => {
+            console.info("Events card loaded")
+            this.scrollToEventsCard();
+            subscription.unsubscribe();
+          });
+
+        });
+    else
+      this.scrollToEventsCard();
+  }
+
+  private scrollToEventsCard() {
+    if (document !== undefined && document !== null) {
+
+      let element = document.getElementById("events-id");
+
+      if (element) {
+        const rect = element.getBoundingClientRect();
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        const scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
+        const top = rect.top + scrollTop - 70;
         const left = rect.left + scrollLeft;
         window.scrollTo({top, left, behavior: 'smooth'});
       }

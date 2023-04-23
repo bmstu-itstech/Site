@@ -25,7 +25,9 @@ export class UrlsProviderService {
   }
 
   getPartnersUrl() {
-    return this.baseUrl + "partners" + this.formatParameter;
+    // return this.baseUrl + "partners" + this.formatParameter;
+    return this.baseUrl + "actions" + "partners" + "/" + this.formatParameter;
   }
-}
 
+
+}

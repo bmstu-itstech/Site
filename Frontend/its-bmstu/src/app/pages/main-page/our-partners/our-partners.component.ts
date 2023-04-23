@@ -49,15 +49,26 @@ export class OurPartnersComponent implements OnInit {
         });
     } else {
       //TODO download all partners for the main page
-      fetch(this.ulrsProviderService.getPartnersUrl())
-        .then(response => response.json())
-        .then(partnersDto => {
-          let partnersDtoTyped = partnersDto as PartnersDto;
-          for (let i = 0; i < partnersDtoTyped.partners.length; i++) {
-            let imageUrl = partnersDto.partners[i].icon;
-            this.images.push({path: imageUrl});
-          }
-        });
+      if (true){
+        this.processPartnersDto({
+          partners: [
+            {icon: "../../../assets/images/bauman-code-games.png"},
+            {icon: "../../../assets/images/bauman-code-games.png"},
+            {icon: "../../../assets/images/bauman-code-games.png"},
+            {icon: "../../../assets/images/bauman-code-games.png"},
+            {icon: "../../../assets/images/bauman-code-games.png"},
+          ]
+        } as PartnersDto);
+      }
+
+      else {
+        fetch(this.ulrsProviderService.getPartnersUrl())
+          .then(response => response.json())
+          .then(partnersDto => {
+            let partnersDtoTyped = partnersDto as PartnersDto;
+            this.processPartnersDto(partnersDtoTyped);
+          });
+      }
 
 
       // carouselConfig = {
@@ -76,6 +87,13 @@ export class OurPartnersComponent implements OnInit {
       //     }
       //   ]
       // };
+    }
+  }
+
+  private processPartnersDto(partnersDtoTyped: PartnersDto) {
+    for (let i = 0; i < partnersDtoTyped.partners.length; i++) {
+      let imageUrl = partnersDtoTyped.partners[i].icon;
+      this.images.push({path: imageUrl});
     }
   }
 }

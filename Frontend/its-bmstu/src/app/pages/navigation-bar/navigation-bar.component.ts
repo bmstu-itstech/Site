@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 import {Router} from "@angular/router";
-import {AboutCardLoadedProviderService} from "../../../services/about-card-loaded-provider.service";
+import {MainPageLoadedProviderService} from "../../../services/main-page-loaded-provider.service";
 
 @Component({
   selector: 'app-navigation-bar',
@@ -10,7 +10,7 @@ import {AboutCardLoadedProviderService} from "../../../services/about-card-loade
 export class NavigationBarComponent {
 
   constructor(private router: Router,
-              private aboutCardLoaderProvider: AboutCardLoadedProviderService) {
+              private aboutCardLoaderProvider: MainPageLoadedProviderService) {
 
   }
 
@@ -22,7 +22,7 @@ export class NavigationBarComponent {
       this.router.navigate([''], {state: {scrollToAboutCard: true}})
         .then(() => {
           console.info("Scrolling to about card")
-          const subscription = this.aboutCardLoaderProvider.AboutLoaded.subscribe(() => {
+          const subscription = this.aboutCardLoaderProvider.MainPageLoaded.subscribe(() => {
             console.info("About card loaded")
             this.scrollToAboutCard();
             subscription.unsubscribe();
@@ -37,6 +37,41 @@ export class NavigationBarComponent {
     if (document !== undefined && document !== null) {
 
       let element = document.getElementById("about-us-id");
+
+      if (element) {
+        const rect = element.getBoundingClientRect();
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        const scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
+        const top = rect.top + scrollTop - 50;
+        const left = rect.left + scrollLeft;
+        window.scrollTo({top, left, behavior: 'smooth'});
+      }
+    }
+  }
+
+  clickInfographicsItem() {
+    const currentPage = this.router.url;
+    console.log("Page is " + currentPage);
+
+    if (currentPage !== '/')
+      this.router.navigate([''], {state: {scrollToInfographicsCard: true}})
+        .then(() => {
+          console.info("Scrolling to infographics card")
+          const subscription = this.aboutCardLoaderProvider.MainPageLoaded.subscribe(() => {
+            console.info("Infographics card loaded")
+            this.scrollToInfographicsCard();
+            subscription.unsubscribe();
+          });
+
+        });
+    else
+      this.scrollToInfographicsCard();
+  }
+
+  private scrollToInfographicsCard() {
+    if (document !== undefined && document !== null) {
+
+      let element = document.getElementById("infographics-id");
 
       if (element) {
         const rect = element.getBoundingClientRect();

@@ -42,7 +42,7 @@ export class OurPartnersComponent implements OnInit {
           }
 
           for (let i = 0; i < eventDataDtoTyped.partners.length; i++) {
-            let imageUrl = eventDataDto.partners[i].photo;
+            let imageUrl = eventDataDto.partners[i].icon;
             this.images.push({path: imageUrl});
           }
         });

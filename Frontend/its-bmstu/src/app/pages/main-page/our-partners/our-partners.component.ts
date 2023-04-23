@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {UrlsProviderService} from "../../../../services/urls-provider.service";
 import {EventDataDto} from "../../../../services/event-data.dto";
+import {PartnersDto} from "../../../../services/partners-dto";
 
 @Component({
   selector: 'app-our-partners',
@@ -37,40 +38,47 @@ export class OurPartnersComponent implements OnInit {
         .then(eventDataDto => {
           let eventDataDtoTyped = eventDataDto as EventDataDto;
 
-          for (let i = 0; i < 10; i++) {
-            eventDataDtoTyped.partners.push(eventDataDtoTyped.partners[0]);
-          }
+          // for (let i = 0; i < 10; i++) {
+          //   eventDataDtoTyped.partners.push(eventDataDtoTyped.partners[0]);
+          // }
 
           for (let i = 0; i < eventDataDtoTyped.partners.length; i++) {
             let imageUrl = eventDataDto.partners[i].icon;
             this.images.push({path: imageUrl});
           }
         });
+    } else {
+      //TODO download all partners for the main page
+      fetch(this.ulrsProviderService.getPartnersUrl())
+        .then(response => response.json())
+        .then(partnersDto => {
+          let partnersDtoTyped = partnersDto as PartnersDto;
+          for (let i = 0; i < partnersDtoTyped.partners.length; i++) {
+            let imageUrl = partnersDto.partners[i].icon;
+            this.images.push({path: imageUrl});
+          }
+        });
+
+
+      // carouselConfig = {
+      //   centerMode: true,
+      //   centerPadding: '20%',
+      //   slidesToShow: 3,
+      //   responsive: [
+      //     {
+      //       breakpoint: 768,
+      //       settings: {
+      //         arrows: false,
+      //         centerMode: true,
+      //         centerPadding: '40px',
+      //         slidesToShow: 1
+      //       }
+      //     }
+      //   ]
+      // };
     }
-    /*else {
-     //TODO download all partners for the main page
-     //fetch(this.ulrsProviderService.getPartnersUrl())
-   }*/
   }
-
-  // carouselConfig = {
-  //   centerMode: true,
-  //   centerPadding: '20%',
-  //   slidesToShow: 3,
-  //   responsive: [
-  //     {
-  //       breakpoint: 768,
-  //       settings: {
-  //         arrows: false,
-  //         centerMode: true,
-  //         centerPadding: '40px',
-  //         slidesToShow: 1
-  //       }
-  //     }
-  //   ]
-  // };
 }
-
 export interface CarouselImage {
   path: string;
 }

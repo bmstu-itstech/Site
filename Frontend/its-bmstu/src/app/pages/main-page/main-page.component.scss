@@ -12,7 +12,7 @@
 .left-dots-2 {
   position: absolute;
   height: 25vw;
-  top: 240vw;
+  top: 275vw;
   left: 1vw;
   z-index: 1000;
 }
@@ -44,7 +44,7 @@
 .line-2 {
   position: absolute;
   z-index: 1000;
-  top: 118vw;
+  top: 121.5vw;
   left: 3vw;
   width: 14vw;
 }
@@ -52,7 +52,7 @@
 .line-3 {
   position: absolute;
   z-index: 1000;
-  top: 177vw;
+  top: 178vw;
   right: 3vw;
   width: 14vw;
 }
@@ -60,7 +60,15 @@
 .line-4 {
   position: absolute;
   z-index: 1000;
-  top: 259vw;
+  top: 261vw;
+  left: 3vw;
+  width: 14vw;
+}
+
+.line-5 {
+  position: absolute;
+  z-index: 1000;
+  top: 294vw;
   right: 3vw;
   width: 14vw;
 }

@@ -52,6 +52,11 @@
 
 .photo-container {
   margin-bottom: 24px;
+  border-radius: 41px;
+}
+
+.photo-container:hover {
+  box-shadow: 0 0 3vw rgba(255, 255, 255, 0.6);
 }
 
 .other-images-container:after {

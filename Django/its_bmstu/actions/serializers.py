@@ -1,6 +1,7 @@
+from django.http import request
 from rest_framework import serializers
 
-from actions.models import Action, Photo, SocialNetworkLink, Partner
+from .models import Action, Photo, SocialNetworkLink, Partner
 
 
 class SocialNetworkLinkSerializer(serializers.ModelSerializer):
@@ -35,6 +36,14 @@ class ActionDetailSerializer(serializers.ModelSerializer):
 
 
 class ActionListSerializer(serializers.ModelSerializer):
+    preview = serializers.SerializerMethodField()
+
     class Meta:
         model = Action
-        fields = ('title', 'description', 'short_description', 'slug')
+        fields = ('title', 'description', 'short_description', 'slug',
+                  'preview')
+
+    def get_preview(self, action):
+        request = self.context.get('request')
+        photo = Photo.objects.filter(action=action).order_by('pk').first()
+        return request.build_absolute_uri(photo.photo.url)

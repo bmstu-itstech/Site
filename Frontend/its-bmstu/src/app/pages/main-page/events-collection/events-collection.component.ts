@@ -44,9 +44,9 @@ export class EventsCollectionComponent {
           //TODO fix image url
 
           // let imageUrl = "http://its-bmstu.ru/media/actions/photo/uf2N3P_Uxtc_U9VAnvJ.jpg";
-          let imageUrl = event.imageUrl??"https://its-bmstu.ru/media/actions/photo/uf2N3P_Uxtc_U9VAnvJ.jpg";
+          let imageUrl = event.preview;
 
-          this.photos.push(new Photo(imageUrl, null, event, columnSizes[i]));
+          this.photos.push(new Photo(event.preview, imageUrl, event, columnSizes[i]));
         }
 
       });
@@ -58,11 +58,11 @@ export class EventsCollectionComponent {
 }
 
 export interface EventDto {
-  imageUrl: string | undefined;
-  slug: string;
   title: string;
   description: string;
   short_description: string;
+  slug: string;
+  preview: string;
 }
 
 export interface EventsCollectionDto {

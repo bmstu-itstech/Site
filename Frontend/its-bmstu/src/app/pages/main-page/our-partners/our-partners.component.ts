@@ -14,16 +14,22 @@ export class OurPartnersComponent implements OnInit {
 
   // images: CarouselImage[] = [];
   images: CarouselImage[] = [
-    {path: 'https://its-bmstu.ru/media/actions/photo_partner/bmstu.png'},
-    {path: 'https://its-bmstu.ru/media/actions/photo_partner/%D0%A1%D1%82%D1%83%D0%B4.jpg'},
-    {path: 'https://its-bmstu.ru/media/actions/photo_partner/%D1%81%D1%82%D1%83%D0%B4_%D0%B8%D1%83.jpg'},
-    {path: 'https://fintech.tinkoff.ru/","icon":"https://its-bmstu.ru/media/actions/photo_partner/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA_%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0_2023-04-03_%D0%B2_14.42.09_GYjmrhj.png'},{path: 'https://its-bmstu.ru/media/actions/photo_partner/bmstu.png'},
-    {path: 'https://its-bmstu.ru/media/actions/photo_partner/%D0%A1%D1%82%D1%83%D0%B4.jpg'},
-    {path: 'https://its-bmstu.ru/media/actions/photo_partner/%D1%81%D1%82%D1%83%D0%B4_%D0%B8%D1%83.jpg'},
-    {path: 'https://fintech.tinkoff.ru/","icon":"https://its-bmstu.ru/media/actions/photo_partner/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA_%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0_2023-04-03_%D0%B2_14.42.09_GYjmrhj.png'},{path: 'https://its-bmstu.ru/media/actions/photo_partner/bmstu.png'},
-    {path: 'https://its-bmstu.ru/media/actions/photo_partner/%D0%A1%D1%82%D1%83%D0%B4.jpg'},
-    {path: 'https://its-bmstu.ru/media/actions/photo_partner/%D1%81%D1%82%D1%83%D0%B4_%D0%B8%D1%83.jpg'},
-    {path: 'https://fintech.tinkoff.ru/","icon":"https://its-bmstu.ru/media/actions/photo_partner/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA_%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0_2023-04-03_%D0%B2_14.42.09_GYjmrhj.png'},
+    {path: 'https://its-bmstu.ru/media/actions/photo_partner/Edge.jpg'},
+    {path: 'https://its-bmstu.ru/media/actions/photo_partner/qaiu5t69t3zcnkx5yccgrk3l91t89jek.jpg'},
+    {path: 'https://its-bmstu.ru/media/actions/photo_partner/YbFdyeHSsu4.jpg'},
+    {path: 'https://its-bmstu.ru/media/actions/photo_partner/S-IYLXTw268.jpg'},
+    {path: 'https://its-bmstu.ru/media/actions/photo_partner/KQ35hPG7bHs.jpg'}
+
+    // {path: 'https://its-bmstu.ru/media/actions/photo_partner/bmstu.png'},
+    // {path: 'https://its-bmstu.ru/media/actions/photo_partner/%D0%A1%D1%82%D1%83%D0%B4.jpg'},
+    // {path: 'https://its-bmstu.ru/media/actions/photo_partner/%D1%81%D1%82%D1%83%D0%B4_%D0%B8%D1%83.jpg'},
+    // {path: 'https://fintech.tinkoff.ru/","icon":"https://its-bmstu.ru/media/actions/photo_partner/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA_%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0_2023-04-03_%D0%B2_14.42.09_GYjmrhj.png'},{path: 'https://its-bmstu.ru/media/actions/photo_partner/bmstu.png'},
+    // {path: 'https://its-bmstu.ru/media/actions/photo_partner/%D0%A1%D1%82%D1%83%D0%B4.jpg'},
+    // {path: 'https://its-bmstu.ru/media/actions/photo_partner/%D1%81%D1%82%D1%83%D0%B4_%D0%B8%D1%83.jpg'},
+    // {path: 'https://fintech.tinkoff.ru/","icon":"https://its-bmstu.ru/media/actions/photo_partner/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA_%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0_2023-04-03_%D0%B2_14.42.09_GYjmrhj.png'},{path: 'https://its-bmstu.ru/media/actions/photo_partner/bmstu.png'},
+    // {path: 'https://its-bmstu.ru/media/actions/photo_partner/%D0%A1%D1%82%D1%83%D0%B4.jpg'},
+    // {path: 'https://its-bmstu.ru/media/actions/photo_partner/%D1%81%D1%82%D1%83%D0%B4_%D0%B8%D1%83.jpg'},
+    // {path: 'https://fintech.tinkoff.ru/","icon":"https://its-bmstu.ru/media/actions/photo_partner/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA_%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0_2023-04-03_%D0%B2_14.42.09_GYjmrhj.png'},
   ];
 
   constructor(private ulrsProviderService: UrlsProviderService) {
@@ -61,7 +67,7 @@ export class OurPartnersComponent implements OnInit {
       //   } as PartnersDto);
       // }
       //
-      // else {
+      //else {
         fetch(this.ulrsProviderService.getPartnersUrl())
           .then(response => response.json())
           .then(partnersDto => {

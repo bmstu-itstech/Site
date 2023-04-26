@@ -38,7 +38,7 @@ export class EventPageComponent {
     fetch(this._urlsProviderService.getEventUrl(slug))
       .then(response => response.json())
       .then(photos => {
-        this.columnSizes = [6, 6, 4, 4, 4, 4];
+        this.columnSizes = [6, 6, 4, 4, 4, 6, 6, 4, 4, 4];
 
         for (let i = 0; i < photos.count; i++) {
           let imageSrc = photos.results[i].photo;

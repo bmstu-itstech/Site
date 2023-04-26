@@ -31,7 +31,7 @@
 }
 
 .title {
-  font-family: 'Montserrat';
+  font-family: $font-montserrat;
   font-style: normal;
   font-weight: 700;
   font-size: 7vw;
@@ -62,17 +62,16 @@
 .other-images-container:after {
   box-shadow: inset 8px 8px 20px rgba(255, 255, 255, 0.45);
   content: '';
-  border-radius: 40.1156px;
-  height: 100%;
+  border-radius: 2.1vw;
   position: absolute;
   top: 0;
-  width: 100%;
 }
 
 .other-images-container {
   display: inline-block;
   box-sizing: border-box;
   position: relative;
+  min-width: 21vw;
 }
 
 .other-images-container img {

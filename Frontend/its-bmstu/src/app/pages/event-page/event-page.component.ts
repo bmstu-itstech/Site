@@ -45,7 +45,6 @@ export class EventPageComponent {
           this.photos.push(new Photo(imageSrc, null, null, this.columnSizes[i]));
           //this.galleryPhotos.push(new ImageItem({src: 'IMAGE_SRC_URL', thumb: 'IMAGE_THUMBNAIL_URL'}));
           // @ts-ignore
-          this.images.push(new ImageItem({src: imageSrc, thumb: imageSrc}));
         }
 
 

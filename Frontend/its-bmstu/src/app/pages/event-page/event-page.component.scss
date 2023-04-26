@@ -81,6 +81,8 @@
   margin-bottom: 70px;
   min-width: 21vw;
   max-height: 30vw;
+  width: 100%;
+  border-radius: 2.1vw;
 }
 
 .other-images-container img {
@@ -89,6 +91,7 @@
   display: block;
   box-sizing: border-box;
   position: relative;
+  max-height: 30vw;
   object-fit: cover;
 }
 

@@ -71,7 +71,8 @@
   display: inline-block;
   box-sizing: border-box;
   position: relative;
-  min-width: 21vw;
+  width: 100%;
+  overflow: hidden;
 }
 
 .other-images-container img {
@@ -84,6 +85,7 @@
   display: block;
   box-sizing: border-box;
   object-fit: cover;
+
 }
 
 @media only screen and (min-width: 1000px) and (max-width: 2000px) {

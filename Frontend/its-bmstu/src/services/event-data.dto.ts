@@ -12,3 +12,4 @@ export interface EventDataDto {
   video: string | null;
   slug: string;
 }
+

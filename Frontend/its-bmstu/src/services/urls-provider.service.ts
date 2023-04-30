@@ -16,6 +16,10 @@ export class UrlsProviderService {
     return this.baseUrl + "actions" + "/" + slug + "/photos" + this.formatParameter;
   }
 
+  public getEventPhotosUrl(slug: string, count: number, offset: number) {
+    return this.baseUrl + "actions" + "/" + slug + "/photos" + this.formatParameter + "&count=" + count + "&offset=" + offset;
+  }
+
   public getEventInnerUrl(slug: string) {
     return this.baseUrl + "actions" + "/" + slug + "/photos" + this.formatParameter;
   }

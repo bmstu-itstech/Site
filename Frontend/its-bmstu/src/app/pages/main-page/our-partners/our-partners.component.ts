@@ -14,11 +14,11 @@ export class OurPartnersComponent implements OnInit {
 
   // images: CarouselImage[] = [];
   images: CarouselImage[] = [
-    {path: 'https://its-bmstu.ru/media/actions/photo_partner/Edge.jpg'},
-    {path: 'https://its-bmstu.ru/media/actions/photo_partner/qaiu5t69t3zcnkx5yccgrk3l91t89jek.jpg'},
-    {path: 'https://its-bmstu.ru/media/actions/photo_partner/YbFdyeHSsu4.jpg'},
-    {path: 'https://its-bmstu.ru/media/actions/photo_partner/S-IYLXTw268.jpg'},
-    {path: 'https://its-bmstu.ru/media/actions/photo_partner/KQ35hPG7bHs.jpg'}
+    // {path: 'https://its-bmstu.ru/media/actions/photo_partner/Edge.jpg'},
+    // {path: 'https://its-bmstu.ru/media/actions/photo_partner/qaiu5t69t3zcnkx5yccgrk3l91t89jek.jpg'},
+    // {path: 'https://its-bmstu.ru/media/actions/photo_partner/YbFdyeHSsu4.jpg'},
+    // {path: 'https://its-bmstu.ru/media/actions/photo_partner/S-IYLXTw268.jpg'},
+    // {path: 'https://its-bmstu.ru/media/actions/photo_partner/KQ35hPG7bHs.jpg'}
   ];
 
   constructor(private ulrsProviderService: UrlsProviderService) {
@@ -27,18 +27,18 @@ export class OurPartnersComponent implements OnInit {
   ngOnInit(): void {
     console.log(this.slug);
 
-    // if (this.slug !== undefined) {
-    //   fetch(this.ulrsProviderService.getEventPartnersUrl(this.slug))
-    //     .then(response => response.json())
-    //     .then(eventDataDto => {
-    //       let eventDataDtoTyped = eventDataDto as EventDataDto;
-    //
-    //       for (let i = 0; i < eventDataDtoTyped.partners.length; i++) {
-    //         let imageUrl = eventDataDto.partners[i].icon;
-    //         this.images.push({path: imageUrl});
-    //       }
-    //     });
-    // } else {
+    if (this.slug !== undefined) {
+      fetch(this.ulrsProviderService.getEventPartnersUrl(this.slug))
+        .then(response => response.json())
+        .then(eventDataDto => {
+          let eventDataDtoTyped = eventDataDto as EventDataDto;
+
+          for (let i = 0; i < eventDataDtoTyped.partners.length; i++) {
+            let imageUrl = eventDataDto.partners[i].icon;
+            this.images.push({path: imageUrl});
+          }
+        });
+    } else {
     //   //TODO download all partners for the main page
 
       // if (true){
@@ -54,12 +54,12 @@ export class OurPartnersComponent implements OnInit {
       // }
       //
       //else {
-      //   fetch(this.ulrsProviderService.getPartnersUrl())
-      //     .then(response => response.json())
-      //     .then(partnersDto => {
-      //       let partnersDtoTyped = partnersDto as PartnersDto;
-      //       this.processPartnersDto(partnersDtoTyped);
-      //     });
+        fetch(this.ulrsProviderService.getPartnersUrl())
+          .then(response => response.json())
+          .then(partnersDto => {
+            let partnersDtoTyped = partnersDto as PartnersDto;
+            this.processPartnersDto(partnersDtoTyped);
+          });
       // }
 
 
@@ -79,7 +79,7 @@ export class OurPartnersComponent implements OnInit {
       //     }
       //   ]
       // };
-  //   }
+    }
   }
 
   private processPartnersDto(partnersDtoTyped: PartnersDto) {

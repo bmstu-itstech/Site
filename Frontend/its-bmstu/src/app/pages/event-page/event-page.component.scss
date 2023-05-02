@@ -92,19 +92,42 @@
   display: inline-block;
   box-sizing: border-box;
   position: relative;
-  margin-bottom: 4vh;
+  margin-bottom: 3.5vh;
   width: 100%;
   border-radius: 2.1vw;
+  overflow: hidden;
 }
 
-.other-images-container img {
+//img{
+//  display: inline-block;
+//  box-sizing: border-box;
+//  position: relative;
+//  margin-bottom: 4vh;
+//  width: 100%;
+//  border-radius: 2.1vw;
+//  min-height: 15vw;
+//}
+
+.col-4 .other-images-container img  {
   width: 100%;
   border-radius: 2.1vw;
   display: block;
   box-sizing: border-box;
   position: relative;
-  max-height: 30vw;
+  height: 20vw;
   object-fit: cover;
+}
+
+.col-6 .other-images-container img  {
+  width: 100%;
+  border-radius: 2.1vw;
+  display: block;
+  box-sizing: border-box;
+  position: relative;
+  height: 35vw;
+  object-fit: cover;
+  object-position: top;
+  margin-top: -100px;
 }
 
 #background-video {

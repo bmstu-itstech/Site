@@ -50,6 +50,20 @@
   transform: translate(10vw, -17vw);
 }
 
+.button-row {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.button-show {
+  height: 2.5vw;
+}
+
+.button-show:hover {
+  cursor: pointer;
+}
+
 .button:hover {
   box-shadow: 0 0 1.5vw $color-white;
 }

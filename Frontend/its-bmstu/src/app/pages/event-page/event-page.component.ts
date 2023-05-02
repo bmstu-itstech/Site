@@ -13,7 +13,7 @@ import {PhotoCollectionDto} from "./photoCollectionDto";
 })
 export class EventPageComponent {
   photos: Photo[] = [];
-  currentPhotosCount: number = 0;
+  currentPhotosCount: number = 1;
   photosDownloadingPageSize : number = 15;
   images = [
 
@@ -43,14 +43,14 @@ export class EventPageComponent {
       .then(response => response.json())
       .then(untypedPhotos => {
         let photos = untypedPhotos as PhotoCollectionDto;
-        this.columnSizes = [6, 6, 4, 4, 4, 6, 6, 4, 4, 4];
+        this.columnSizes = [6, 6, 4, 4, 4, 6, 6, 4, 4, 4, 6, 6, 4, 4, 4, 6, 6, 4, 4, 4, 6, 6, 4, 4, 4, 6, 6, 4, 4, 4, 6, 6, 4, 4, 4, 6, 6, 4, 4, 4, 6, 6, 4, 4, 4, 6, 6, 4, 4, 4, 6, 6, 4, 4, 4, 6, 6, 4, 4, 4, 6, 6, 4, 4, 4, 6, 6, 4, 4, 4, 6, 6, 4, 4, 4, 6, 6, 4, 4, 4, 6, 6, 4, 4, 4, 6, 6, 4, 4, 4, 6, 6, 4, 4, 4, 6, 6, 4, 4, 4];
         for (let i = 0; i < photos.count; i++) {
           let imageSrc = photos.results[i].photo;
           this.photos.push(new Photo(imageSrc, null, null, this.columnSizes[i]));
           //this.galleryPhotos.push(new ImageItem({src: 'IMAGE_SRC_URL', thumb: 'IMAGE_THUMBNAIL_URL'}));
           // @ts-ignore
         }
-        this.currentPhotosCount += photos.count;
+        this.currentPhotosCount += 1;
 
 
         this.firstPhotoStyleBackground2 = `linear-gradient(to bottom, rgba(20, 16, 75, 0) 0%, #14104B 100%)`;

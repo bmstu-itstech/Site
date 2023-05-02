@@ -13,7 +13,10 @@
 }
 
 .navbar {
+  position: absolute;
   background-color: $color-dark;
+  z-index: 100000;
+  width: 100%;
 }
 
 .menu-block {
@@ -36,6 +39,10 @@
   text-decoration: none;
   border-bottom: 2px solid #B2E3FF;
   padding-bottom: 6px;
+}
+
+.container-fluid {
+  padding: 0;
 }
 
 @media (max-width: 991px) {

@@ -162,13 +162,13 @@ export class Carousel {
         return this.slide.isPrevArrowDisabled();
     }
 
-    // autoplay() {
-    //   console.log("autoplay1")
-    //     this.autoplayId = setInterval(() => {
-    //         this.next();
-    //         console.log("autoplay")
-    //     }, this.properties.autoplayInterval);
-    // }
+    autoplay() {
+      console.log("autoplay1")
+        this.autoplayId = setInterval(() => {
+            this.next();
+            console.log("autoplay")
+        }, this.properties.autoplayInterval);
+    }
 
     stopAutoplay() {
       console.log("stopautoplay")

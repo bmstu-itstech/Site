@@ -3,8 +3,8 @@
     <h1 class="title">Об организации</h1>
     <div class="row">
       <div class="col-6 text-block">
-        <p class="text-regular">Активисты нашей организации – это студенты МГТУ им. Н.Э. Баумана, которые не стоят на месте и хотят сделать этот мир лучше! 
-          Покой нам только снится! Ежедневно наша команда работает над созданием новых проектов, решая задачи, которые до этого никто не решал. 
+        <p class="text-regular">Активисты нашей организации – это студенты МГТУ им. Н.Э. Баумана, которые не стоят на месте и хотят сделать этот мир лучше!
+          Покой нам только снится! Ежедневно наша команда работает над созданием новых проектов, решая задачи, которые до этого никто не решал.
           В нашей команде все при делах: кто-то создает неповторимые интерфейсы в IT-отделах в то время, как другие пишут сложные программы. Среди нас есть разработчики веб-приложений и те, кто защищает их от киберугроз. Разработка ведется не только на программном уровне, но и на аппаратном, ведь у нас могут спаять микросхему и даже запустить ракету!
           ITS BMSTU – это сообщество, где можно получить знания, открыть для себя новое направление в IT, найти друзей, будущих коллег и реализовать свои идеи!
           </p>
@@ -14,7 +14,7 @@
         <div class="about-item-container">
           <div class="about-item">
             <div class="about-item-title">
-              Научно-образовательное направление
+              Образовательное направление
             </div>
             <div class="about-item-checkbox-container">
               <div (click)="toggleFirstCheckBox()" [class.toggled]="firstCheckBoxValue" class="checkbox">
@@ -26,10 +26,10 @@
           </div>
 
           <div *ngIf="firstCheckBoxValue" class="opened_checkbox_content">
-            <div class="text-regular">— Курсы по различным IT специальностям</div>
-            <div class="text-regular">— Мастер-классы и митапы</div>
-            <div class="text-regular">— Тематические выезды</div>
-            <div class="text-regular">— Конференции</div>
+            <div class="text-regular">— Курсы по IT специальностям</div>
+            <div class="text-regular">— Лекции и мастер-классы</div>
+            <div class="text-regular">— Проектно-образовательные выезды</div>
+            <div class="text-regular">— Школа спортивного программирования</div>
           </div>
         </div>
 
@@ -49,17 +49,17 @@
             </div>
           </div>
           <div *ngIf="secondCheckBoxValue" class="opened_checkbox_content ">
-            <div class="text-regular">— Курсы по различным IT специальностям</div>
-            <div class="text-regular">— Мастер-классы и митапы</div>
-            <div class="text-regular">— Тематические выезды</div>
-            <div class="text-regular">— Конференции</div>
+            <div class="text-regular">— Поддержка стартап-проектов</div>
+            <div class="text-regular">— Предоставление менторов и бизнес-трекеров</div>
+            <div class="text-regular">— Проведение акселерационных программ для Университетов ЦФО РФ</div>
+            <div class="text-regular">— Работа с ОЭЗ Сколково и Иннополис</div>
           </div>
         </div>
 
         <div class="about-item-container">
           <div class="about-item">
             <div class="about-item-title">
-              Дополнительные активности
+              Научное направление
             </div>
             <div class="about-item-checkbox-container">
               <div (click)="toggleThirdCheckBox()" [class.toggled]="thirdCheckBoxValue" class="checkbox ">
@@ -70,10 +70,10 @@
             </div>
           </div>
           <div *ngIf="thirdCheckBoxValue" class="opened_checkbox_content ">
-            <div class="text-regular">— Курсы по различным IT специальностям</div>
-            <div class="text-regular">— Мастер-классы и митапы</div>
-            <div class="text-regular">— Тематические выезды</div>
-            <div class="text-regular">— Конференции</div>
+            <div class="text-regular">— Разработка IT-проектов для МГТУ им. Н.Э. Баумана</div>
+            <div class="text-regular">— Научно-исследовательские работы</div>
+            <div class="text-regular">— Организация международных конференций, митапов и форумов</div>
+            <div class="text-regular">— Сотрудничество с Университетами ЕАЭС</div>
           </div>
         </div>
 

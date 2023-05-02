@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, ElementRef, Input, OnInit, ViewChild} from '@angular/core';
 import {UrlsProviderService} from "../../../../services/urls-provider.service";
 import {EventDataDto} from "../../../../services/event-data.dto";
 import {PartnersDto} from "../../../../services/partners-dto";
@@ -11,6 +11,7 @@ import {PartnersDto} from "../../../../services/partners-dto";
 export class OurPartnersComponent implements OnInit {
 
   @Input() slug: string | undefined;
+  @ViewChild('carousel') carousel: ElementRef | undefined;
 
   // images: CarouselImage[] = [];
   images: CarouselImage[] = [
@@ -87,6 +88,8 @@ export class OurPartnersComponent implements OnInit {
       let imageUrl = partnersDtoTyped.results[i].icon;
       this.images.push({path: imageUrl});
     }
+    // @ts-ignore
+    this.carousel?.next()
   }
 }
 export interface CarouselImage {

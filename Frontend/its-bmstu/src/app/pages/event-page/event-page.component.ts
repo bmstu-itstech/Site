@@ -15,6 +15,7 @@ export class EventPageComponent {
   photos: Photo[] = [];
   currentPhotosCount: number = 1;
   photosDownloadingPageSize : number = 15;
+  next: string | null = null;
   images = [
 
     // ... more items
@@ -37,12 +38,14 @@ export class EventPageComponent {
     //this.downloadHeaderPhoto();
   }
 
-  private downloadPhotos() {
+  downloadPhotos() {
     //TODO use new service method with offset and pagesize
     fetch(this._urlsProviderService.getEventPhotosUrl(this.slug, this.photosDownloadingPageSize, this.currentPhotosCount))
       .then(response => response.json())
       .then(untypedPhotos => {
         let photos = untypedPhotos as PhotoCollectionDto;
+        this.currentPhotosCount += 1;
+        this.next = photos.next;
         this.columnSizes = [6, 6, 4, 4, 4, 6, 6, 4, 4, 4, 6, 6, 4, 4, 4, 6, 6, 4, 4, 4, 6, 6, 4, 4, 4, 6, 6, 4, 4, 4, 6, 6, 4, 4, 4, 6, 6, 4, 4, 4, 6, 6, 4, 4, 4, 6, 6, 4, 4, 4, 6, 6, 4, 4, 4, 6, 6, 4, 4, 4, 6, 6, 4, 4, 4, 6, 6, 4, 4, 4, 6, 6, 4, 4, 4, 6, 6, 4, 4, 4, 6, 6, 4, 4, 4, 6, 6, 4, 4, 4, 6, 6, 4, 4, 4, 6, 6, 4, 4, 4];
         for (let i = 0; i < photos.count; i++) {
           let imageSrc = photos.results[i].photo;
@@ -50,7 +53,7 @@ export class EventPageComponent {
           //this.galleryPhotos.push(new ImageItem({src: 'IMAGE_SRC_URL', thumb: 'IMAGE_THUMBNAIL_URL'}));
           // @ts-ignore
         }
-        this.currentPhotosCount += 1;
+
 
 
         this.firstPhotoStyleBackground2 = `linear-gradient(to bottom, rgba(20, 16, 75, 0) 0%, #14104B 100%)`;
@@ -69,12 +72,5 @@ export class EventPageComponent {
   protected readonly toArray = toArray;
   protected readonly String = String;
 
-  downloadMorePhotos() {
-    fetch(this._urlsProviderService.getEventPhotosUrl(this.slug, this.photosDownloadingPageSize, this.currentPhotosCount))
-      .then(response => response.json())
-.then(response => {
-
-});
-  }
 }
 

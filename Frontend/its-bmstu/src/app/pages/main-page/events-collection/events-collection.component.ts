@@ -41,12 +41,8 @@ export class EventsCollectionComponent {
           let event = typedEvents.results[i];
           console.info(event)
           let navigationUrl = this._urlsProviderService.getEventUrl(event.slug);
-          //TODO fix image url
-
-          // let imageUrl = "http://its-bmstu.ru/media/actions/photo/uf2N3P_Uxtc_U9VAnvJ.jpg";
-          let imageUrl = event.preview;
-
-          this.photos.push(new Photo(event.preview, imageUrl, event, columnSizes[i]));
+          let title = event.title;
+          this.photos.push(new Photo(event.preview, title, event, columnSizes[i]) );
         }
 
       });

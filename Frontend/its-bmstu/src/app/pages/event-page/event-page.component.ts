@@ -16,6 +16,7 @@ export class EventPageComponent {
   currentPhotosCount: number = 1;
   photosDownloadingPageSize : number = 15;
   next: string | null = null;
+  title: string = ''
   images = [
 
     // ... more items
@@ -46,6 +47,7 @@ export class EventPageComponent {
         let photos = untypedPhotos as PhotoCollectionDto;
         this.currentPhotosCount += 1;
         this.next = photos.next;
+        // this.title = photos.
         this.columnSizes = [6, 6, 4, 4, 4, 6, 6, 4, 4, 4, 6, 6, 4, 4, 4, 6, 6, 4, 4, 4, 6, 6, 4, 4, 4, 6, 6, 4, 4, 4, 6, 6, 4, 4, 4, 6, 6, 4, 4, 4, 6, 6, 4, 4, 4, 6, 6, 4, 4, 4, 6, 6, 4, 4, 4, 6, 6, 4, 4, 4, 6, 6, 4, 4, 4, 6, 6, 4, 4, 4, 6, 6, 4, 4, 4, 6, 6, 4, 4, 4, 6, 6, 4, 4, 4, 6, 6, 4, 4, 4, 6, 6, 4, 4, 4, 6, 6, 4, 4, 4];
         for (let i = 0; i < photos.count; i++) {
           let imageSrc = photos.results[i].photo;

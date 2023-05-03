@@ -13,7 +13,7 @@ export class UrlsProviderService {
   }
 
   public getEventUrl(slug: string) {
-    return this.baseUrl + "actions" + "/" + slug + "/photos" + this.formatParameter;
+    return this.baseUrl + "actions" + "/" + slug + this.formatParameter;
   }
 
   public getEventPhotosUrl(slug: string, page_size: number, page : number) {
@@ -25,7 +25,7 @@ export class UrlsProviderService {
   }
 
   getEventPartnersUrl(slug: string) {
-    return this.baseUrl + "actions" + "/" + slug;
+    return this.baseUrl + "actions" + "/" + slug + this.formatParameter;
   }
 
   getPartnersUrl() {

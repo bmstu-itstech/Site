@@ -1,5 +1,8 @@
 <div class="root">
   <div class="photo-block">
+    <div class="container">
+
+    </div>
     <div class="row">
       <div class="col-12">
         <div class="photo-container first-image-container">
@@ -7,13 +10,14 @@
             <source src="/assets/videos/video.mp4" type="video/mp4">
           </video>
         </div>
-        <div class="col">
-          <button class="button" (click)="goBack()">Вернуться</button>
-        </div>
-        <div class="col">
-<!--          {{}}-->
-        </div>
-
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-6">
+        <button class="button" (click)="goBack()">Вернуться</button>
+      </div>
+      <div class="col-6 title-col">
+        <p class="event-title">{{title}}</p>
       </div>
     </div>
   </div>
@@ -31,6 +35,5 @@
   </div>
 
 </div>
-<!--<gallery [items]="images"></gallery>-->
 <app-our-partners [slug]="slug"></app-our-partners>
 

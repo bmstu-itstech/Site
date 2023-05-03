@@ -6,6 +6,22 @@
   background: $color-dark;
 }
 
+.event-title {
+  color: $color-white;
+  opacity: 0.6;
+  font-family: $font-montserrat;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 5vw;
+  line-height: 122px;
+  text-align: center;
+  margin-right: 5vw;
+}
+
+.title-col {
+  margin-top: -15vw;
+}
+
 .first-image-container{
   margin-bottom: 70px;
   position: relative;
@@ -36,7 +52,6 @@
 }
 
 .button {
-  margin-top: 5vw;
   background: $color-dark;
   color: $color-white;
   font-family: $font-montserrat;
@@ -47,7 +62,7 @@
   width: 15vw;
   box-shadow: 8px $color-white;
   transition: 0.2s ease-in-out;
-  transform: translate(10vw, -17vw);
+  transform: translate(10vw, -15vw);
 }
 
 .button-row {
@@ -124,10 +139,10 @@
   display: block;
   box-sizing: border-box;
   position: relative;
-  height: 35vw;
+  height: 30vw;
   object-fit: cover;
   object-position: top;
-  margin-top: -100px;
+  margin-top: -5vw;
 }
 
 #background-video {

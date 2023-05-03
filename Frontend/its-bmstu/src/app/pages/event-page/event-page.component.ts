@@ -1,10 +1,11 @@
-import {Component} from '@angular/core';
+import {Component, ViewChild} from '@angular/core';
 import {UrlsProviderService} from "../../../services/urls-provider.service";
 import {Photo} from "./photo";
 import {Router} from "@angular/router";
 import {toArray} from "rxjs";
 import {GalleryItem, ImageItem} from "ng-gallery";
 import {PhotoCollectionDto} from "./photoCollectionDto";
+import {EventDataDto} from "../../../services/event-data.dto";
 
 @Component({
   selector: 'app-event-page',
@@ -16,7 +17,7 @@ export class EventPageComponent {
   currentPhotosCount: number = 1;
   photosDownloadingPageSize : number = 15;
   next: string | null = null;
-  title: string = ''
+  title: string = '';
   images = [
 
     // ... more items
@@ -47,7 +48,6 @@ export class EventPageComponent {
         let photos = untypedPhotos as PhotoCollectionDto;
         this.currentPhotosCount += 1;
         this.next = photos.next;
-        // this.title = photos.
         this.columnSizes = [6, 6, 4, 4, 4, 6, 6, 4, 4, 4, 6, 6, 4, 4, 4, 6, 6, 4, 4, 4, 6, 6, 4, 4, 4, 6, 6, 4, 4, 4, 6, 6, 4, 4, 4, 6, 6, 4, 4, 4, 6, 6, 4, 4, 4, 6, 6, 4, 4, 4, 6, 6, 4, 4, 4, 6, 6, 4, 4, 4, 6, 6, 4, 4, 4, 6, 6, 4, 4, 4, 6, 6, 4, 4, 4, 6, 6, 4, 4, 4, 6, 6, 4, 4, 4, 6, 6, 4, 4, 4, 6, 6, 4, 4, 4, 6, 6, 4, 4, 4];
         for (let i = 0; i < photos.count; i++) {
           let imageSrc = photos.results[i].photo;
@@ -55,10 +55,13 @@ export class EventPageComponent {
           //this.galleryPhotos.push(new ImageItem({src: 'IMAGE_SRC_URL', thumb: 'IMAGE_THUMBNAIL_URL'}));
           // @ts-ignore
         }
-
-
-
         this.firstPhotoStyleBackground2 = `linear-gradient(to bottom, rgba(20, 16, 75, 0) 0%, #14104B 100%)`;
+      });
+    fetch(this._urlsProviderService.getEventUrl(this.slug))
+      .then(response => response.json())
+      .then(untypedTitle => {
+        let event = untypedTitle as EventDataDto;
+        this.title = event.title;
       });
   }
 

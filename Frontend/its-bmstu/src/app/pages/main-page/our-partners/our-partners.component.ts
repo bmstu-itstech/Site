@@ -12,6 +12,7 @@ export class OurPartnersComponent implements OnInit {
 
   @Input() slug: string | undefined;
   @ViewChild('carousel') carousel: ElementRef | undefined;
+  title: string | undefined;
 
   // images: CarouselImage[] = [];
   images: CarouselImage[] = [
@@ -33,28 +34,13 @@ export class OurPartnersComponent implements OnInit {
         .then(response => response.json())
         .then(eventDataDto => {
           let eventDataDtoTyped = eventDataDto as EventDataDto;
-
+          this.title = eventDataDtoTyped.title;
           for (let i = 0; i < eventDataDtoTyped.partners.length; i++) {
-            let imageUrl = eventDataDto.partners[i].icon;
+            let imageUrl = eventDataDtoTyped.partners[i].icon;
             this.images.push({path: imageUrl});
           }
         });
     } else {
-    //   //TODO download all partners for the main page
-
-      // if (true){
-      //   this.processPartnersDto({
-      //     partners: [
-      //       {icon: "../../../assets/images/bauman-code-games.png"},
-      //       {icon: "../../../assets/images/bauman-code-games.png"},
-      //       {icon: "../../../assets/images/bauman-code-games.png"},
-      //       {icon: "../../../assets/images/bauman-code-games.png"},
-      //       {icon: "../../../assets/images/bauman-code-games.png"},
-      //     ]
-      //   } as PartnersDto);
-      // }
-      //
-      //else {
         fetch(this.ulrsProviderService.getPartnersUrl())
           .then(response => response.json())
           .then(partnersDto => {

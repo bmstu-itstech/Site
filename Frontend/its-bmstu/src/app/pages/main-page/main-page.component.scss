@@ -70,7 +70,7 @@
   z-index: 1000;
   top: 294vw;
   right: 3vw;
-  width: 14vw;
+  width: 11vw;
 }
 
 .main-page {
@@ -137,5 +137,8 @@
 @media (max-width: 991px) {
   .line-2, .line-3, .line-4 {
     margin-top: 15vw;
+  }
+  .line-4 {
+    display: none;
   }
 }

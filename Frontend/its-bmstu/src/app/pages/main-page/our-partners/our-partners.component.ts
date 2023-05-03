@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, ElementRef, Input, OnInit, ViewChild} from '@angular/core';
 import {UrlsProviderService} from "../../../../services/urls-provider.service";
 import {EventDataDto} from "../../../../services/event-data.dto";
 import {PartnersDto} from "../../../../services/partners-dto";
@@ -11,19 +11,16 @@ import {PartnersDto} from "../../../../services/partners-dto";
 export class OurPartnersComponent implements OnInit {
 
   @Input() slug: string | undefined;
+  @ViewChild('carousel') carousel: ElementRef | undefined;
+  title: string | undefined;
 
   // images: CarouselImage[] = [];
   images: CarouselImage[] = [
-    {path: 'https://its-bmstu.ru/media/actions/photo_partner/bmstu.png'},
-    {path: 'https://its-bmstu.ru/media/actions/photo_partner/%D0%A1%D1%82%D1%83%D0%B4.jpg'},
-    {path: 'https://its-bmstu.ru/media/actions/photo_partner/%D1%81%D1%82%D1%83%D0%B4_%D0%B8%D1%83.jpg'},
-    {path: 'https://fintech.tinkoff.ru/","icon":"https://its-bmstu.ru/media/actions/photo_partner/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA_%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0_2023-04-03_%D0%B2_14.42.09_GYjmrhj.png'},{path: 'https://its-bmstu.ru/media/actions/photo_partner/bmstu.png'},
-    {path: 'https://its-bmstu.ru/media/actions/photo_partner/%D0%A1%D1%82%D1%83%D0%B4.jpg'},
-    {path: 'https://its-bmstu.ru/media/actions/photo_partner/%D1%81%D1%82%D1%83%D0%B4_%D0%B8%D1%83.jpg'},
-    {path: 'https://fintech.tinkoff.ru/","icon":"https://its-bmstu.ru/media/actions/photo_partner/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA_%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0_2023-04-03_%D0%B2_14.42.09_GYjmrhj.png'},{path: 'https://its-bmstu.ru/media/actions/photo_partner/bmstu.png'},
-    {path: 'https://its-bmstu.ru/media/actions/photo_partner/%D0%A1%D1%82%D1%83%D0%B4.jpg'},
-    {path: 'https://its-bmstu.ru/media/actions/photo_partner/%D1%81%D1%82%D1%83%D0%B4_%D0%B8%D1%83.jpg'},
-    {path: 'https://fintech.tinkoff.ru/","icon":"https://its-bmstu.ru/media/actions/photo_partner/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA_%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0_2023-04-03_%D0%B2_14.42.09_GYjmrhj.png'},
+    // {path: 'https://its-bmstu.ru/media/actions/photo_partner/Edge.jpg'},
+    // {path: 'https://its-bmstu.ru/media/actions/photo_partner/qaiu5t69t3zcnkx5yccgrk3l91t89jek.jpg'},
+    // {path: 'https://its-bmstu.ru/media/actions/photo_partner/YbFdyeHSsu4.jpg'},
+    // {path: 'https://its-bmstu.ru/media/actions/photo_partner/S-IYLXTw268.jpg'},
+    // {path: 'https://its-bmstu.ru/media/actions/photo_partner/KQ35hPG7bHs.jpg'}
   ];
 
   constructor(private ulrsProviderService: UrlsProviderService) {
@@ -37,31 +34,13 @@ export class OurPartnersComponent implements OnInit {
         .then(response => response.json())
         .then(eventDataDto => {
           let eventDataDtoTyped = eventDataDto as EventDataDto;
-
-          // for (let i = 0; i < 10; i++) {
-          //   eventDataDtoTyped.partners.push(eventDataDtoTyped.partners[0]);
-          // }
-
+          this.title = eventDataDtoTyped.title;
           for (let i = 0; i < eventDataDtoTyped.partners.length; i++) {
-            let imageUrl = eventDataDto.partners[i].icon;
+            let imageUrl = eventDataDtoTyped.partners[i].icon;
             this.images.push({path: imageUrl});
           }
         });
     } else {
-      //TODO download all partners for the main page
-      // if (true){
-      //   this.processPartnersDto({
-      //     partners: [
-      //       {icon: "../../../assets/images/bauman-code-games.png"},
-      //       {icon: "../../../assets/images/bauman-code-games.png"},
-      //       {icon: "../../../assets/images/bauman-code-games.png"},
-      //       {icon: "../../../assets/images/bauman-code-games.png"},
-      //       {icon: "../../../assets/images/bauman-code-games.png"},
-      //     ]
-      //   } as PartnersDto);
-      // }
-      //
-      // else {
         fetch(this.ulrsProviderService.getPartnersUrl())
           .then(response => response.json())
           .then(partnersDto => {
@@ -91,10 +70,12 @@ export class OurPartnersComponent implements OnInit {
   }
 
   private processPartnersDto(partnersDtoTyped: PartnersDto) {
-    for (let i = 0; i < partnersDtoTyped.partners.length; i++) {
-      let imageUrl = partnersDtoTyped.partners[i].icon;
+    for (let i = 0; i < partnersDtoTyped.results.length; i++) {
+      let imageUrl = partnersDtoTyped.results[i].icon;
       this.images.push({path: imageUrl});
     }
+    // @ts-ignore
+    this.carousel?.next()
   }
 }
 export interface CarouselImage {

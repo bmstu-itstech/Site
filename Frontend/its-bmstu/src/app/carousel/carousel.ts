@@ -147,9 +147,7 @@ export class Carousel {
     }
 
     next(length: number = 1) {
-        if (!this.isNextArrowDisabled()) {
-            this.slide.next(length);
-        }
+      this.slide.next(length);
     }
 
     prev(length: number = 1) {
@@ -165,12 +163,15 @@ export class Carousel {
     }
 
     autoplay() {
+      console.log("autoplay1")
         this.autoplayId = setInterval(() => {
             this.next();
+            console.log("autoplay")
         }, this.properties.autoplayInterval);
     }
 
     stopAutoplay() {
+      console.log("stopautoplay")
         if (this.autoplayId) {
             clearInterval(this.autoplayId);
         }

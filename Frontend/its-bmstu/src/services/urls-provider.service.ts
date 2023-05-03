@@ -13,7 +13,11 @@ export class UrlsProviderService {
   }
 
   public getEventUrl(slug: string) {
-    return this.baseUrl + "actions" + "/" + slug + "/photos" + this.formatParameter;
+    return this.baseUrl + "actions" + "/" + slug + this.formatParameter;
+  }
+
+  public getEventPhotosUrl(slug: string, page_size: number, page : number) {
+    return this.baseUrl + "actions" + "/" + slug + "/photos" + this.formatParameter + "&page_size=" + page_size + "&page=" + page;
   }
 
   public getEventInnerUrl(slug: string) {
@@ -21,12 +25,12 @@ export class UrlsProviderService {
   }
 
   getEventPartnersUrl(slug: string) {
-    return this.baseUrl + "actions" + "/" + slug;
+    return this.baseUrl + "actions" + "/" + slug + this.formatParameter;
   }
 
   getPartnersUrl() {
     // return this.baseUrl + "partners" + this.formatParameter;
-    return this.baseUrl + "actions" + "partners" + "/" + this.formatParameter;
+    return this.baseUrl + "actions/" + "partners" + "/" + this.formatParameter;
   }
 
 

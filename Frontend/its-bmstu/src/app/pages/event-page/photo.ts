@@ -7,12 +7,13 @@ export class Photo implements ImageItem {
   columnSize: number;
   columnClass: string;
   event: EventDto | null = null;
-  url: string | null = null;
+  title: string | null = null;
   src: string | null = null;
   thumb: string;
 
-  constructor(imageSrc: string, url: string | null, event: EventDto | null, columnSize: number = 6) {
-    this.url = url;
+
+  constructor(imageSrc: string, title: string | null, event: EventDto | null, columnSize: number = 6) {
+    this.title = title;
     this.src = imageSrc;
     this.thumb = imageSrc;
     this.event = event;

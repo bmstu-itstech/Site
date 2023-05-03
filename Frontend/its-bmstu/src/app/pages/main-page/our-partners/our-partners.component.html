@@ -1,9 +1,12 @@
 <div class="host">
-  <div class="title">
+  <div class="title" *ngIf="slug !== undefined">
+    Партнеры
+  </div>
+  <div class="title" *ngIf="slug == undefined">
     Наши партнеры
   </div>
   <div class="container">
-    <carousel [images]="images" [lightDOM]="true" [loop]="true" [autoplay]="true" [autoplayInterval]="5000"
+    <carousel #carousel [images]="images" [lightDOM]="true" [loop]="true" [autoplay]="true" [autoplayInterval]="5000"
               [height]="170" [cellsToShow]="5" [arrows]="false" [borderRadius]="40" [imagesCount]="images.length">
     </carousel>
   </div>

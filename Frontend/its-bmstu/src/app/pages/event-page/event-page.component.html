@@ -12,15 +12,12 @@
         </div>
       </div>
     </div>
-    <div class="row">
-      <div class="col-6">
-        <button class="button" (click)="goBack()">Вернуться</button>
-      </div>
-      <div class="col-6 title-col">
-        <p class="event-title">{{title}}</p>
+    <div class="nav-row">
+      <div class="centered">
+          <button class="button" (click)="goBack()">Вернуться</button>
+          <p class="event-title">{{title}}</p>
       </div>
     </div>
-  </div>
   <div class="photo-block container">
     <div class="row">
       <div class="{{photo.columnClass}}" *ngFor="let photo of photos">

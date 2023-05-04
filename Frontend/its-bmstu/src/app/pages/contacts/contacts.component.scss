@@ -2,7 +2,7 @@
 @import '../../../styles/fonts';
 
 div {
-    background-color: #14104B;
+    background-color: $color-dark;
 }
 
 .contacts {
@@ -11,21 +11,21 @@ div {
 }
 
 .title {
-    font-family: 'Montserrat';
+    font-family: $font-montserrat;
     font-style: normal;
     font-weight: 700;
     font-size: 7vw;
     text-align: center;
     text-transform: uppercase;
-    color: #FFFFFF;
+    color: $color-white;
     opacity: 0.4;
     padding-bottom: 5%;
 }
 
 .text-regular {
     position: relative;
-    color:#FFFFFF;
-    font-family: 'Montserrat';
+    color:$color-white;
+    font-family: $font-montserrat;
     font-size: 2.5vw;
     left: 7%;
     top: 7%;
@@ -54,8 +54,8 @@ div {
     display: inline-block;
     left: 15%;
     text-decoration: none;
-    color:#FFFFFF;
-    font-family: 'Montserrat';
+    color:$color-white;
+    font-family: $font-montserrat;
     font-size: 2.5vw;
 }
 

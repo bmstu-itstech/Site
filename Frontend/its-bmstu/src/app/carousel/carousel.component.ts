@@ -119,12 +119,12 @@ export class CarouselComponent implements OnDestroy {
   @Input() borderRadius!: number;
   @Input() margin: number = 10;
   @Input() objectFit: 'contain' | 'cover' | 'none' = 'cover';
-  @Input() minSwipeDistance: number = 10;
+  @Input() minSwipeDistance: number = 5;
   @Input() transitionDuration: number = 200;
   @Input() transitionTimingFunction: 'ease' | 'ease-in' | 'ease-out' | 'ease-in-out' | 'linear' = 'ease-out';
   @Input() videoProperties: any;
   @Input() counterSeparator: string = " / ";
-  @Input() overflowCellsLimit: number = 3;
+  @Input() overflowCellsLimit: number = 5;
   @Input() listeners: 'auto' | 'mouse and touch' = 'mouse and touch';
   @Input() cellsToShow!: number;
   @Input() cellsToScroll: number = 1;
@@ -381,18 +381,18 @@ export class CarouselComponent implements OnDestroy {
 
     getCellWidth() {
         let elementWidth = this.carouselWidth;
-
-        if (this.cellsToShow) {
-            let margin = this.cellsToShow > 1 ? this.margin : 0;
-            let totalMargin = margin * (this.cellsToShow - 1);
-          return (elementWidth - totalMargin) / this.cellsToShow;
-        }
-
-      if (this._cellWidth === '100%') {
-        return elementWidth;
-      } else {
-        return this._cellWidth;
-      }
+        return 250
+      //   if (this.cellsToShow) {
+      //       let margin = this.cellsToShow > 1 ? this.margin : 0;
+      //       let totalMargin = margin * (this.cellsToShow - 1);
+      //     return (elementWidth - totalMargin) / this.cellsToShow;
+      //   }
+      //
+      // if (this._cellWidth === '100%') {
+      //   return elementWidth;
+      // } else {
+      //   return this._cellWidth;
+      // }
     }
 
   next() {

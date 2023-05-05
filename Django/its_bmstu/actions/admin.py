@@ -33,7 +33,7 @@ class PartnerAdmin(admin.StackedInline):
 @admin.register(Action)
 class ActionAdmin(admin.ModelAdmin):
     fields = ('title', 'slug', 'short_description', 'description',
-              'main_organizer', 'video')
+              'main_organizer', 'preview', 'video')
     prepopulated_fields = {"slug": ("title",)}
     save_on_top = True
     inlines = (LinkAdmin, PartnerAdmin, PhotoAdmin)
@@ -44,4 +44,3 @@ class ActionAdmin(admin.ModelAdmin):
 @admin.register(Partner)
 class PartnerAdmin(admin.ModelAdmin):
     fields = ('name', 'url', 'icon')
-

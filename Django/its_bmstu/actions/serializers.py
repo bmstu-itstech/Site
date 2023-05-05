@@ -32,18 +32,12 @@ class ActionDetailSerializer(serializers.ModelSerializer):
     class Meta:
         model = Action
         fields = ('title', 'description', 'short_description',
-                  'main_organizer', 'links', 'partners', 'video', 'slug')
+                  'main_organizer', 'links', 'partners', 'preview', 'video',
+                  'slug')
 
 
 class ActionListSerializer(serializers.ModelSerializer):
-    preview = serializers.SerializerMethodField()
-
     class Meta:
         model = Action
-        fields = ('title', 'description', 'short_description', 'slug',
-                  'preview')
-
-    def get_preview(self, action):
-        request = self.context.get('request')
-        photo = Photo.objects.filter(action=action).order_by('pk').first()
-        return request.build_absolute_uri(photo.photo.url)
+        fields = ('title', 'description', 'short_description',
+                  'slug', 'preview')

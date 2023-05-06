@@ -1,4 +1,4 @@
-import {Component, ElementRef, Input, OnInit, ViewChild} from '@angular/core';
+import {Component, ElementRef, inject, Input, OnInit, ViewChild} from '@angular/core';
 import {UrlsProviderService} from "../../../../services/urls-provider.service";
 import {EventDataDto} from "../../../../services/event-data.dto";
 import {PartnersDto} from "../../../../services/partners-dto";

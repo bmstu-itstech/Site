@@ -70,3 +70,27 @@ div {
     right: 0px;
     width: 50vw;
 }
+
+.left-dots-1 {
+    position: absolute;
+    height: 25vw;
+    top: -5%;
+    left: 1vw;
+    z-index: 1000;
+}
+
+.left-dots-1 {
+    position: absolute;
+    height: 25vw;
+    bottom: 10vw;
+    left: 1vw;
+    z-index: 1000;
+}
+  
+.line-2 {
+    position: absolute;
+    z-index: 55;
+    top: 16vw;
+    right: 3vw;
+    width: 11vw;
+}

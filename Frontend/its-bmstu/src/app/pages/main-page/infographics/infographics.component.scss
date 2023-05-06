@@ -55,7 +55,7 @@ div {
     justify-content: center;
     align-items: center;
     position: absolute;
-    z-index: 1;
+    z-index: 5;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -223,8 +223,8 @@ div {
     padding-top: 5%;
     font-size: 1.1vw;
     color: #14104B;
-    padding-left: 5%;
-    padding-right: 5%;
+    padding-left: 25%;
+    padding-right: 25%;
 }
 
 .hover-button {

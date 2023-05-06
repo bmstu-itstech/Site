@@ -20,7 +20,7 @@ class Action(models.Model):
                                      max_length=255, blank=True)
     preview = models.ImageField(verbose_name="Фотография",
                                 upload_to='actions/photo',
-                                blank=False, unique=True)
+                                blank=False, unique=False, default="")
     video = models.FileField(verbose_name="Видео",
                              upload_to='actions/video',
                              blank=True,

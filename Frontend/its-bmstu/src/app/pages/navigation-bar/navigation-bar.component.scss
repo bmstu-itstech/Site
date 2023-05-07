@@ -12,7 +12,18 @@
   margin-right: 7vw;
 }
 
+.btn-link {
+  text-decoration: none;
+  color: white;
+  font-size: 1vw;
+}
+
+.btn-link:hover {
+  color: #B2E3FF;
+}
+
 .languages_list {
+  font-family: $font-montserrat;
   display: inline-flex;
   flex-wrap: wrap;
   list-style-type: none;

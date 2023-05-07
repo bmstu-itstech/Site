@@ -381,7 +381,11 @@ export class CarouselComponent implements OnDestroy {
 
     getCellWidth() {
         let elementWidth = this.carouselWidth;
+        let px: number = 250;
         return 250
+      //100 * px / windowWidth - vw
+      //   return (100 * px / window.innerWidth)
+
       //   if (this.cellsToShow) {
       //       let margin = this.cellsToShow > 1 ? this.margin : 0;
       //       let totalMargin = margin * (this.cellsToShow - 1);

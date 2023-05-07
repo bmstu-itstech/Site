@@ -12,6 +12,14 @@
   margin-right: 7vw;
 }
 
+.languages_list {
+  display: inline-flex;
+  flex-wrap: wrap;
+  list-style-type: none;
+  padding-left: 0;
+  margin: 0;
+}
+
 .navbar {
   background-color: $color-dark;
   z-index: 100000;

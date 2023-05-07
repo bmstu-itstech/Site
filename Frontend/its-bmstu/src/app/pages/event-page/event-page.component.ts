@@ -18,11 +18,8 @@ export class EventPageComponent {
   photosDownloadingPageSize : number = 15;
   next: string | null = null;
   title: string = '';
-  video: string | null = "/assets/videos/video.mp4";
-  images = [
-
-    // ... more items
-  ];
+  video: string | null = '/assets/videos/video.mp4';
+  images = [];
   //galleryPhotos: ImageItem[] = [];
   columnSizes: number[] | undefined;
   firstPhotoStyleBackground2: string = '';
@@ -63,13 +60,12 @@ export class EventPageComponent {
       .then(untypedTitle => {
         let event = untypedTitle as EventDataDto;
         this.title = event.title;
-        this.video = event.video;
+        if (event.video !== null)
+          this.video = event.video
       });
-  }
+    if (this.slug == "stend-tinkoff")
+      this.video = '/Users/heyuaresocute/WebstormProjects/Site/Frontend/its-bmstu/src/assets/videos/tinkoff.mp4'
 
-  private downloadHeaderPhoto() {
-
-    //fetch("https://its-bmstu.ru/api/v0/actions/informacionnaya-bezopasnost/photos?format=json")
   }
 
   goBack() {

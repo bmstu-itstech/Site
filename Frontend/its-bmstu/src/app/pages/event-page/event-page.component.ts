@@ -18,6 +18,7 @@ export class EventPageComponent {
   photosDownloadingPageSize : number = 15;
   next: string | null = null;
   title: string = '';
+  video: string | null = "/assets/videos/video.mp4";
   images = [
 
     // ... more items
@@ -62,6 +63,7 @@ export class EventPageComponent {
       .then(untypedTitle => {
         let event = untypedTitle as EventDataDto;
         this.title = event.title;
+        this.video = event.video;
       });
   }
 

@@ -1,3 +1,19 @@
+<script>
+  const myButton = document.querySelector('.btn-link');
+  
+  myButton.addEventListener('click', function() {
+    myButton.classList.add('clicked');
+  });
+
+  myButton.addEventListener('click', function() {
+  if (myButton.classList.contains('clicked')) {
+    myButton.classList.remove('clicked');
+  } else {
+    myButton.classList.add('clicked');
+  }
+});
+</script>
+
 <nav class="navbar navbar-dark navbar-expand-lg fixed-top">
   <div class="container-fluid">
     <div class="logo-img"><img src="../../../assets/icons/logo.svg" alt="лого"></div>

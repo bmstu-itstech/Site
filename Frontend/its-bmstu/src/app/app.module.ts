@@ -19,6 +19,10 @@ import {Carousel2Component} from './carousel2/carousel2.component';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {NgOptimizedImage} from "@angular/common";
 import {GalleryModule} from "ng-gallery";
+import {TranslateLoader, TranslateModule} from "@ngx-translate/core";
+// import {HttpClient} from "@angular/common/http";
+import { HttpClientModule, HttpClient } from '@angular/common/http';
+import {TranslateHttpLoader} from "@ngx-translate/http-loader";
 
 @NgModule({
   declarations: [
@@ -41,12 +45,23 @@ import {GalleryModule} from "ng-gallery";
     AppRoutingModule,
     IvyCarouselModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     GalleryModule.withConfig({}),
     RouterModule.forRoot([
       {path: '', component: MainPageComponent, pathMatch: 'full'},
       {path: 'event', component: EventPageComponent},
     ], {scrollPositionRestoration: 'top'}),
     NgOptimizedImage,
+    TranslateModule.forRoot({
+      defaultLanguage: 'ru',
+      loader: {
+        provide: TranslateLoader,
+        useFactory: function (http: HttpClient) {
+          return new TranslateHttpLoader(http);
+        },
+        deps: [HttpClient],
+      },
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent]

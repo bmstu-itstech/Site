@@ -30,7 +30,7 @@
   border-radius: 5px;
 }
 
-.btn-link.clicked {
+.btn-link:focus {
   opacity: 0.2;
 }
 

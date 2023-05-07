@@ -6,29 +6,47 @@
       <div class="col-12">
         <div class="photo-container first-image-container">
           <video id="background-video" autoplay loop muted poster>
-            <source src="{{video}}" type="video/mp4">
+<!--            <source src="{{video}}" type="video/mp4">-->
+            <source *ngIf="slug=='stend-tinkoff'"
+                    src="/assets/videos/tinkoff.mp4"
+                    type="video/mp4">
+            <source *ngIf="slug=='golang-meetup'"
+                    src="/assets/videos/tinkoff.mp4"
+                    type="video/mp4">
+            <source *ngIf="slug=='bauman-code-days'"
+                    src="/assets/videos/tinkoff.mp4"
+                    type="video/mp4">
+            <source *ngIf="slug=='bauman-code-games'"
+                    src="/assets/videos/tinkoff.mp4"
+                    type="video/mp4">
+            <source *ngIf="slug=='its-person-startuphouse'"
+                    src="/assets/videos/tinkoff.mp4"
+                    type="video/mp4">
+            <source *ngIf="slug=='its-meetup'"
+                    src="/assets/videos/tinkoff.mp4"
+                    type="video/mp4">
           </video>
         </div>
       </div>
     </div>
     <div class="nav-row">
       <div class="centered">
-          <button class="button" (click)="goBack()">Вернуться</button>
-          <p class="event-title">{{title}}</p>
+        <button class="button" (click)="goBack()">Вернуться</button>
+        <p class="event-title">{{title}}</p>
       </div>
     </div>
-  <div class="photo-block container">
-    <div class="row">
-      <div class="{{photo.columnClass}}" *ngFor="let photo of photos">
-        <div class="photo-container other-images-container">
-          <img src="{{photo.imageSrc}}">
+    <div class="photo-block container">
+      <div class="row">
+        <div class="{{photo.columnClass}}" *ngFor="let photo of photos">
+          <div class="photo-container other-images-container">
+            <img src="{{photo.imageSrc}}">
+          </div>
         </div>
       </div>
     </div>
+    <div class="button-row" *ngIf="next !== null">
+      <img class="button-show" (click)="downloadPhotos()" src="/assets/images/about.svg">
+    </div>
   </div>
-  <div class="button-row" *ngIf="next !== null">
-    <img class="button-show" (click)="downloadPhotos()" src="/assets/images/about.svg">
-  </div>
+  <app-our-partners [slug]="slug"></app-our-partners>
 </div>
-<app-our-partners [slug]="slug"></app-our-partners>
-

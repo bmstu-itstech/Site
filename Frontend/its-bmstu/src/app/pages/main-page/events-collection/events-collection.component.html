@@ -1,6 +1,6 @@
 <div class="host" id="events-id">
   <div class="container">
-    <h1 class="title">Мероприятия</h1>
+    <h1 class="title" [translate]="'event-collection.title'"></h1>
     <div class="row">
       <div class="col row">
         <div class="{{photo.columnClass}}" *ngFor="let photo of photos.slice(0, 3)" (click)="navigateToEvent(photo)">

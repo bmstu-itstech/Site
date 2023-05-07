@@ -14,21 +14,31 @@
       <div class="menu-block">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item" (click)="clickAboutMenuItem()">
-            <a class="nav-link">Об организации</a>
+            <a class="nav-link" [translate]="'navigation-bar.aboutOrganisation'"></a>
           </li>
-          <li class="nav-item"(click)="clickInfographicsItem()">
-            <a class="nav-link" >
-              Инфографика</a>
+          <li class="nav-item" (click)="clickInfographicsItem()">
+            <a class="nav-link" [translate]="'navigation-bar.infographics'"></a>
           </li>
           <li class="nav-item" (click)="clickEventsItem()">
-            <a class="nav-link">Мероприятия</a>
+            <a class="nav-link" [translate]="'navigation-bar.events'"></a>
           </li>
           <li class="nav-item" (click)="clickContactsItem()">
-            <a class="nav-link">Контакты</a>
+            <a class="nav-link" [translate]="'navigation-bar.contacts'"></a>
           </li>
         </ul>
       </div>
-      <img class="translate-img" src="../../../assets/icons/translate.svg" alt="кнопка перевода">
+      <ul *ngFor="let language of translations" class="languages_list">
+        <li>
+          <button
+            (click)="onLanguageClick(language.value)"
+            class="btn btn-link"
+            type="button"
+          >
+            {{ language.display_name }}
+          </button>
+        </li>
+      </ul>
+<!--      <img class="translate-img" src="../../../assets/icons/translate.svg" alt="кнопка перевода">-->
     </div>
   </div>
 </nav>

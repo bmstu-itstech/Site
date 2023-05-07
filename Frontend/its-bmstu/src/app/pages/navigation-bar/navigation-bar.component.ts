@@ -1,6 +1,7 @@
 import {Component} from '@angular/core';
 import {Router} from "@angular/router";
 import {MainPageLoadedProviderService} from "../../../services/main-page-loaded-provider.service";
+import {TranslateService} from "@ngx-translate/core";
 
 @Component({
   selector: 'app-navigation-bar',
@@ -9,9 +10,25 @@ import {MainPageLoadedProviderService} from "../../../services/main-page-loaded-
 })
 export class NavigationBarComponent {
 
-  constructor(private router: Router,
-              private MainPageLoadedProvider: MainPageLoadedProviderService) {
+  translations = [
+    {
+      display_name: 'рус',
+      value: 'ru',
+    },
+    {
+      display_name: 'eng',
+      value: 'en',
+    },
+  ];
 
+  constructor(private router: Router,
+              private MainPageLoadedProvider: MainPageLoadedProviderService,
+              private translateService: TranslateService) {
+
+  }
+
+  onLanguageClick(value: string) {
+    this.translateService.use(value);
   }
 
   clickAboutMenuItem(): void {

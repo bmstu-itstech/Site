@@ -6,7 +6,7 @@
 
     <ng-template ngFor let-image [ngForOf]="images" let-i="index">
       <div class="carousel-cell"
-           [style.width]="getCellWidth()+'px'"
+           [style.width]="getCellWidth()+'vw'"
            [style.border-radius]="borderRadius+'px'"
            *ngIf="i < cellLimit">
         <!-- Image -->

@@ -1,21 +1,16 @@
 <div class="host" id="about-us-id">
   <div class="container">
-    <h1 class="title">Об организации</h1>
+    <h1 class="title" [translate]="'about-us.title'"></h1>
     <div class="row">
       <div class="col-6 text-block">
-        <p class="text-regular">Активисты нашей организации – это студенты МГТУ им. Н.Э. Баумана, которые не стоят на месте и хотят сделать этот мир лучше!
-          Покой нам только снится! Ежедневно наша команда работает над созданием новых проектов, решая задачи, которые до этого никто не решал.
-          В нашей команде все при делах: кто-то создает неповторимые интерфейсы в IT-отделах в то время, как другие пишут сложные программы. Среди нас есть разработчики веб-приложений и те, кто защищает их от киберугроз. Разработка ведется не только на программном уровне, но и на аппаратном, ведь у нас могут спаять микросхему и даже запустить ракету!
-          ITS BMSTU – это сообщество, где можно получить знания, открыть для себя новое направление в IT, найти друзей, будущих коллег и реализовать свои идеи!
+        <p class="text-regular" [translate]="'about-us.text'">
           </p>
       </div>
       <div class="col-6 button-block">
 
         <div class="about-item-container">
           <div class="about-item">
-            <div class="about-item-title">
-              Образовательное направление
-            </div>
+            <div class="about-item-title" [translate]="'about-us.block1-title'"></div>
             <div class="about-item-checkbox-container">
               <div (click)="toggleFirstCheckBox()" [class.toggled]="firstCheckBoxValue" class="checkbox">
                 <div [class.toggled]="firstCheckBoxValue" class="checkbox-knob text-center">
@@ -26,19 +21,17 @@
           </div>
 
           <div *ngIf="firstCheckBoxValue" class="opened_checkbox_content">
-            <div class="text-regular">— Курсы по IT специальностям</div>
-            <div class="text-regular">— Лекции и мастер-классы</div>
-            <div class="text-regular">— Проектно-образовательные выезды</div>
-            <div class="text-regular">— Школа спортивного программирования</div>
+            <div class="text-regular" [translate]="'about-us.block1-text1'"></div>
+            <div class="text-regular" [translate]="'about-us.block1-text2'"></div>
+            <div class="text-regular" [translate]="'about-us.block1-text3'"></div>
+            <div class="text-regular" [translate]="'about-us.block1-text4'"></div>
           </div>
         </div>
 
         <div class="about-item-container">
           <div class="about-item">
             <div class="about-item-title">
-              <div class="">
-                Проектное направление
-              </div>
+              <div [translate]="'about-us.block2-title'"></div>
             </div>
             <div class="about-item-checkbox-container">
               <div (click)="toggleSecondCheckBox()" [class.toggled]="secondCheckBoxValue" class="checkbox">
@@ -49,18 +42,16 @@
             </div>
           </div>
           <div *ngIf="secondCheckBoxValue" class="opened_checkbox_content ">
-            <div class="text-regular">— Поддержка стартап-проектов</div>
-            <div class="text-regular">— Предоставление менторов и бизнес-трекеров</div>
-            <div class="text-regular">— Проведение акселерационных программ для Университетов ЦФО РФ</div>
-            <div class="text-regular">— Работа с ОЭЗ Сколково и Иннополис</div>
+            <div class="text-regular" [translate]="'about-us.block2-text1'"></div>
+            <div class="text-regular" [translate]="'about-us.block2-text2'"></div>
+            <div class="text-regular" [translate]="'about-us.block2-text3'"></div>
+            <div class="text-regular" [translate]="'about-us.block2-text4'"></div>
           </div>
         </div>
 
         <div class="about-item-container">
           <div class="about-item">
-            <div class="about-item-title">
-              Научное направление
-            </div>
+            <div class="about-item-title" [translate]="'about-us.block3-title'"></div>
             <div class="about-item-checkbox-container">
               <div (click)="toggleThirdCheckBox()" [class.toggled]="thirdCheckBoxValue" class="checkbox ">
                 <div [class.toggled]="thirdCheckBoxValue" class="checkbox-knob text-center">
@@ -70,10 +61,10 @@
             </div>
           </div>
           <div *ngIf="thirdCheckBoxValue" class="opened_checkbox_content ">
-            <div class="text-regular">— Разработка IT-проектов для МГТУ им. Н.Э. Баумана</div>
-            <div class="text-regular">— Научно-исследовательские работы</div>
-            <div class="text-regular">— Организация международных конференций, митапов и форумов</div>
-            <div class="text-regular">— Сотрудничество с Университетами ЕАЭС</div>
+            <div class="text-regular" [translate]="'about-us.block3-text1'"></div>
+            <div class="text-regular" [translate]="'about-us.block3-text2'"></div>
+            <div class="text-regular" [translate]="'about-us.block3-text3'"></div>
+            <div class="text-regular" [translate]="'about-us.block3-text4'"></div>
           </div>
         </div>
 

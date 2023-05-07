@@ -17,8 +17,8 @@
   </div>
     <div class="col-8 text-block">
       <h1 class="title">ITS BMSTU<span class="blink">_</span></h1>
-      <p class="col-7 text-bold">Мы — студенты МГТУ им. Н.Э. Баумана, заинтересованные в развитии IT-сферы.</p>
-      <p class="col-11 text-regular">Целью нашей организации является сотворить лучшее студенческое сообщество, которое дает возможность активным ребятам найти единомышленников, реализовать свой собственный проект или попасть на стажировку в IT-компанию!</p>
-      <button class="button" (click)="clickAboutMenuItem()">Подробнее</button>
+      <p class="col-7 text-bold" [translate]="'header.description1'"></p>
+      <p class="col-11 text-regular" [translate]="'header.description2'"></p>
+      <button class="button" (click)="clickAboutMenuItem()" [translate]="'header.more'"></button>
     </div>
 </div>

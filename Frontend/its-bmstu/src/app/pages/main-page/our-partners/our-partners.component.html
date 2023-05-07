@@ -1,10 +1,6 @@
 <div class="host">
-  <div class="title" *ngIf="slug !== undefined">
-    Партнеры
-  </div>
-  <div class="title" *ngIf="slug == undefined">
-    Наши партнеры
-  </div>
+  <div class="title" *ngIf="slug !== undefined" [translate]="'our-partners.title1'"></div>
+  <div class="title" *ngIf="slug == undefined" [translate]="'our-partners.title2'"></div>
   <div class="container">
     <carousel #carousel [images]="images" [loop]="true" [autoplay]="true" [autoplayInterval]="5000"
               [height]="190" [cellsToShow]="5" [arrows]="false" [borderRadius]="40" [imagesCount]="images.length">

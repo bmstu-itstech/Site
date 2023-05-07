@@ -1,4 +1,64 @@
 {
+  "navigation-bar": {
+    "aboutOrganisation": "About us",
+    "infographics": "Infographics",
+    "events": "Events",
+    "contacts": "Contacts"
+  },
+  "header": {
+    "description1": "We are students of BMSTU, interested in the development of the IT-sphere.",
+    "description2": "The goal of our best organization is to create a student community that allows active guys to find like-minded people, implement their own project or get an internship in an IT company!",
+    "more": "More"
+  },
+  "about-us": {
+    "title": "About us",
+    "text": "The activists of our organization are students of the BMSTU, who do not stand still and want to make this a better world! Rest only in our dreams! Every day our team works on creating new projects, solving problems that no one has solved before. Currently, we start everything in business: who creates unique interfaces in IT departments while other serious programs. Among us are web application developers and those who support them from cyber threats. Development is carried out not only at the software level, but also at the hardware level, because we can have a microcircuit installed and even a rocket launched! ITS BMSTU is a community where you can gain knowledge, discover a new direction in IT, find friends, expect colleagues and realize your ideas!",
+    "block1-title": "Educational direction",
+    "block1-text1": "— Courses in IT specialties",
+    "block1-text2": "— Lectures and master classes",
+    "block1-text3": "— Design and educational trips",
+    "block1-text4": "— School of Sports Programming",
+    "block2-title": "Project direction",
+    "block2-text1": "— Support for start-up projects",
+    "block2-text2": "— Providing mentors and business trackers",
+    "block2-text3": "— Conducting acceleration programs for Universities of the Central Federal District of the Russian Federation",
+    "block2-text4": "— Work with Skolkovo and Innopolis",
+    "block3-title": "Scientific direction",
+    "block3-text1": "— Development of IT projects for BMSTU",
+    "block3-text2": "— Research work",
+    "block3-text3": "— Organization of international conferences, meetups and forums",
+    "block3-text4": "— Cooperation with EAEU Universities"
+  },
+  "infographics": {
+    "title": "Infographics",
+    "circ-text1": "50",
+    "circ-text2": "organizers",
+    "circ-text3": "Over 500",
+    "circ-text4": "participants",
+    "block1-title": "Departures",
+    "block1-text": "We organize thematic hackathons and a series of training workshops in nature",
+    "block2-title": "Meetups",
+    "block2-text": "We organize venues for meetings from the IT sphere",
+    "block3-title": "Lectures",
+    "block3-text": "Stories about current projects",
+    "block4-title": "Courses",
+    "block4-text": "Sharing experience and impressions"
+  },
+  "event-collection": {
+    "title": "Events"
+  },
+  "our-partners": {
+    "title1": "Partners",
+    "title2": "Our partners"
+  },
+  "contacts": {
+    "title": "Contacts",
+    "description": "Follow us on social networks",
+    "link1": "IU Student Council",
+    "link2": "ITS BMSTU",
+    "link3": "Telegram",
+    "link4": "GitHub"
+  },
   "footer": {
     "developed": "Developed by ITS tech"
   }

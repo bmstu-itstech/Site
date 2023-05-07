@@ -63,8 +63,6 @@ export class EventPageComponent {
         if (event.video !== null)
           this.video = event.video
       });
-    if (this.slug == "stend-tinkoff")
-      this.video = '/Users/heyuaresocute/WebstormProjects/Site/Frontend/its-bmstu/src/assets/videos/tinkoff.mp4'
 
   }
 

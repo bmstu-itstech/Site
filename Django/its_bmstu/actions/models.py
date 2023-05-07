@@ -1,8 +1,6 @@
 from django.core.validators import FileExtensionValidator
 from django.db import models
 
-from its_bmstu import settings
-
 
 # TODO change the order of saving so as not to lose photos after validation
 class Action(models.Model):
@@ -20,6 +18,9 @@ class Action(models.Model):
                                          blank=True)
     main_organizer = models.URLField(verbose_name="Главный организатор",
                                      max_length=255, blank=True)
+    preview = models.ImageField(verbose_name="Фотография",
+                                upload_to='actions/photo',
+                                blank=False, unique=False, default="")
     video = models.FileField(verbose_name="Видео",
                              upload_to='actions/video',
                              blank=True,

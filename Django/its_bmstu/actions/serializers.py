@@ -1,6 +1,7 @@
+from django.http import request
 from rest_framework import serializers
 
-from actions.models import Action, Photo, SocialNetworkLink, Partner
+from .models import Action, Photo, SocialNetworkLink, Partner
 
 
 class SocialNetworkLinkSerializer(serializers.ModelSerializer):
@@ -31,10 +32,12 @@ class ActionDetailSerializer(serializers.ModelSerializer):
     class Meta:
         model = Action
         fields = ('title', 'description', 'short_description',
-                  'main_organizer', 'links', 'partners', 'video', 'slug')
+                  'main_organizer', 'links', 'partners', 'preview', 'video',
+                  'slug')
 
 
 class ActionListSerializer(serializers.ModelSerializer):
     class Meta:
         model = Action
-        fields = ('title', 'description', 'short_description', 'slug')
+        fields = ('title', 'description', 'short_description',
+                  'slug', 'preview')

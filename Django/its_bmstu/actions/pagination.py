@@ -1,6 +1,6 @@
 from rest_framework.pagination import PageNumberPagination
 
-ACTIONS_PAGINATION_SIZE = 5
+ACTIONS_PAGINATION_SIZE = 6
 PHOTOS_PAGINATION_SIZE = 15
 PARTNER_PAGINATION_SIZE = 15
 

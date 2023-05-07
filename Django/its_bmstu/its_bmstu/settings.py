@@ -103,8 +103,9 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Production settings
 CSRF_TRUSTED_ORIGINS = ['https://*.its-bmstu.ru', ]
-ALLOWED_HOSTS = ['its-bmstu.ru', '127.0.0.1']
+ALLOWED_HOSTS = ["*"]
 CORS_ALLOWED_ORIGINS = []
 
 if DEBUG:
     CORS_ALLOWED_ORIGINS.append('http://localhost')
+    CORS_ALLOWED_ORIGINS.append('http://127.0.0.1')

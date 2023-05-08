@@ -7,11 +7,6 @@
   width: 5vw;
 }
 
-.translate-img {
-  width: 2.5vw;
-  margin-right: 7vw;
-}
-
 .btn-link {
   text-decoration: none;
   color: white;
@@ -76,9 +71,6 @@
 }
 
 @media (max-width: 991px) {
-  .translate-img {
-    display: none;
-  }
   .nav-link {
     margin-left: 85%;
     font-size: 1.3vw;

@@ -72,3 +72,9 @@
 .button:hover {
   box-shadow: 0 0 1.5vw rgba(255, 255, 255, 0.8);
 }
+
+@media (max-width: 991px) {
+  .main-page {
+    margin-top: 8vw;
+  }
+}

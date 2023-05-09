@@ -39,7 +39,7 @@
 }
 
 .other-images-container img {
-  width: 100%;
+  width: 99.999%;
   border-radius: 2.1vw;
   background: $color-dark; /* Цвет фона */
   background-size: cover !important;
@@ -115,7 +115,6 @@
   text-align: center;
   width: 100%;
   color: $color-white;
-
   opacity: 0.8;
 }
 

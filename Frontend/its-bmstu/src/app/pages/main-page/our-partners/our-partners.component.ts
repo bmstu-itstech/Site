@@ -15,6 +15,7 @@ export class OurPartnersComponent implements OnInit {
   title: string | undefined;
   images: CarouselImage[] = [];
   doesEventHavePartners: boolean = true;
+  basicCellsCount: number = 5;
 
   constructor(private ulrsProviderService: UrlsProviderService) {
   }
@@ -34,6 +35,16 @@ export class OurPartnersComponent implements OnInit {
           }
           if (eventDataDtoTyped.partners.length == 0) {
             this.doesEventHavePartners = false;
+          }
+          let currentCellsCount: number = eventDataDtoTyped.partners.length;
+          if (currentCellsCount < this.basicCellsCount) {
+            let i: number = 0;
+            while (currentCellsCount < this.basicCellsCount) {
+              let imageUrl = eventDataDtoTyped.partners[i].icon;
+              this.images.push({path: imageUrl});
+              i += 1
+              currentCellsCount += 1;
+            }
           }
         });
     } else {

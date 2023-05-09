@@ -13,15 +13,8 @@ export class OurPartnersComponent implements OnInit {
   @Input() slug: string | undefined;
   @ViewChild('carousel') carousel: ElementRef | undefined;
   title: string | undefined;
-
-  // images: CarouselImage[] = [];
-  images: CarouselImage[] = [
-    // {path: 'https://its-bmstu.ru/media/actions/photo_partner/Edge.jpg'},
-    // {path: 'https://its-bmstu.ru/media/actions/photo_partner/qaiu5t69t3zcnkx5yccgrk3l91t89jek.jpg'},
-    // {path: 'https://its-bmstu.ru/media/actions/photo_partner/YbFdyeHSsu4.jpg'},
-    // {path: 'https://its-bmstu.ru/media/actions/photo_partner/S-IYLXTw268.jpg'},
-    // {path: 'https://its-bmstu.ru/media/actions/photo_partner/KQ35hPG7bHs.jpg'}
-  ];
+  images: CarouselImage[] = [];
+  doesEventHavePartners: boolean = true;
 
   constructor(private ulrsProviderService: UrlsProviderService) {
   }
@@ -38,6 +31,9 @@ export class OurPartnersComponent implements OnInit {
           for (let i = 0; i < eventDataDtoTyped.partners.length; i++) {
             let imageUrl = eventDataDtoTyped.partners[i].icon;
             this.images.push({path: imageUrl});
+          }
+          if (eventDataDtoTyped.partners.length == 0) {
+            this.doesEventHavePartners = false;
           }
         });
     } else {

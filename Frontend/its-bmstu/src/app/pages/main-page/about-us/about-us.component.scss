@@ -24,7 +24,6 @@
 
 .text-block {
   margin-top: 5%;
-  //padding-left: 10%;
   padding-bottom: 10vw;
   font-family: $font-montserrat;
 }
@@ -117,6 +116,7 @@
 
 .about-item-checkbox-container {
   width: 8vw;
+  z-index: 1;
 }
 
 .about-item:first-child {
@@ -151,4 +151,27 @@
   .text-block {
     padding-bottom: 0;
   }
+
+  .text-regular {
+    font-size: 12px;
+  }
+
+  .about-item-title {
+    font-size: 13px;
+  }
+
+  .checkbox {
+    width: 11vw;
+    height: 6vw;
+  }
+
+  .checkbox-knob {
+    width: 6vw;
+    height: 6vw;
+  }
+
+  .about-item-checkbox-container {
+    margin-right: 15px;
+  }
+
 }

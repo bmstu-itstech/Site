@@ -27,18 +27,19 @@
           </li>
         </ul>
       </div>
-      <ul *ngFor="let language of translations" class="languages_list">
-        <li>
-          <button
-            (click)="onLanguageClick(language.value)"
-            class="btn btn-link"
-            type="button"
-          >
-            {{ language.display_name }}
-          </button>
-        </li>
-      </ul>
-<!--      <img class="translate-img" src="../../../assets/icons/translate.svg" alt="кнопка перевода">-->
+      <div class="my-row">
+        <ul *ngFor="let language of translations" class="languages_list">
+          <li>
+            <button
+              (click)="onLanguageClick(language.value)"
+              class="btn btn-link"
+              type="button"
+            >
+              {{ language.display_name }}
+            </button>
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
 </nav>

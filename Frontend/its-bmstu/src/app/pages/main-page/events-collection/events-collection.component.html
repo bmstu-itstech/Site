@@ -2,22 +2,26 @@
   <div class="container">
     <h1 class="title" [translate]="'event-collection.title'"></h1>
     <div class="row">
-      <div class="col row">
-        <div class="{{photo.columnClass}}" *ngFor="let photo of photos.slice(0, 3)" (click)="navigateToEvent(photo)">
-          <div class="photo-container other-images-container">
+      <div class="col">
+        <div class="row">
+          <div class="{{photo.columnClass}}" *ngFor="let photo of photos.slice(0, 3)" (click)="navigateToEvent(photo)">
+            <div class="photo-container other-images-container">
               <img src="{{photo.imageSrc}}">
-            <div class="event-title">
-              {{photo.title}}
+              <div class="event-title">
+                {{photo.title}}
+              </div>
             </div>
           </div>
         </div>
       </div>
-      <div class="col row">
-        <div class="{{photo.columnClass}}" *ngFor="let photo of photos.slice(3, 6)" (click)="navigateToEvent(photo)">
-          <div class="photo-container other-images-container">
-            <img src="{{photo.imageSrc}}">
-            <div class="event-title">
-              {{photo.title}}
+      <div class="col">
+        <div class="row">
+          <div class="{{photo.columnClass}}" *ngFor="let photo of photos.slice(3, 6)" (click)="navigateToEvent(photo)">
+            <div class="photo-container other-images-container">
+              <img src="{{photo.imageSrc}}">
+              <div class="event-title">
+                {{photo.title}}
+              </div>
             </div>
           </div>
         </div>

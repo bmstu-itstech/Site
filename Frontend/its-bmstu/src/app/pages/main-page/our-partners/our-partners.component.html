@@ -1,4 +1,4 @@
-<div class="host">
+<div class="host" *ngIf="doesEventHavePartners">
   <div class="title" *ngIf="slug !== undefined" [translate]="'our-partners.title1'"></div>
   <div class="title" *ngIf="slug == undefined" [translate]="'our-partners.title2'"></div>
   <div class="container">

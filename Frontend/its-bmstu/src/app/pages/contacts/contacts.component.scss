@@ -27,7 +27,7 @@ div {
     color:$color-white;
     font-family: $font-montserrat;
     font-size: 2.5vw;
-    left: 7%;
+    margin-left: 7%;
     top: 7%;
     padding-bottom: 2%;
 }
@@ -60,14 +60,14 @@ div {
 }
 
 .text:hover {
-    text-shadow: 0px 0px 35px rgba(255, 255, 255, 0.4);
+    text-shadow: 0 0 35px rgba(255, 255, 255, 0.4);
 }
 
 .macbook {
     z-index: 10;
     position: absolute;
     top: 30%;
-    right: 0px;
+    right: 0;
     width: 50vw;
 }
 
@@ -86,11 +86,23 @@ div {
     left: 1vw;
     z-index: 1000;
 }
-  
+
 .line-2 {
     position: absolute;
     z-index: 55;
     top: 16vw;
     right: 3vw;
     width: 11vw;
+}
+
+@media (max-width: 991px) {
+
+  .text {
+    font-size: 12px;
+  }
+
+  .text-regular {
+    font-size: 12px;
+  }
+
 }

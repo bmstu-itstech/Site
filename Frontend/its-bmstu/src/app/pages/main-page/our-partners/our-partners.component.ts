@@ -13,15 +13,9 @@ export class OurPartnersComponent implements OnInit {
   @Input() slug: string | undefined;
   @ViewChild('carousel') carousel: ElementRef | undefined;
   title: string | undefined;
-
-  // images: CarouselImage[] = [];
-  images: CarouselImage[] = [
-    // {path: 'https://its-bmstu.ru/media/actions/photo_partner/Edge.jpg'},
-    // {path: 'https://its-bmstu.ru/media/actions/photo_partner/qaiu5t69t3zcnkx5yccgrk3l91t89jek.jpg'},
-    // {path: 'https://its-bmstu.ru/media/actions/photo_partner/YbFdyeHSsu4.jpg'},
-    // {path: 'https://its-bmstu.ru/media/actions/photo_partner/S-IYLXTw268.jpg'},
-    // {path: 'https://its-bmstu.ru/media/actions/photo_partner/KQ35hPG7bHs.jpg'}
-  ];
+  images: CarouselImage[] = [];
+  doesEventHavePartners: boolean = true;
+  basicCellsCount: number = 5;
 
   constructor(private ulrsProviderService: UrlsProviderService) {
   }
@@ -38,6 +32,19 @@ export class OurPartnersComponent implements OnInit {
           for (let i = 0; i < eventDataDtoTyped.partners.length; i++) {
             let imageUrl = eventDataDtoTyped.partners[i].icon;
             this.images.push({path: imageUrl});
+          }
+          if (eventDataDtoTyped.partners.length == 0) {
+            this.doesEventHavePartners = false;
+          }
+          let currentCellsCount: number = eventDataDtoTyped.partners.length;
+          if (currentCellsCount < this.basicCellsCount) {
+            let i: number = 0;
+            while (currentCellsCount < this.basicCellsCount) {
+              let imageUrl = eventDataDtoTyped.partners[i].icon;
+              this.images.push({path: imageUrl});
+              i += 1
+              currentCellsCount += 1;
+            }
           }
         });
     } else {

@@ -7,11 +7,6 @@
   width: 5vw;
 }
 
-.translate-img {
-  width: 2.5vw;
-  margin-right: 7vw;
-}
-
 .btn-link {
   text-decoration: none;
   color: white;
@@ -75,13 +70,34 @@
   padding: 0;
 }
 
+.my-row {
+  display: inline;
+  margin-left: -5%;
+}
+
 @media (max-width: 991px) {
-  .translate-img {
-    display: none;
-  }
   .nav-link {
-    margin-left: 85%;
-    font-size: 1.3vw;
-    width: 15vw;
+    text-align: right;
+    margin-left: 81%;
+    font-size: 1.5vw;
+    width: 17vw;
+  }
+
+  .my-row {
+    display: block;
+    text-align: right;
+    margin-right: 3%;
+  }
+
+  .btn {
+    font-size: 2vw;
+  }
+}
+
+@media (max-width: 600px) {
+  .nav-link {
+    margin-left: 60%;
+    font-size: 3vw;
+    width: 35vw;
   }
 }

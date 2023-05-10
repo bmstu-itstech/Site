@@ -72,3 +72,26 @@
 .button:hover {
   box-shadow: 0 0 1.5vw rgba(255, 255, 255, 0.8);
 }
+
+@media (max-width: 991px) {
+  .main-page {
+    margin-top: 8vw;
+  }
+
+  .text-regular {
+    font-size: 8px
+  }
+
+  .title {
+    font-size: 25px;
+  }
+
+  .text-bold {
+    font-size: 9px
+  }
+
+  .button {
+    opacity: 0;
+  }
+
+}

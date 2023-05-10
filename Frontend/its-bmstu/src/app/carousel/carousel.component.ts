@@ -382,7 +382,12 @@ export class CarouselComponent implements OnDestroy {
     getCellWidth() {
         let elementWidth = this.carouselWidth;
         let px: number = 250;
-        return 250
+        if (elementWidth >= 500){
+          return 250
+        }
+        else {
+          return 150
+        }
       //100 * px / windowWidth - vw
       //   return (100 * px / window.innerWidth)
 

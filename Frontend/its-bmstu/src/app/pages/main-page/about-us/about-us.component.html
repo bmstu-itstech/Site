@@ -30,9 +30,7 @@
 
         <div class="about-item-container">
           <div class="about-item">
-            <div class="about-item-title">
-              <div [translate]="'about-us.block2-title'"></div>
-            </div>
+            <div class="about-item-title" [translate]="'about-us.block2-title'"></div>
             <div class="about-item-checkbox-container">
               <div (click)="toggleSecondCheckBox()" [class.toggled]="secondCheckBoxValue" class="checkbox">
                 <div [class.toggled]="secondCheckBoxValue" class="checkbox-knob text-center">

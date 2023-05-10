@@ -94,3 +94,15 @@ div {
     right: 3vw;
     width: 11vw;
 }
+
+@media (max-width: 991px) {
+
+  .text {
+    font-size: 12px;
+  }
+
+  .text-regular {
+    font-size: 12px;
+  }
+
+}

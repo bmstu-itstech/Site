@@ -17,7 +17,7 @@ div {
     left: 50%;
     transform: translate(-50%, -50%);
     display: inline-block;
-    font-family: 'Montserrat';
+    font-family: $font-montserrat;
     font-style: normal;
     font-weight: 400;
     font-size: 1.8vw;
@@ -37,3 +37,12 @@ div {
     display: inline-block;
     width: 8%;
 }
+
+@media (max-width: 991px) {
+
+  .text {
+    font-size: 12px;
+  }
+
+}
+

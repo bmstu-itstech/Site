@@ -135,10 +135,14 @@
 }*/
 
 @media (max-width: 991px) {
-  .left-dots-1, .right-dots-1, .right-dots-2, .line-2, .line-3 {
+  .left-dots-1, .right-dots-1, .right-dots-2 {
     margin-top: 22vw;
   }
   .line-1 {
     margin-top: 8vw;
+  }
+
+  .line-2, .line-3 {
+    margin-top: 25vw;
   }
 }

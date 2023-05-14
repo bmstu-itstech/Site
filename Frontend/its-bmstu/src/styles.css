@@ -7,4 +7,5 @@ html {
 /* TODO add with scss*/
 body {
   background-color: #14104B;
+  cursor: default;
 }

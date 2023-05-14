@@ -16,10 +16,13 @@
 .photo-container {
   margin-bottom: 1vw;
   border-radius: 2.5vw;
+  cursor: pointer;
+  transition: all .2s ease-in-out;
 }
 
 .photo-container:hover {
-  box-shadow: 0 0 3vw rgba(255, 255, 255, 0.6);
+  box-shadow: 0 0 1vw rgba(255, 255, 255, 0.6);
+  transform: scale(1.1);
 }
 
 .other-images-container:after {

@@ -75,6 +75,10 @@
   margin-left: -5%;
 }
 
+.nav-item {
+  cursor: pointer;
+}
+
 @media (max-width: 991px) {
   .nav-link {
     text-align: right;

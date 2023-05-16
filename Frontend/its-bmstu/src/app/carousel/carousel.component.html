@@ -8,12 +8,14 @@
       <div class="carousel-cell"
            [style.width]="getCellWidth()+'vw'"
            [style.border-radius]="borderRadius+'px'"
+           [style.overflow]="'hidden'"
            *ngIf="i < cellLimit">
         <!-- Image -->
         <img
           *ngIf="getImage(i) && getImage(i)['image']"
           [src]="getImage(i)['image']['path']"
-          [style.object-fit]="objectFit"
+          [style.object-fit]="'contain'"
+          [style.padding]="'10px'"
           draggable="false"/>
 
       </div>

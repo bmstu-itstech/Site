@@ -8,14 +8,13 @@
   background: rgba(0, 0, 0, 0.5);
 }
 
-
 .video-block {
   z-index: -100;
   position: relative;
   width: 100%;
 }
 
-#background-video {
+.video-block video {
   width: 100%;
   height: 100%;
   left: 0;
@@ -75,6 +74,13 @@
   box-shadow: 0 0 1.5vw rgba(255, 255, 255, 0.8);
 }
 
+@media (min-aspect-ratio:16/9) {
+  .video-block video {
+    height: auto;
+    width: 100%;
+  }
+}
+
 @media (max-width: 991px) {
   .main-page {
     margin-top: 8vw;
@@ -95,5 +101,4 @@
   .button {
     opacity: 0;
   }
-
 }

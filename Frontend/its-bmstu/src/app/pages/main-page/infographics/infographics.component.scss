@@ -110,6 +110,10 @@ div {
     font-style: normal;
 }
 
+.hover-text-left, .hover-text-right {
+    text-align: center;
+}
+
 .hover-circ-text-1 {
     display: flex;
     justify-content: center;
@@ -220,8 +224,7 @@ div {
 }
 
 .hover-text-left, .hover-text-right {
-    padding-top: 5%;
-    font-size: 1.1vw;
+    font-size: 1.17vw;
     color: #14104B;
     padding-left: 25%;
     padding-right: 25%;

@@ -38,7 +38,6 @@
 }
 
 .button-block {
-  //padding-left: 10%;
   margin-top: 7%;
 }
 
@@ -174,6 +173,10 @@
 
   .about-item-checkbox-container {
     margin-right: 15px;
+  }
+
+  .checkbox-knob.toggled {
+    transform: translateX(5vw);
   }
 
 }

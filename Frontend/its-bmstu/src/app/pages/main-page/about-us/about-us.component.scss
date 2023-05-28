@@ -5,7 +5,6 @@
     background-color: $color-dark;
 }
 
-
 .about-us {
   position: relative;
 }
@@ -41,7 +40,6 @@
   margin-top: 7%;
 }
 
-
 .checkbox {
   background-color: white;
   overflow: hidden;
@@ -52,6 +50,7 @@
   transition: 0.2s ease-in-out;
   border-radius: 75.9908px;
   cursor: pointer;
+  user-select: none;
 }
 
 .checkbox.toggled {
@@ -137,6 +136,13 @@
 .icon {
   width: 1.5vw;
   height: 1.5vw;
+}
+
+.line-1 {
+  position: absolute;
+  z-index: 1000;
+  right: 3vw;
+  width: 16vw;
 }
 
 @media (max-width: 991px) {

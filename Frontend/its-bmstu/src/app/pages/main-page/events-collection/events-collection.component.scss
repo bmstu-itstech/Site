@@ -52,6 +52,13 @@
 
 }
 
+.line-3 {
+  position: absolute;
+  z-index: 1000;
+  right: 3vw;
+  width: 13vw;
+}
+
 @media only screen and (min-width: 1000px) and (max-width: 2000px) {
   .col-6 .other-images-container img {
     height: 250px !important;

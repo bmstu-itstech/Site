@@ -5,7 +5,6 @@
     background-color: $color-dark;
 }
 
-
 .about-us {
   position: relative;
 }
@@ -38,10 +37,8 @@
 }
 
 .button-block {
-  //padding-left: 10%;
   margin-top: 7%;
 }
-
 
 .checkbox {
   background-color: white;
@@ -53,6 +50,7 @@
   transition: 0.2s ease-in-out;
   border-radius: 75.9908px;
   cursor: pointer;
+  user-select: none;
 }
 
 .checkbox.toggled {
@@ -140,6 +138,13 @@
   height: 1.5vw;
 }
 
+.line-1 {
+  position: absolute;
+  z-index: 1000;
+  right: 3vw;
+  width: 16vw;
+}
+
 @media (max-width: 991px) {
   .col-6 {
     width: 100%;
@@ -174,6 +179,10 @@
 
   .about-item-checkbox-container {
     margin-right: 15px;
+  }
+
+  .checkbox-knob.toggled {
+    transform: translateX(5vw);
   }
 
 }

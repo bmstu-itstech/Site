@@ -254,6 +254,18 @@ div {
     margin-bottom: 8%;
 }
 
+.infographics {
+    position: relative;
+}
+
+.line-2 {
+    position: absolute;
+    z-index: 1000;
+    top: 9vw;
+    left: 3vw;
+    width: 14vw;
+}
+
 @media (max-width: 991px) {
     .rec {
         width: 45vw;

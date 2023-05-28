@@ -86,8 +86,16 @@
     margin-top: 8vw;
   }
 
+  .col-7, .col-11 {
+    width: 100%;
+  }
+
+  .col-8 {
+    width: 85%;
+  }
+
   .text-regular {
-    font-size: 8px
+    font-size: 1.5vw;
   }
 
   .title {
@@ -95,10 +103,19 @@
   }
 
   .text-bold {
-    font-size: 9px
+    font-size: 1.6vw;
   }
 
   .button {
     opacity: 0;
+  }
+}
+
+@media (max-width: 650px) {
+  .text-bold {
+    font-size: 2.6vw;
+  }
+  .text-regular {
+    font-size: 2.5vw;
   }
 }

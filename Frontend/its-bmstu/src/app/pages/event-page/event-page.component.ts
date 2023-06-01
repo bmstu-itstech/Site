@@ -20,7 +20,6 @@ export class EventPageComponent {
   title: string = '';
   video: string | null = '/assets/videos/video.mp4';
   images = [];
-  //galleryPhotos: ImageItem[] = [];
   columnSizes: number[] | undefined;
   firstPhotoStyleBackground2: string = '';
   private _urlsProviderService: UrlsProviderService;
@@ -35,7 +34,8 @@ export class EventPageComponent {
 
     this.slug = this.router.getCurrentNavigation()!.extras.state!["slug"];
     this.downloadPhotos();
-    //this.downloadHeaderPhoto();
+    this.downloadHeaderVideo();
+    console.log("constructor")
   }
 
   downloadPhotos() {
@@ -55,15 +55,19 @@ export class EventPageComponent {
         }
         this.firstPhotoStyleBackground2 = `linear-gradient(to bottom, rgba(20, 16, 75, 0) 0%, #14104B 100%)`;
       });
+  }
+
+  downloadHeaderVideo(){
     fetch(this._urlsProviderService.getEventUrl(this.slug))
       .then(response => response.json())
-      .then(untypedTitle => {
-        let event = untypedTitle as EventDataDto;
+      .then(untypedData => {
+        let event = untypedData as EventDataDto;
         this.title = event.title;
-        if (event.video !== null)
+        if (event.video !== null) {
+          console.log("Event video")
           this.video = event.video
+        }
       });
-
   }
 
   goBack() {

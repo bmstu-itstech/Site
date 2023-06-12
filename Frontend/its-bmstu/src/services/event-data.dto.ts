@@ -9,7 +9,7 @@ export interface EventDataDto {
   main_organizer: string;
   links: EventDtoLinkItem[];
   partners: EventDataDtoPartnerItem[];
-  video: string | null;
+  video: string;
   slug: string;
 }
 

@@ -18,7 +18,7 @@ export class EventPageComponent {
   photosDownloadingPageSize : number = 15;
   next: string | null = null;
   title: string = '';
-  video: string | null = '/assets/videos/video.mp4';
+  video: string = '';
   images = [];
   columnSizes: number[] | undefined;
   firstPhotoStyleBackground2: string = '';
@@ -31,15 +31,14 @@ export class EventPageComponent {
               router: Router) {
     this.router = router;
     this._urlsProviderService = urlsProviderService;
-
     this.slug = this.router.getCurrentNavigation()!.extras.state!["slug"];
     this.downloadPhotos();
     this.downloadHeaderVideo();
-    console.log("constructor")
   }
 
   downloadPhotos() {
     //TODO use new service method with offset and pagesize
+    //TODO make
     fetch(this._urlsProviderService.getEventPhotosUrl(this.slug, this.photosDownloadingPageSize, this.currentPhotosCount))
       .then(response => response.json())
       .then(untypedPhotos => {
@@ -57,16 +56,14 @@ export class EventPageComponent {
       });
   }
 
-  downloadHeaderVideo(){
+  downloadHeaderVideo() {
     fetch(this._urlsProviderService.getEventUrl(this.slug))
       .then(response => response.json())
       .then(untypedData => {
         let event = untypedData as EventDataDto;
         this.title = event.title;
-        if (event.video !== null) {
-          console.log("Event video")
-          this.video = event.video
-        }
+        console.log("Event video")
+        this.video = event.video
       });
   }
 

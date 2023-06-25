@@ -1,4 +1,4 @@
-import {Component, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
 import {UrlsProviderService} from "../../../services/urls-provider.service";
 import {Photo} from "./photo";
 import {Router} from "@angular/router";
@@ -12,15 +12,14 @@ import {EventDataDto} from "../../../services/event-data.dto";
   templateUrl: './event-page.component.html',
   styleUrls: ['./event-page.component.scss']
 })
-export class EventPageComponent {
+export class EventPageComponent implements OnInit{
   photos: Photo[] = [];
   currentPhotosCount: number = 1;
   photosDownloadingPageSize : number = 15;
   next: string | null = null;
   title: string = '';
-  video: string | null = '/assets/videos/video.mp4';
+  video: string = '';
   images = [];
-  //galleryPhotos: ImageItem[] = [];
   columnSizes: number[] | undefined;
   firstPhotoStyleBackground2: string = '';
   private _urlsProviderService: UrlsProviderService;
@@ -32,14 +31,23 @@ export class EventPageComponent {
               router: Router) {
     this.router = router;
     this._urlsProviderService = urlsProviderService;
-
     this.slug = this.router.getCurrentNavigation()!.extras.state!["slug"];
     this.downloadPhotos();
-    //this.downloadHeaderPhoto();
+    this.downloadHeaderVideo();
   }
+
+  ngOnInit(): void {
+    const video = document.getElementById("background-video") as HTMLVideoElement
+    if (video) {
+      // @ts-ignore
+      video.muted = "muted";
+      video.play();
+    }
+    }
 
   downloadPhotos() {
     //TODO use new service method with offset and pagesize
+    //TODO make
     fetch(this._urlsProviderService.getEventPhotosUrl(this.slug, this.photosDownloadingPageSize, this.currentPhotosCount))
       .then(response => response.json())
       .then(untypedPhotos => {
@@ -55,15 +63,17 @@ export class EventPageComponent {
         }
         this.firstPhotoStyleBackground2 = `linear-gradient(to bottom, rgba(20, 16, 75, 0) 0%, #14104B 100%)`;
       });
+  }
+
+  downloadHeaderVideo() {
     fetch(this._urlsProviderService.getEventUrl(this.slug))
       .then(response => response.json())
-      .then(untypedTitle => {
-        let event = untypedTitle as EventDataDto;
+      .then(untypedData => {
+        let event = untypedData as EventDataDto;
         this.title = event.title;
-        if (event.video !== null)
-          this.video = event.video
+        console.log("Event video")
+        this.video = event.video
       });
-
   }
 
   goBack() {

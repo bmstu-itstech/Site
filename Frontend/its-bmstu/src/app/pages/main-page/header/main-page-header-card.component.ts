@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {AfterViewInit, Component, OnInit} from '@angular/core';
 import { NavigationBarComponent } from "../../navigation-bar/navigation-bar.component";
 import {Router} from "@angular/router";
 import {MainPageLoadedProviderService} from "../../../../services/main-page-loaded-provider.service";
@@ -8,8 +8,7 @@ import {MainPageLoadedProviderService} from "../../../../services/main-page-load
   templateUrl: './main-page-header-card.component.html',
   styleUrls: ['./main-page-header-card.component.scss']
 })
-export class MainPageHeaderCardComponent {
-
+export class MainPageHeaderCardComponent implements AfterViewInit{
   // constructor(private NavigationBarService: NavigationBarComponent) {
   //
   // }
@@ -22,6 +21,15 @@ export class MainPageHeaderCardComponent {
               private MainPageLoadedProvider: MainPageLoadedProviderService) {
 
   }
+
+  ngAfterViewInit(): void {
+    const video = document.getElementById("background-video") as HTMLVideoElement
+    if (video) {
+      // @ts-ignore
+      video.muted = "muted";
+      video.play();
+    }
+    }
 
   clickAboutMenuItem(): void {
     const currentPage = this.router.url;
@@ -41,6 +49,8 @@ export class MainPageHeaderCardComponent {
     else
       this.scrollToAboutCard();
   }
+
+
 
   private scrollToAboutCard() {
     if (document !== undefined && document !== null) {

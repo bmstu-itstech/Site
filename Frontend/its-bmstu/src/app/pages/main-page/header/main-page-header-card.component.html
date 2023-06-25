@@ -1,19 +1,6 @@
-<style>
-  .blink {
-    animation: blinker 0.8s linear infinite;
-  }
-  @keyframes blinker {
-    50% {
-      opacity: 0;
-    }
-  }
-</style>
-
 <div class="main-page">
   <div class="video-block" >
-    <video autoplay muted loop>
-      <source src="/assets/videos/video.mp4" type="video/mp4">
-    </video>
+    <video src="/assets/videos/video.mp4" id="background-video" loop autoplay></video>
   </div>
     <div class="col-8 text-block">
       <h1 class="title">ITS BMSTU<span class="blink">_</span></h1>

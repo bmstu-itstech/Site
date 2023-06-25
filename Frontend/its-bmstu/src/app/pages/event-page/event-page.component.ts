@@ -1,4 +1,4 @@
-import {Component, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
 import {UrlsProviderService} from "../../../services/urls-provider.service";
 import {Photo} from "./photo";
 import {Router} from "@angular/router";
@@ -12,7 +12,7 @@ import {EventDataDto} from "../../../services/event-data.dto";
   templateUrl: './event-page.component.html',
   styleUrls: ['./event-page.component.scss']
 })
-export class EventPageComponent {
+export class EventPageComponent implements OnInit{
   photos: Photo[] = [];
   currentPhotosCount: number = 1;
   photosDownloadingPageSize : number = 15;
@@ -35,6 +35,15 @@ export class EventPageComponent {
     this.downloadPhotos();
     this.downloadHeaderVideo();
   }
+
+  ngOnInit(): void {
+    const video = document.getElementById("background-video") as HTMLVideoElement
+    if (video) {
+      // @ts-ignore
+      video.muted = "muted";
+      video.play();
+    }
+    }
 
   downloadPhotos() {
     //TODO use new service method with offset and pagesize

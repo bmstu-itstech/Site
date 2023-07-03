@@ -23,6 +23,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'corsheaders',
     'actions',
+    'drf_spectacular',
 ]
 
 MIDDLEWARE = [
@@ -99,6 +100,19 @@ DATA_UPLOAD_MAX_NUMBER_FIELDS = None
 DATA_UPLOAD_MAX_NUMBER_FILES = None
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# REST settings
+REST_FRAMEWORK = {
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
+}
+SPECTACULAR_SETTINGS = {
+    'TITLE': 'IT`s BMSTU',
+    'DESCRIPTION': 'Мы — студенты МГТУ им. Н.Э. Баумана, заинтересованные в развитии IT-сферы.',
+    'VERSION': '1.0.0',
+    'SERVE_INCLUDE_SCHEMA': False,
+    # OTHER SETTINGS
+}
+
 
 # Production settings
 CSRF_TRUSTED_ORIGINS = ['https://*.its-bmstu.ru', ]

@@ -1,12 +1,10 @@
 # ITS BMSTU Site
 
 ### Для запуска:
+
 ```shell
 python manage.py runserver
 ```
-
-### На проде:
-
 
 ### Для первого запуска:
 
@@ -17,11 +15,14 @@ SECRET_KEY="..."
 ```
 
 Выполнить:
+
 ```shell
 python manage.py collectstatic
 python manage.py migrate 
 python manage.py runserver
 ```
+
+### Документация: https://127.0.0.1:8000/api/v0/docs
 
 ### 🤖 Задача BackEnd
 

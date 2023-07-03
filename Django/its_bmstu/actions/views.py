@@ -1,5 +1,5 @@
 from drf_spectacular.utils import extend_schema_view, extend_schema, \
-    inline_serializer
+    inline_serializer, OpenApiParameter
 from rest_framework import generics, status, serializers
 from rest_framework import views
 
@@ -9,10 +9,32 @@ from actions.pagination import ActionPagination, PhotoPagination, \
 from actions.serializers import ActionListSerializer, ActionDetailSerializer, \
     PhotoSerializer, PartnerSerializer
 
+# -------- FOR DOCS --------
+SLUG_PARAMETER = OpenApiParameter(name='slug',
+                                  location=OpenApiParameter.PATH,
+                                  description='Название мероприятия',
+                                  required=True,
+                                  type=str
+                                  )
+PAGE_PARAMETER = OpenApiParameter(name='page',
+                                  location=OpenApiParameter.QUERY,
+                                  description='Номер страницы',
+                                  required=False,
+                                  type=int
+                                  )
+PAGE_SIZE_PARAMETER = OpenApiParameter(name='page_size',
+                                       location=OpenApiParameter.QUERY,
+                                       description='Количество элементов '
+                                                   'на странице',
+                                       required=False,
+                                       type=int
+                                       )
+# --------------------------
 
 @extend_schema_view(
     get=extend_schema(
         summary="Получить информацию о мероприятии",
+        parameters=[SLUG_PARAMETER]
     )
 )
 class ActionDetail(generics.RetrieveAPIView):
@@ -24,6 +46,7 @@ class ActionDetail(generics.RetrieveAPIView):
 @extend_schema_view(
     get=extend_schema(
         summary="Получить список мероприятий",
+        parameters=[PAGE_PARAMETER, PAGE_SIZE_PARAMETER]
     )
 )
 class ActionList(generics.ListAPIView):
@@ -35,6 +58,7 @@ class ActionList(generics.ListAPIView):
 @extend_schema_view(
     get=extend_schema(
         summary="Получить список партнеров",
+        parameters=[PAGE_PARAMETER, PAGE_SIZE_PARAMETER]
     )
 )
 class PartnerList(generics.ListAPIView):
@@ -50,14 +74,15 @@ class PhotoList(views.APIView, PhotoPagination):
             status.HTTP_200_OK: inline_serializer(
                 name='{}',
                 fields={
-                    # 'title': serializers.CharField(),
+                    # TODO Examples
                     "count": serializers.IntegerField(),
                     "next": serializers.URLField(),
                     "previous": serializers.URLField(),
                     "results": PhotoSerializer(),
                 }
             ),
-        }
+        },
+        parameters=[SLUG_PARAMETER, PAGE_PARAMETER, PAGE_SIZE_PARAMETER],
     )
     def get(self, request, slug):
         photos = Photo.objects.filter(action__slug=slug).order_by('pk')

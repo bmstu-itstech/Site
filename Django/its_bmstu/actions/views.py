@@ -29,7 +29,7 @@ PAGE_SIZE_PARAMETER = OpenApiParameter(name='page_size',
                                        required=False,
                                        type=int
                                        )
-# --------------------------
+
 
 @extend_schema_view(
     get=extend_schema(
@@ -72,13 +72,21 @@ class PhotoList(views.APIView, PhotoPagination):
         summary="Получить список фотографий",
         responses={
             status.HTTP_200_OK: inline_serializer(
-                name='{}',
+                name='PaginatedPhotosList',
                 fields={
                     # TODO Examples
-                    "count": serializers.IntegerField(),
-                    "next": serializers.URLField(),
-                    "previous": serializers.URLField(),
-                    "results": PhotoSerializer(),
+                    "count": serializers.IntegerField(default=10),
+                    "next": serializers.URLField(
+                        default="https://api.example.org/accounts/?page=4"
+                    ),
+                    "previous": serializers.URLField(
+                        default="https://api.example.org/accounts/?page=2"
+                    ),
+                    "results": PhotoSerializer(
+                        default={'photo': 'https://api.example.org/'
+                                          'actions/photo/8_FYAHEaq.jpg',
+                                 'width': 1920, 'height': 1080},
+                    ),
                 }
             ),
         },

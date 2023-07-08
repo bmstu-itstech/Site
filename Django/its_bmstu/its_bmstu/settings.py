@@ -107,7 +107,11 @@ REST_FRAMEWORK = {
 }
 SPECTACULAR_SETTINGS = {
     'TITLE': 'IT`s BMSTU',
-    'DESCRIPTION': 'Мы — студенты МГТУ им. Н.Э. Баумана, заинтересованные в развитии IT-сферы.',
+    'DESCRIPTION': 'API предназначено для получения:\n'
+                   '1. Списка мероприятий\n'
+                   '2. Описания мероприятия\n'
+                   '3. Списка фотографий\n'
+                   '4. Списка партнеров',
     'VERSION': '1.0.0',
     'SERVE_INCLUDE_SCHEMA': False,
     # OTHER SETTINGS

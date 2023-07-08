@@ -1,6 +1,10 @@
 @import '../../../styles/colors';
 @import '../../../styles/fonts';
 
+.navbar-collapse {
+  color: rgba(0, 0, 0, 0);
+}
+
 .logo-img {
   margin-left: 7vw;
   margin-right: 10vw;
@@ -81,6 +85,12 @@
 }
 
 @media (max-width: 991px) {
+  .logo-img {
+    margin-left: 7vw;
+    margin-right: 8vw;
+    width: 7vw;
+  }
+
   .nav-link {
     text-align: right;
     margin-left: 81%;
@@ -100,9 +110,31 @@
 }
 
 @media (max-width: 600px) {
+  .logo-img {
+    margin-left: 7vw;
+    margin-right: 0;
+    width: 9vw;
+  }
+
   .nav-link {
     margin-left: 60%;
     font-size: 3vw;
     width: 35vw;
+  }
+}
+
+@media (max-width: 450px) {
+  .logo-img {
+    margin-left: 7vw;
+    margin-right: 0;
+    width: 11vw;
+  }
+}
+
+@media (max-width: 350px) {
+  .logo-img {
+    margin-left: 7vw;
+    margin-right: 0;
+    width: 13vw;
   }
 }

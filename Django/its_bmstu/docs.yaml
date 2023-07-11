@@ -1,0 +1,316 @@
+openapi: 3.0.3
+info:
+  title: IT`s BMSTU
+  version: 1.0.0
+  description: |-
+    API предназначено для получения:
+    1. Списка мероприятий
+    2. Описания мероприятия
+    3. Списка фотографий
+    4. Списка партнеров
+paths:
+  /api/v0/actions/:
+    get:
+      operationId: actions_list
+      summary: Получить список мероприятий
+      parameters:
+      - in: query
+        name: page
+        schema:
+          type: integer
+        description: Номер страницы
+      - in: query
+        name: page_size
+        schema:
+          type: integer
+        description: Количество элементов на странице
+      tags:
+      - actions
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedActionListList'
+          description: ''
+  /api/v0/actions/{slug}/:
+    get:
+      operationId: actions_retrieve
+      summary: Получить информацию о мероприятии
+      parameters:
+      - in: path
+        name: slug
+        schema:
+          type: string
+        description: Название мероприятия
+        required: true
+      tags:
+      - actions
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ActionDetail'
+          description: ''
+  /api/v0/actions/{slug}/photos:
+    get:
+      operationId: actions_photos_retrieve
+      summary: Получить список фотографий
+      parameters:
+      - in: query
+        name: page
+        schema:
+          type: integer
+        description: Номер страницы
+      - in: query
+        name: page_size
+        schema:
+          type: integer
+        description: Количество элементов на странице
+      - in: path
+        name: slug
+        schema:
+          type: string
+        description: Название мероприятия
+        required: true
+      tags:
+      - actions
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedPhotosList'
+          description: ''
+  /api/v0/actions/partners/:
+    get:
+      operationId: actions_partners_list
+      summary: Получить список партнеров
+      parameters:
+      - in: query
+        name: page
+        schema:
+          type: integer
+        description: Номер страницы
+      - in: query
+        name: page_size
+        schema:
+          type: integer
+        description: Количество элементов на странице
+      tags:
+      - actions
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedPartnerList'
+          description: ''
+components:
+  schemas:
+    ActionDetail:
+      type: object
+      properties:
+        title:
+          type: string
+          title: Название
+          maxLength: 255
+        description:
+          type: string
+          title: Описание
+        short_description:
+          type: string
+          title: Краткое описание
+        main_organizer:
+          type: string
+          format: uri
+          title: Главный организатор
+          maxLength: 255
+        links:
+          type: array
+          items:
+            $ref: '#/components/schemas/SocialNetworkLink'
+        partners:
+          type: array
+          items:
+            $ref: '#/components/schemas/Partner'
+        preview:
+          type: string
+          format: uri
+          title: Фотография
+        video:
+          type: string
+          format: uri
+          title: Видео
+          pattern: (?:mov|avi|mp4|webm|mkv)$
+        slug:
+          type: string
+          title: Ссылка на веб-страницу мероприятия
+          maxLength: 255
+          pattern: ^[-a-zA-Z0-9_]+$
+      required:
+      - links
+      - partners
+      - slug
+      - title
+    ActionList:
+      type: object
+      properties:
+        title:
+          type: string
+          title: Название
+          maxLength: 255
+        description:
+          type: string
+          title: Описание
+        short_description:
+          type: string
+          title: Краткое описание
+        slug:
+          type: string
+          title: Ссылка на веб-страницу мероприятия
+          maxLength: 255
+          pattern: ^[-a-zA-Z0-9_]+$
+        preview:
+          type: string
+          format: uri
+          title: Фотография
+      required:
+      - slug
+      - title
+    PaginatedActionListList:
+      type: object
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/ActionList'
+    PaginatedPartnerList:
+      type: object
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Partner'
+    PaginatedPhotosList:
+      type: object
+      properties:
+        count:
+          type: integer
+          default: 10
+        next:
+          type: string
+          format: uri
+          default: https://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          format: uri
+          default: https://api.example.org/accounts/?page=2
+        results:
+          allOf:
+          - $ref: '#/components/schemas/Photo'
+          default:
+            photo: https://api.example.org/actions/photo/8_FYAHEaq.jpg
+            width: 1920
+            height: 1080
+    Partner:
+      type: object
+      properties:
+        name:
+          type: string
+          title: Название
+          maxLength: 255
+        url:
+          type: string
+          format: uri
+          title: Ссылка
+          maxLength: 255
+        icon:
+          type: string
+          format: uri
+          title: Иконка
+      required:
+      - icon
+      - name
+      - url
+    Photo:
+      type: object
+      properties:
+        photo:
+          type: string
+          format: uri
+          title: Фотография
+        width:
+          type: integer
+        height:
+          type: integer
+      required:
+      - height
+      - photo
+      - width
+    SocialNetworkLink:
+      type: object
+      properties:
+        name:
+          type: string
+          title: Название соц. сети
+          maxLength: 127
+        url:
+          type: string
+          format: uri
+          title: Ссылка
+          maxLength: 255
+      required:
+      - name
+      - url
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+    cookieAuth:
+      type: apiKey
+      in: cookie
+      name: sessionid

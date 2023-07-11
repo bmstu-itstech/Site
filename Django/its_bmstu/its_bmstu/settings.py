@@ -23,7 +23,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'corsheaders',
     'actions',
-    'index_app',
+    'drf_spectacular',
 ]
 
 MIDDLEWARE = [
@@ -100,6 +100,23 @@ DATA_UPLOAD_MAX_NUMBER_FIELDS = None
 DATA_UPLOAD_MAX_NUMBER_FILES = None
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# REST settings
+REST_FRAMEWORK = {
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
+}
+SPECTACULAR_SETTINGS = {
+    'TITLE': 'IT`s BMSTU',
+    'DESCRIPTION': 'API предназначено для получения:\n'
+                   '1. Списка мероприятий\n'
+                   '2. Описания мероприятия\n'
+                   '3. Списка фотографий\n'
+                   '4. Списка партнеров',
+    'VERSION': '1.0.0',
+    'SERVE_INCLUDE_SCHEMA': False,
+    # OTHER SETTINGS
+}
+
 
 # Production settings
 CSRF_TRUSTED_ORIGINS = ['https://*.its-bmstu.ru', ]

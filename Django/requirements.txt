@@ -1,10 +1,17 @@
 asgiref==3.6.0
+attrs==23.1.0
 Django==4.1.7
 django-cors-headers==3.14.0
 django-filter==22.1
 djangorestframework==3.14.0
+drf-spectacular==0.26.3
+inflection==0.5.1
+jsonschema==4.17.3
 Markdown==3.4.1
 Pillow==9.4.0
+pyrsistent==0.19.3
 python-dotenv==1.0.0
 pytz==2022.7.1
+PyYAML==6.0
 sqlparse==0.4.3
+uritemplate==4.1.1

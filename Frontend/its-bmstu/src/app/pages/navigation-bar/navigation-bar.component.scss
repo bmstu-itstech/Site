@@ -94,18 +94,21 @@
     margin-right: 8vw;
     width: 7vw;
   }
+  .nav-item {
+    display: flex;
+    justify-content: right;
+  }
 
   .nav-link {
     text-align: right;
-    margin-left: 81%;
-    font-size: 1.5vw;
-    width: 17vw;
+    font-size: 20px;
+    width: auto;
+    margin-right: 10px;
   }
 
   .my-row {
-    display: block;
-    text-align: right;
-    margin-right: 3%;
+    display: flex;
+    justify-content: right;
   }
 
   .btn {
@@ -122,8 +125,38 @@
 
   .nav-link {
     margin-left: 60%;
-    font-size: 3vw;
     width: 35vw;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav-item {
+    display: flex;
+    justify-content: center;
+    width: 100vw;
+  }
+  .nav-link {
+    font-size: 24px;
+    text-align: center;
+    margin: 15px 0 15px 0;
+    width: 250px;
+  }
+  .menu-block {
+    display: flex;
+    justify-content: center;
+    height: 70vh;
+  }
+  .my-row {
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding-bottom: 20vw;
+  }
+  .btn-link {
+    font-size: 24px;
+  }
+  .navbar-collapse {
+    height: 100vh;
   }
 }
 
@@ -140,5 +173,15 @@
     margin-left: 7vw;
     margin-right: 0;
     width: 13vw;
+  }
+}
+
+@media (max-width: 300px) {
+  .nav-link {
+    font-size: 15px;
+    margin: 10px 0 10px 0;
+  }
+  .btn-link {
+    font-size: 15px;
   }
 }

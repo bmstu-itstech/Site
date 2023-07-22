@@ -1,6 +1,10 @@
 @import '../../../styles/colors';
 @import '../../../styles/fonts';
 
+.navbar-toggler {
+  margin-right: 3vw;
+}
+
 .navbar-collapse {
   color: rgba(0, 0, 0, 0);
 }

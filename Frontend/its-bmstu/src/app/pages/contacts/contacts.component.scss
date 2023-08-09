@@ -96,13 +96,16 @@ div {
 }
 
 @media (max-width: 991px) {
-
   .text {
     font-size: 12px;
   }
-
   .text-regular {
     font-size: 12px;
   }
+}
 
+@media (max-width: 400px) {
+  .macbook {
+    top: 45%;
+  }
 }
